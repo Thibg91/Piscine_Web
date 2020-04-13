@@ -11,8 +11,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  </head> 
 
-
-
 <body>
     
     <h1> Ebay ECE </h1>
@@ -27,8 +25,33 @@
             <a href="Admin.php">  <img src="primecontactnav.gif" alt="admin" width="107" height="25"/></a>
         </div> 
 
-    <h2> Panier </h2>
+    <h2> Article(s) dans votre panier </h2>
+
+  <table class="table">  
+    <thead>     
+     <tr>   
+      <th>Photo</th>   
+      <th>Nom</th>   
+      <th>Prix</th> 
+      <th>Info</th> 
+      <th>Supprimer</th>
+
+     </tr> 
+    </thead>   
+    <tbody> 
+     <tr>    
+      <td> <img src="ForT.jpeg" style="width: 50%;"> </td>    
+      <td>ferraille ou trésor </td>   
+      <td>250 euros</td> 
+      <td> </td>
+      <td> checkbox </td>
+     </tr>   
+    </tbody>  
+   </table> 
 </body>
 
+<td colspan="2" align="center">   
+  <input type="submit" value="Proceder au paiement" />
+</td> 
 
 </html>
