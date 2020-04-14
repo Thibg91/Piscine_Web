@@ -1,7 +1,5 @@
  <?php 
 
-
-
 $enchere = isset($_POST["enchere"])? $_POST["enchere"] : "";
 $MeilleureO = isset($_POST["MeilleureO"])? $_POST["MeilleureO"] : "";
 $AchatM = isset($_POST["AchatM"])? $_POST["AchatM"] : "";
@@ -10,17 +8,33 @@ $descr = isset($_POST["description"])? $_POST["description"] : "";
 $photo = isset($_POST["picture"])? $_POST["picture"] : ""; 
 $prix = isset($_POST["prix"])? $_POST["prix"] : ""; 
 $dateF = isset($_POST["finD"])? $_POST["finD"] : ""; 
-$dateH = isset($_POST["finH"])? $_POST["finH"] : ""; 
+$dateH = isset($_POST["finH"])? $_POST["finH"] : "";
 $nItem = 0;
+$go ="lets go";
 
-if(($enchere == 'oui')&&($MeilleureO == 'oui')) { echo " Vous ne pouvez pas vendre un item par ehnchère et par meilleure offre en même temps";}
+if(($enchere == "oui")&&($MeilleureO == "oui"))
+{
+  echo("Vous ne pouvez pas vendre un item par enchère et par meilleure offre en même temps");
+  $go = '';
 
-else{
+
+echo '
+<html>
+<head>
+<form>
+<input type="button" value="Précédent" onclick="history.back()">
+</form>
+</head>
+<body>
+</body>
+</html>';
+ 
+}
 $bdd = "ebay_ece";
 $bddconnection = mysqli_connect('localhost','root','');
 $bddfound = mysqli_select_db($bddconnection,$bdd); 
 
-if ($bddfound) {  
+if (($bddfound)&&($go == 'lets go')) {  
   $bool = "0";
   while($bool == "0")
   { $sql = "SELECT * FROM Items";   
@@ -40,5 +54,5 @@ if ($bddfound) {
  } 
  }  
     mysqli_close($bddconnection); 
-}
+
  ?>
