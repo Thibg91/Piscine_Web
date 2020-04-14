@@ -30,15 +30,16 @@
           
         
  
-   <form action="traitementventes.php" method="post">
-       
- type de vente :<br />
-<input type="radio" name="Tvente" value="ench" /> Enchères
-<input type="radio" name="Tvente" value="offre" /> Meilleure offre
-<input type="radio" name="Tvente" value="achatM" /> Achetez-le maintenant
+   <form action="traitement_vente.php" method="post">
+<p>      
+type de vente :<br />
+<input type="checkbox" name="enchere" value="oui" /> Enchères
+<input type="checkbox" name="MeilleureO" value="oui" /> Meilleure offre
+<input type="checkbox" name="AchatM" value="oui" /> Achetez-le maintenant
 <br />
+</p>
 <p>
-   Ajouter un titre :<br />
+ Ajouter un titre :<br />
    <input type="text" name="titre" value="" />
 </p>
    <br />
@@ -48,8 +49,12 @@
    <textarea name="description" rows="6" cols="40">
    </textarea>
 </p>
-  
-    <br />    
+<br />
+<p>
+   joindre une ou plusieurs photos :<br />
+    <input type="file" name="picture" accept="image/png, image/jpeg" />
+</p>  
+      <br />    
 <p>
    Ajouter un prix :<br />
    <input type="number" name="prix" value="" />
