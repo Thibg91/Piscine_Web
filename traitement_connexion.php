@@ -19,7 +19,17 @@ if(isset($_POST['formsend'])){
                             $_SESSION['nom'] = $row['Nom'];
                             $_SESSION['prenom'] = $row['Prenom'];
                             $_SESSION['email'] = $row['Email'];
-                            header('Location: http://Piscine/accueil.php');
+                            $sql3 = "SELECT * FROM livraison WHERE Email='$email'";
+                            if ($results = mysqli_query($db, $sql3)){
+                                $rows = $results->fetch_assoc();
+                                $_SESSION['adresse1'] = $rows['AdresseL1'];
+                                $_SESSION['adresse2'] = $rows['AdresseL2'];
+                                $_SESSION['ville'] = $rows['Ville'];
+                                $_SESSION['codePostal'] = $rows['CodePostal'];
+                                $_SESSION['pays'] = $rows['Pays'];
+                                $_SESSION['tel'] = $rows['Telephone'];
+                            }
+                            header('Location: http://pool/Compte.php');
                             exit();
                         }
                     else {

@@ -25,18 +25,20 @@
             <a href="Panier.php"><img src="primefinancingnav.gif" alt="panier" width="107" height="25"/></a>     
             <a href="Admin.php">  <img src="primecontactnav.gif" alt="admin" width="107" height="25"/></a>
         </div> 
-
-        <h2> Mon compte </h2>
-        <h3>Mes informations personnelles</h3>
-        <p> Prénom: <?= $_SESSION['prenom']; ?> </p> 
-        <p> Adresse ligne 1: <?= $_SESSION['adresse1']; ?> </p> 
-        <p> Adresse ligne 2: <?= $_SESSION['adresse2']; ?> </p>
-        <p> Ville: <?= $_SESSION['ville']; ?> </p>
-        <p> Code Postal: <?= $_SESSION['codePostal']; ?> </p>
-        <p> Pays: <?= $_SESSION['pays']; ?> </p>
-        <p> N° de léléphone: <?= $_SESSION['tel']; ?> </p>
-        <a href="modification_compte.php">Modifier vos informations</a>
-
+        <form method="post">
+            <h2> Mon compte </h2>
+            <h3>Mes informations personnelles</h3>
+            <p> Prénom:<?=$_SESSION['prenom']; ?> </p> 
+            <p> Adresse ligne 1: <input type="text" name="adresseL1" id="adresseL1" value="<?= $_SESSION['adresse1']; ?>"> </p> 
+            <p> Adresse ligne 2: <input type="text" name="adresseL2" id="adresseL2" value="<?= $_SESSION['adresse2']; ?>"> </p>
+            <p> Ville: <input type="text" name="ville" id="ville" value="<?= $_SESSION['ville']; ?>"> </p>
+            <p> Code Postal: <input type="number" name="poste" id="poste" value="<?= $_SESSION['codePostal']; ?>"> </p>
+            <p> Pays: <input type="text" name="pays" id="pays" value="<?= $_SESSION['pays']; ?>"> </p>
+            <p> N° de léléphone: <input type="number" name="tel" id="tel" value="<?= $_SESSION['tel']; ?>"> </p>
+            <input type="submit" value="Enregistrer mes informations" name="livraison" />
+        </form>
+        <?php include 'traitement_livraison.php'; ?>
+        
         <h3>Mon historique d'achat</h3>
         <table class="table">  
             <thead>     

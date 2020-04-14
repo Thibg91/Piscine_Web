@@ -18,8 +18,11 @@ if(isset($_POST['formsend'])){
 
                     if(mysqli_query($db, $sql2)) {
                         echo 'Bienvenue';
-                        header('Location: http://Piscine/connexion.php');
-                        exit();
+                        $sql3 = "INSERT INTO livraison (Email, AdresseL1, AdresseL2, Ville, CodePostal, Pays, Telephone) VALUES ('$email','','','','','','')";
+                        if(mysqli_query($db, $sql3)) {
+                            header('Location: http://pool/connexion.php');
+                            exit();
+                        }
                     }
                     else {
                         echo 'Vous n\'etes pas encore inscrit';
