@@ -18,9 +18,8 @@ $Ntel= "";
   <title>Ebay ECE</title>
   <link href="icone\favicon.jpg" rel="icon" type="images/x-icon" />  
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
  </head> 
 
 <body>
@@ -65,7 +64,7 @@ $Ntel= "";
     <h2> Mon compte </h2>
     <h3>Mes informations personnelles</h3>
 <p> Prénom: <?php echo "$Prenom"; ?> </p> 
-<p> Nom: <?php echo "$nom"; ?> </p> 
+<p> Nom: <?php echo "$Nom"; ?> </p> 
 <p> Adresse ligne 1: <?php echo "$Adresse1"; ?> </p> 
 <p> Adresse ligne 2: <?php echo "$Adresse2"; ?> </p>
 <p> Ville: <?php echo "$Ville"; ?> </p>
