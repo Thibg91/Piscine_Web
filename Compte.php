@@ -14,16 +14,16 @@
 
     <body>
 
-        <h1> Ebay ECE </h1>
-
-
-        <div id="menu">  
-            <a href="Cat%C3%A9gories.php"><img src="primehomenav.gif" alt="categories" width="107" height="25"/></a>   
-            <a href="Achat.php"><img src="primelistingsbtn.gif" alt="achat" width="107" height="25"/> </a>   
-            <a href="Vendre.php"><img src="primefinancingnav.gif" alt="vendre" width="107" height="25"/></a>     
-            <a href="Compte.php">  <img src="primecontactnav.gif" alt="compte" width="107" height="25"/></a>
-            <a href="Panier.php"><img src="primefinancingnav.gif" alt="panier" width="107" height="25"/></a>     
-            <a href="Admin.php">  <img src="primecontactnav.gif" alt="admin" width="107" height="25"/></a>
+<body>
+    
+    <h1 id="logo">        <img src="icone\logo.jpg" alt="Ebay ECE" />     </h1> 
+   <div id="menu">  
+            <a href="Cat%C3%A9gories.php"><img src="icone\catégorie.jpg" alt="categories" width="50" height="50"/></a>   
+            <a href="Achat.php"><img src="icone\achat.jpg" alt="achat" width="50" height="50"/> </a>   
+            <a href="Vendre.php"><img src="icone\vendre.jpg" alt="vendre" width="50" height="50"/></a>     
+            <a href="Compte.php">  <img src="icone\compte.jpg" alt="compte" width="50" height="50"/></a>
+            <a href="Panier.php"><img src="icone\panier.jpg" alt="panier" width="50" height="50"/></a>     
+            <a href="Admin.php">  <img src="icone\admin.jpg" alt="admin" width="50" height="50"/></a>
         </div> 
 
         <h2> Mon compte </h2>
