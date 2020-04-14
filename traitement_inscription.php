@@ -14,7 +14,7 @@ if(isset($_POST['formsend'])){
             $row = $result->fetch_assoc();
             if ($row['compte'] == 0) {
                 if ($password == $confirmationPassword){
-                    $sql2 = "INSERT INTO inscription (Prenom, Nom, Email, Password) VALUES ('$prenom', '$nom', '$email', '$password')";
+                    $sql2 = "INSERT INTO inscription (Prenom, Nom, Email, Password, Vendeur, Admin) VALUES ('$prenom', '$nom', '$email', '$password', 'non', 'non')";
 
                     if(mysqli_query($db, $sql2)) {
                         echo 'Bienvenue';

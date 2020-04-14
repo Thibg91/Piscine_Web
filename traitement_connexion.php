@@ -19,6 +19,8 @@ if(isset($_POST['formsend'])){
                             $_SESSION['nom'] = $row['Nom'];
                             $_SESSION['prenom'] = $row['Prenom'];
                             $_SESSION['email'] = $row['Email'];
+                            $_SESSION['vendeur'] = $row['Vendeur'];
+                            $_SESSION['admin'] = $row['Admin'];
                             $sql3 = "SELECT * FROM livraison WHERE Email='$email'";
                             if ($results = mysqli_query($db, $sql3)){
                                 $rows = $results->fetch_assoc();
@@ -29,7 +31,7 @@ if(isset($_POST['formsend'])){
                                 $_SESSION['pays'] = $rows['Pays'];
                                 $_SESSION['tel'] = $rows['Telephone'];
                             }
-                            header('Location: http://pool/Compte.php');
+                            header('Location: http://pool/Catégories.php');
                             exit();
                         }
                     else {
