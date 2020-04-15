@@ -30,7 +30,7 @@ echo '
 </html>';
  
 }
-$bdd = "ebay_ece";
+$bdd = "piscine";
 $bddconnection = mysqli_connect('localhost','root','');
 $bddfound = mysqli_select_db($bddconnection,$bdd); 
 
