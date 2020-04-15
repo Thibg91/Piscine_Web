@@ -9,6 +9,7 @@ $photo = isset($_POST["picture"])? $_POST["picture"] : "";
 $prix = isset($_POST["prix"])? $_POST["prix"] : ""; 
 $dateF = isset($_POST["finD"])? $_POST["finD"] : ""; 
 $dateH = isset($_POST["finH"])? $_POST["finH"] : "";
+$cat = isset($_POST["cat"])? $_POST["cat"] : "";
 $nItem = 0;
 $go ="lets go";
 
@@ -18,28 +19,19 @@ if(($enchere == "oui")&&($MeilleureO == "oui"))
     $go = '';
 
 
-    echo '
-<html>
-<head>
-<form>
-<input type="button" value="Précédent" onclick="history.back()">
-</form>
-</head>
-<body>
-</body>
-</html>';
+    echo '<input type="button" value="Précédent" onclick="history.back()">';
 
 }
-$bdd = "piscine";
-$bddconnection = mysqli_connect('localhost','root','');
-$bddfound = mysqli_select_db($bddconnection,$bdd); 
 
-if (($bddfound)&&($go == 'lets go')) {  
+include("traitement_SQL.php");
+global $db;
+$email = $_SESSION['email'];
+if (($db)&&($go == 'lets go')) {  
     $bool = "0";
     while($bool == "0")
     { $sql = "SELECT * FROM Items";   
      $sql .= " WHERE nItem LIKE '%$nItem%'";   
-     $result = mysqli_query($bddconnection, $sql);        
+     $result = mysqli_query($db, $sql);        
      if (mysqli_num_rows($result) != 0)  
      {
          $bool = "0";
@@ -47,12 +39,13 @@ if (($bddfound)&&($go == 'lets go')) {
      } 
      else 
      {  $bool = "1";
-      $sql = "INSERT INTO Items(enchere, meilleureO, AchatM, titre, descr, photo, prix, dateF, dateH, nItem) VALUES('$enchere', '$MeilleureO', '$AchatM', '$titre', '$descr','$photo', '$prix', '$dateF', '$dateH', '$nItem ')";    
-      $result = mysqli_query($bddconnection, $sql);    
-      echo "Add successful." . "<br>"; 
+      $sql = "INSERT INTO Items(enchere, meilleureO, AchatM, titre, descr, photo, prix, ancienPrix, dateF, dateH, nItem, Categorie, emailAcheteur, emailVendeur) VALUES('$enchere', '$MeilleureO', '$AchatM', '$titre', '$descr','$photo', '$prix', '$prix', '$dateF', '$dateH', '$nItem ', '$cat','','$email')";    
+      $result = mysqli_query($db, $sql);    
+      header('Location: http://pool/vendre.php');
+      exit(); 
      } 
     } 
 }  
-mysqli_close($bddconnection); 
+mysqli_close($db); 
 
 ?>

@@ -31,76 +31,15 @@
 
         
         <h2> Admin </h2>
-        <h3> Liste des Items </h3>
-        <table class="table table-hover table-dark">  
-            <thead>     
-                <tr>   
-                    <th>N° d'identification</th> 
-                    <th>Photo</th>   
-                    <th>Nom</th> 
-                    <th> Description</th>  
-                    <th>enchère ?</th> 
-                    <th>Meilleure Offre ?</th> 
-                    <th>Achetez-le maintenant ?</th>
-                    <th>Date de fin de mise en vente</th>
-                    <th>Prix</th>
-                    <th>Supprimer</th>
-                </tr> 
-            </thead>  
-
-            <?php
-    while($donnees = mysqli_fetch_array($reponse))
-    {
-            ?>
-            <tbody> 
-                <tr>  
-                    <td> <?php echo $donnees['nItem'];?> </td>    
-                    <td>  <img src= icone\<?php echo $donnees['photo'];?> width="75"  height= "75"> </td>   
-                    <td> <?php echo $donnees['titre'];?> </td>   
-                    <td> <?php echo $donnees['descr'];?> </td> 
-                    <td> <?php echo $donnees['enchere'];?> </td> 
-                    <td> <?php echo $donnees['meilleureO'];?> </td> 
-                    <td> <?php echo $donnees['achatM'];?> </td> 
-                    <td> <?php echo $donnees['prix'];?> </td> 
-                    <td> <?php echo "le " ,$donnees['dateF'], " à " ,$donnees['dateH']; ?> </td> 
-                    <td colspan="2" align="center">    <input type="button" class="btn btn-primary" value="Supprimer" /> </td>
-                </tr>  
-                <?php
-    } 
-    mysqli_close($db_found); 
-                ?>
-            </tbody>  
-        </table> 
+        <h2>Que voulez-vous faire?</h2>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <button onclick="location.href='http://pool/gerer_items.php'" type="button">Voir tous les items</button>
+            <button onclick="location.href='http://pool/gerer_enCours.php'" type="button">Demande en cours</button>
+            <button onclick="location.href='http://pool/gerer_vendeur.php'" type="button">Vendeurs Actuels</button>
+        </div>
+        <div class="col-sm-3"></div>
     </body>
-
-    <h3> Liste des demandes de vendeurs</h3>
-    <table class="table">  
-        <thead>     
-            <tr>   
-                <th>email ECE</th> 
-                <th>Prenom</th>   
-                <th>Nom</th> 
-                <th>Supprimer</th>
-            </tr> 
-        </thead>   
-        <tbody> 
-            <?php include 'traitement_enCours.php'; ?>  
-        </tbody>  
-    </table> 
-    <h3> Liste des vendeurs actuels</h3>
-    <table class="table table-hover table-dark">  
-        <thead>     
-            <tr>   
-                <th>email ECE</th> 
-                <th>Prenom</th>   
-                <th>Nom</th> 
-                <th>Supprimer</th>
-            </tr> 
-        </thead>   
-        <tbody> 
-            <?php include 'traitement_vendeursActuels.php';?>
-        </tbody>  
-    </table> 
     <?php } else if ($_SESSION['admin'] == 'non'){ 
     header('Location: http://pool/Catégories.php');
     exit();

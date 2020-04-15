@@ -25,7 +25,7 @@
    <div class="row">   
     <div class="col-md-4">   
      <div class="thumbnail">   
-      <a href="ForT.html" target="_blank">  
+      <a href="ForT.php">  
        <img src="icone\ForT.jpeg" style="width: 50%;">  
        <div class="caption">
         <p>Ferraille ou Trésor</p>  
@@ -37,7 +37,7 @@
 
     <div class="col-md-4">   
      <div class="thumbnail">    
-      <a href="musee.html" target="_blank">  
+      <a href="musee.php">  
        <img src="icone\musee.jpg" style="width: 50%;">
        <div class="caption">
         <p>Bon pour le Musée</p>    
@@ -48,7 +48,7 @@
 
     <div class="col-md-4">  
      <div class="thumbnail"> 
-      <a href="AVIP.html" target="_blank"> 
+      <a href="AVIP.php"> 
        <img src="icone\AVIP.jpg" style="width: 50%;">    
        <div class="caption">   
         <p>Accessoire VIP</p>   
