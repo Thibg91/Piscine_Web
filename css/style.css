@@ -43,3 +43,8 @@ a:hover, a:focus, a:active {
   background-image: url("../icone/entete.jpg");
   
 }
+
+.posbout
+{
+  text-align: right;
+}
