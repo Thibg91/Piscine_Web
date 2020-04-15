@@ -1,4 +1,4 @@
- <?php 
+<?php 
 
 $enchere = isset($_POST["enchere"])? $_POST["enchere"] : "";
 $MeilleureO = isset($_POST["MeilleureO"])? $_POST["MeilleureO"] : "";
@@ -14,11 +14,11 @@ $go ="lets go";
 
 if(($enchere == "oui")&&($MeilleureO == "oui"))
 {
-  echo("Vous ne pouvez pas vendre un item par enchère et par meilleure offre en même temps");
-  $go = '';
+    echo("Vous ne pouvez pas vendre un item par enchère et par meilleure offre en même temps");
+    $go = '';
 
 
-echo '
+    echo '
 <html>
 <head>
 <form>
@@ -28,31 +28,31 @@ echo '
 <body>
 </body>
 </html>';
- 
+
 }
 $bdd = "piscine";
 $bddconnection = mysqli_connect('localhost','root','');
 $bddfound = mysqli_select_db($bddconnection,$bdd); 
 
 if (($bddfound)&&($go == 'lets go')) {  
-  $bool = "0";
-  while($bool == "0")
-  { $sql = "SELECT * FROM Items";   
-   $sql .= " WHERE nItem LIKE '%$nItem%'";   
-   $result = mysqli_query($bddconnection, $sql);        
-   if (mysqli_num_rows($result) != 0)  
-   {
-   	$bool = "0";
-   	$nItem = $nItem + '1' ;
-   } 
-   else 
-   {  $bool = "1";
+    $bool = "0";
+    while($bool == "0")
+    { $sql = "SELECT * FROM Items";   
+     $sql .= " WHERE nItem LIKE '%$nItem%'";   
+     $result = mysqli_query($bddconnection, $sql);        
+     if (mysqli_num_rows($result) != 0)  
+     {
+         $bool = "0";
+         $nItem = $nItem + '1' ;
+     } 
+     else 
+     {  $bool = "1";
       $sql = "INSERT INTO Items(enchere, meilleureO, AchatM, titre, descr, photo, prix, dateF, dateH, nItem) VALUES('$enchere', '$MeilleureO', '$AchatM', '$titre', '$descr','$photo', '$prix', '$dateF', '$dateH', '$nItem ')";    
-    $result = mysqli_query($bddconnection, $sql);    
-     echo "Add successful." . "<br>"; 
-   } 
- } 
- }  
-    mysqli_close($bddconnection); 
+      $result = mysqli_query($bddconnection, $sql);    
+      echo "Add successful." . "<br>"; 
+     } 
+    } 
+}  
+mysqli_close($bddconnection); 
 
- ?>
+?>
