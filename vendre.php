@@ -11,12 +11,8 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> 
     </head> 
 
-    <body> S
+    <body> 
 
-
-       
-        <?php if ($_SESSION['vendeur'] == 'oui'){ ?>
-        
         <?php include("entete.php"); ?>
         <br>
         <br>
