@@ -6,11 +6,11 @@ if(isset($_POST['livraison'])){
     include("traitement_SQL.php");
     global $db;
     $email = $_SESSION['email'];
-    $sql = "UPDATE livraison SET AdresseL1='$adresseL1', AdresseL2='$adresseL2', Ville='$ville', Pays='$pays', Telephone='$tel', CodePostal='$poste' WHERE Email='$email'";
+    $sql = "UPDATE inscription SET AdresseL1='$adresseL1', AdresseL2='$adresseL2', Ville='$ville', Pays='$pays', Telephone='$tel', CodePostal='$poste' WHERE Email='$email'";
 
     if(mysqli_query($db, $sql)){
         echo 'ok';
-        $sql2 = "SELECT * FROM livraison WHERE Email='$email'";
+        $sql2 = "SELECT * FROM inscription WHERE Email='$email'";
         if($r = mysqli_query($db, $sql2)){
             $rows = $r->fetch_assoc();
             $_SESSION['adresse1'] = $rows['AdresseL1'];

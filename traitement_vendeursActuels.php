@@ -11,7 +11,6 @@
                     type: 'POST',
                     data: 'email='+id,
                     success: function(data){
-                        alert(id);
                     }
                 });
             }

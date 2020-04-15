@@ -14,18 +14,10 @@ if(isset($_POST['formsend'])){
             $row = $result->fetch_assoc();
             if ($row['compte'] == 0) {
                 if ($password == $confirmationPassword){
-                    $sql2 = "INSERT INTO inscription (Prenom, Nom, Email, Password, Vendeur, Admin) VALUES ('$prenom', '$nom', '$email', '$password', 'non', 'non')";
-
-                    if(mysqli_query($db, $sql2)) {
-                        echo 'Bienvenue';
-                        $sql3 = "INSERT INTO livraison (Email, AdresseL1, AdresseL2, Ville, CodePostal, Pays, Telephone) VALUES ('$email','','','','','','')";
-                        if(mysqli_query($db, $sql3)) {
-                            header('Location: http://pool/connexion.php');
-                            exit();
-                        }
-                    }
-                    else {
-                        echo 'Vous n\'etes pas encore inscrit';
+                    $sql2 = "INSERT INTO inscription (Prenom, Nom, Email, Password, Vendeur, Admin, AdresseL1, AdresseL2, Ville, CodePostal, Pays, Telephone) VALUES ('$prenom', '$nom', '$email', '$password', 'non', 'non','','','','','','')";
+                    if($result = mysqli_query($db, $sql2)){
+                        header('Location: http://pool/connexion.php');
+                        exit();
                     }
                 }
                 else {
