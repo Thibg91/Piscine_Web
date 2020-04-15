@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-
         <!-- Script SUPPRIMER -->
         <script type="text/javascript"> 
             function accepter(id){
@@ -11,6 +10,7 @@
                     type: 'POST',
                     data: 'email='+id,
                     success: function(data){
+                        alert(id);
                     }
                 });
             }
@@ -31,7 +31,7 @@
                 echo "<td>$email</td>"; // email
                 echo "<td>$prenom</td>"; // prenom
                 echo "<td>$nom</td>"; // nom
-                echo "<td><a class=\"accepter\" onclick=\"accepter('$email');\" alt=\"Accepter\" title=\"Accepter\"><span>Accepter</span></td>"; // supprimer ligne jQuery
+                echo "<td><a onclick=\"accepter('$email');\" alt=\"Accepter\" title=\"Accepter\"><span>Accepter</span></td>"; // supprimer ligne jQuery
                 echo "</tr>"; // fin de la ligne
             }
         }
