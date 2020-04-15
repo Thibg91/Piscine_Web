@@ -5,10 +5,11 @@
         <script type="text/javascript"> 
             function accepter(id){
                 var email = id;
+                var statut = 'oui';
                 $.ajax({
                     url: 'ajouter_vendeur.php', 
                     type: 'POST',
-                    data: 'email='+id,
+                    data: 'email='+id+'&statut='+statut,
                     success: function(data){
                         alert(id);
                     }

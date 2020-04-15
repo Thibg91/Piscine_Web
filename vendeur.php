@@ -1,33 +1,35 @@
 <?php session_start(); ?> 
 <!DOCTYPE html> 
-
-<html>
+<html> 
 
     <head> 
         <title>Ebay ECE</title>
-        <link href="icone\favicon.jpg" rel="icon" type="images/x-icon" /> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link href="icone\favicon.jpg" rel="icon" type="images/x-icon" />  
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="css\bootstrap.min.css"/> 
+        <link rel="stylesheet" href="css\style.css"/>
     </head> 
 
-
-
-    <body>
+    <body> 
         <?php
-        $bdd = 'piscine';
-        $db_found = new mysqli( 'localhost', 'root', '', $bdd );
-        $reponse = $db_found -> query('SELECT * FROM Items');
-        ?> 
+        include("traitement_SQL.php");
+        global $db;
+        $email = $_SESSION['email'];
+        $sql = "SELECT Vendeur FROM inscription WHERE Email='$email'";
+        if($result = mysqli_query($db, $sql)){
+            $row = $result->fetch_assoc();
+            $_SESSION['vendeur'] = $row['Vendeur'];
+        }
 
+        ?>
 
-        <?php if ($_SESSION['admin'] == 'oui'){ ?>
-        <h1 id="logo">        <img src="icone\logo.jpg" alt="Ebay ECE" />     </h1> 
+        <div classe= "blue">
+            <h1 id="logo">        <img src="icone\logo.jpg" alt="Ebay ECE" />     </h1> 
+        </div>
         <div id="menu" class="text-center">  
             <button type="button" class="btn btn-outline-info" > <a href="Cat%C3%A9gories.php"><svg class="bi bi-grid" width="6em" height="6em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 012.5 1h3A1.5 1.5 0 017 2.5v3A1.5 1.5 0 015.5 7h-3A1.5 1.5 0 011 5.5v-3zM2.5 2a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3zm6.5.5A1.5 1.5 0 0110.5 1h3A1.5 1.5 0 0115 2.5v3A1.5 1.5 0 0113.5 7h-3A1.5 1.5 0 019 5.5v-3zm1.5-.5a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3zM1 10.5A1.5 1.5 0 012.5 9h3A1.5 1.5 0 017 10.5v3A1.5 1.5 0 015.5 15h-3A1.5 1.5 0 011 13.5v-3zm1.5-.5a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3zm6.5.5A1.5 1.5 0 0110.5 9h3a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 019 13.5v-3zm1.5-.5a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5h-3z" clip-rule="evenodd"/>
-                </svg> <FONT size="6"> Catégories </FONT></a> </button>
+                </svg> <FONT size="6"> Categories </FONT></a> </button>
 
             <button type="button" class="btn btn-outline-info" ><a href="Compte.php"><svg class="bi bi-person-lines-fill" width="6em" height="6em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm7 1.5a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5zm-2-3a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5zm2 9a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
@@ -52,21 +54,34 @@
                 <path fill-rule="evenodd" d="M5.187 1.025C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 012.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 01-2.418 2.3 6.942 6.942 0 01-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 01-1.007-.586 11.192 11.192 0 01-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 012.415 1.84a61.11 61.11 0 012.772-.815zm3.328 6.884a1.5 1.5 0 10-1.06-.011.5.5 0 00-.044.136l-.333 2a.5.5 0 00.493.582h.835a.5.5 0 00.493-.585l-.347-2a.5.5 0 00-.037-.122z" clip-rule="evenodd"/>
                 </svg> <FONT size="6"> Admin </FONT> </a></button>
 
-        </div>  
-        <h2> Admin </h2>
+        </div> 
+        <?php if ($_SESSION['vendeur'] == 'oui'){ ?>
+
         <h2>Que voulez-vous faire?</h2>
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
-            <button onclick="location.href='http://pool/gerer_items.php'" type="button">Voir tous les items</button>
-            <button onclick="location.href='http://pool/gerer_enCours.php'" type="button">Demande en cours</button>
-            <button onclick="location.href='http://pool/gerer_vendeur.php'" type="button">Vendeurs Actuels</button>
+            <button onclick="location.href='http://pool/vendre.php'" type="button">Vendre un objet</button>
+            <button onclick="location.href='http://pool/objetEnVente.php'" type="button">Objets en vente</button>
+            <button onclick="location.href='http://pool/objetVendu.php'" type="button">Objets Vendus</button>
         </div>
         <div class="col-sm-3"></div>
+        <?php } else if ($_SESSION['vendeur'] == 'non'){ ?>
+
+        <p>Vous n'etes pas encore inscrit.</p>
+        <form method="post">
+            <input type="submit" value="Demander à être vendeur" name="vendeur" />
+        </form>
+
+        <?php }
+        else if ($_SESSION['vendeur'] == 'en cours'){
+        ?>
+        <p>Votre demande est en cours.</p>
+        <?php }include 'traitement_vendeur.php'; ?>
+
+        <div id="footer">Copyright &copy; 2020 Ebay ECE
+            <br>    
+            <a href="mailto:Ebay.ECE@gmail.com">Ebay.ECE@gmail.com</a>  
+        </div>   
     </body>
-    <?php } else if ($_SESSION['admin'] == 'non'){ 
-    header('Location: http://pool/Catégories.php');
-    exit();
-    ?>
-    <p>Vous n'avez pas les droits d'Admin.</p>
-    <?php } ?>
 </html>
+

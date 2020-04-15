@@ -20,9 +20,6 @@
         $db_found = new mysqli( 'localhost', 'root', '', $bdd );
         $reponse = $db_found -> query('SELECT * FROM Items');
         ?> 
-
-
-        <?php if ($_SESSION['admin'] == 'oui'){ ?>
         <h1 id="logo">        <img src="icone\logo.jpg" alt="Ebay ECE" />     </h1> 
         <div id="menu" class="text-center">  
             <button type="button" class="btn btn-outline-info" > <a href="Cat%C3%A9gories.php"><svg class="bi bi-grid" width="6em" height="6em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -53,20 +50,46 @@
                 </svg> <FONT size="6"> Admin </FONT> </a></button>
 
         </div>  
-        <h2> Admin </h2>
-        <h2>Que voulez-vous faire?</h2>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <button onclick="location.href='http://pool/gerer_items.php'" type="button">Voir tous les items</button>
-            <button onclick="location.href='http://pool/gerer_enCours.php'" type="button">Demande en cours</button>
-            <button onclick="location.href='http://pool/gerer_vendeur.php'" type="button">Vendeurs Actuels</button>
-        </div>
-        <div class="col-sm-3"></div>
+        <h3> Liste des Items </h3>
+        <table class="table table-hover table-dark">  
+            <thead>     
+                <tr>   
+                    <th>N° d'identification</th> 
+                    <th>Photo</th>   
+                    <th>Nom</th> 
+                    <th> Description</th>  
+                    <th>enchère ?</th> 
+                    <th>Meilleure Offre ?</th> 
+                    <th>Achetez-le maintenant ?</th>
+                    <th>Date de fin de mise en vente</th>
+                    <th>Prix</th>
+                    <th>Supprimer</th>
+                </tr> 
+            </thead>  
+
+            <?php
+            while($donnees = mysqli_fetch_array($reponse))
+            {
+            ?>
+            <tbody> 
+                <tr>  
+                    <td> <?php echo $donnees['nItem'];?> </td>    
+                    <td>  <img src= icone\<?php echo $donnees['photo'];?> width="75"  height= "75"> </td>   
+                    <td> <?php echo $donnees['titre'];?> </td>   
+                    <td> <?php echo $donnees['descr'];?> </td> 
+                    <td> <?php echo $donnees['enchere'];?> </td> 
+                    <td> <?php echo $donnees['meilleureO'];?> </td> 
+                    <td> <?php echo $donnees['achatM'];?> </td> 
+                    <td> <?php echo $donnees['prix'];?> </td> 
+                    <td> <?php echo "le " ,$donnees['dateF'], " à " ,$donnees['dateH']; ?> </td> 
+                    <td colspan="2" align="center">    <input type="button" class="btn btn-primary" value="Supprimer" /> </td>
+                </tr>  
+                <?php
+            } 
+            mysqli_close($db_found); 
+                ?>
+            </tbody>  
+        </table>  
+        <button onclick="location.href='http://pool/Admin.php'" type="button">Retour</button>
     </body>
-    <?php } else if ($_SESSION['admin'] == 'non'){ 
-    header('Location: http://pool/Catégories.php');
-    exit();
-    ?>
-    <p>Vous n'avez pas les droits d'Admin.</p>
-    <?php } ?>
 </html>

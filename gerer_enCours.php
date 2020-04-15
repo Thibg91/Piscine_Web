@@ -20,9 +20,6 @@
         $db_found = new mysqli( 'localhost', 'root', '', $bdd );
         $reponse = $db_found -> query('SELECT * FROM Items');
         ?> 
-
-
-        <?php if ($_SESSION['admin'] == 'oui'){ ?>
         <h1 id="logo">        <img src="icone\logo.jpg" alt="Ebay ECE" />     </h1> 
         <div id="menu" class="text-center">  
             <button type="button" class="btn btn-outline-info" > <a href="Cat%C3%A9gories.php"><svg class="bi bi-grid" width="6em" height="6em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -53,20 +50,20 @@
                 </svg> <FONT size="6"> Admin </FONT> </a></button>
 
         </div>  
-        <h2> Admin </h2>
-        <h2>Que voulez-vous faire?</h2>
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
-            <button onclick="location.href='http://pool/gerer_items.php'" type="button">Voir tous les items</button>
-            <button onclick="location.href='http://pool/gerer_enCours.php'" type="button">Demande en cours</button>
-            <button onclick="location.href='http://pool/gerer_vendeur.php'" type="button">Vendeurs Actuels</button>
-        </div>
-        <div class="col-sm-3"></div>
+    <h3> Liste des demandes de vendeurs</h3>
+    <table class="table">  
+        <thead>     
+            <tr>   
+                <th>email ECE</th> 
+                <th>Prenom</th>   
+                <th>Nom</th> 
+                <th>Supprimer</th>
+            </tr> 
+        </thead>   
+        <tbody> 
+            <?php include 'traitement_enCours.php'; ?>  
+        </tbody>  
+    </table>
+        <button onclick="location.href='http://pool/Admin.php'" type="button">Retour</button>
     </body>
-    <?php } else if ($_SESSION['admin'] == 'non'){ 
-    header('Location: http://pool/Catégories.php');
-    exit();
-    ?>
-    <p>Vous n'avez pas les droits d'Admin.</p>
-    <?php } ?>
 </html>
