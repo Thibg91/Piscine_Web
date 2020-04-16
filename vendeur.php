@@ -11,21 +11,22 @@
     </head> 
 
     <body> 
+
+        <?php include("entete.php"); ?>
+        <br>
+        <br>
         <?php
+
         include("traitement_SQL.php");
         global $db;
-        $email = $_SESSION['email'];
-        $sql = "SELECT Vendeur FROM inscription WHERE Email='$email'";
+        $mail = $_SESSION['email'];
+        $sql = "SELECT * FROM inscription WHERE Email='$mail'";
         if($result = mysqli_query($db, $sql)){
             $row = $result->fetch_assoc();
             $_SESSION['vendeur'] = $row['Vendeur'];
         }
 
         ?>
-
-       <?php include("entete.php"); ?>
-        <br>
-        <br>
         <?php if ($_SESSION['vendeur'] == 'oui'){ ?>
 
         <h2>Que voulez-vous faire?</h2>
@@ -39,7 +40,7 @@
         <?php } else if ($_SESSION['vendeur'] == 'non'){ ?>
 
         <p>Vous n'etes pas encore inscrit.</p>
-        <form method="post">
+        <form action="traitement_vendeur.php" method="post">
             <input type="submit" value="Demander à être vendeur" name="vendeur" />
         </form>
 
@@ -47,7 +48,7 @@
         else if ($_SESSION['vendeur'] == 'en cours'){
         ?>
         <p>Votre demande est en cours.</p>
-        <?php }include 'traitement_vendeur.php'; ?>
+        <?php } ?>
 
         <div id="footer">Copyright &copy; 2020 Ebay ECE
             <br>    

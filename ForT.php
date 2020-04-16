@@ -20,7 +20,7 @@
         <?php 
         include("traitement_SQL.php");
         global $db;
-        $nom='musee';
+        $nom='tresor';
         $sql = "SELECT * FROM items WHERE Categorie='$nom' ORDER BY dateF DESC";
         if($result = mysqli_query($db, $sql)){
             while ($row = $result->fetch_assoc()) {

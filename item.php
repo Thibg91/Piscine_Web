@@ -20,31 +20,28 @@
         <?php 
         include("traitement_SQL.php");
         global $db;
-        $nom='musee';
-        $sql = "SELECT * FROM items WHERE Categorie='$nom' ORDER BY dateF DESC";
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM items WHERE nItem='$id'";
         if($result = mysqli_query($db, $sql)){
             while ($row = $result->fetch_assoc()) {
                 $prix = $row["prix"];
                 $description = $row["descr"];
                 $photo = $row["photo"];
-                $id = $row["nItem"];
         ?> 
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">   
-                <div class="img-thumbnail">
-                    <a href="item.php?id=<?php echo $id; ?>">
-                        <img src=icone\\<?php echo $photo?> style="width: 50%;">  
-                        <div class="caption">
-                            <p>Prix: <?php echo $prix?></p>
-                            <p>Description: <?php echo $description?></p>  
-                        </div>  
-                    </a>
+                <div class="img-thumbnail">     
+                    <img src=icone\\<?php echo $photo?> style="width: 50%;">  
+                    <div class="caption">
+                        <p>Prix: <?php echo $prix?></p>
+                        <p>Description: <?php echo $description?></p>  
+                    </div>
+                    <button onclick="location.href='http://pool/Panier.php?id=<?php echo $id; ?>'" type="button">Ajouter au Panier</button>
                 </div>
             </div>
             <div class="col-md-4"></div>
         </div>
-        <br>
         <?php } } ?>
     </body>
 </html>

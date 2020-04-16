@@ -16,20 +16,13 @@
 
 
     <body>
-
-      <?php
-      $bdd = 'piscine';
-      $db_found = new mysqli( 'localhost', 'root', '', $bdd );
-      $reponse = $db_found -> query('SELECT * FROM Items');
-      ?> 
-     
-      <?php if ($_SESSION['admin'] == 'oui'){ ?>
-       
-      <?php include("entete.php"); ?>
-      <br>
+        <?php include("entete.php"); ?>
+        <br>
         <br>
 
-        
+        <?php if ($_SESSION['admin'] == 'oui'){ ?>
+
+
         <h2> Admin </h2>
         <h2>Que voulez-vous faire?</h2>
         <div class="col-sm-3"></div>
