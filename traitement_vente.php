@@ -10,7 +10,6 @@ $prix = isset($_POST["prix"])? $_POST["prix"] : "";
 $dateF = isset($_POST["finD"])? $_POST["finD"] : ""; 
 $dateH = isset($_POST["finH"])? $_POST["finH"] : "";
 $cat = isset($_POST["cat"])? $_POST["cat"] : "";
-$nItem = 0;
 $go ="lets go";
 
 if(($enchere == "oui")&&($MeilleureO == "oui"))
@@ -27,25 +26,12 @@ include("traitement_SQL.php");
 global $db;
 $email = $_SESSION['email'];
 if (($db)&&($go == 'lets go')) {  
-    $bool = "0";
-    while($bool == "0")
-    { $sql = "SELECT * FROM Items";   
-     $sql .= " WHERE nItem LIKE '%$nItem%'";   
-     $result = mysqli_query($db, $sql);        
-     if (mysqli_num_rows($result) != 0)  
-     {
-         $bool = "0";
-         $nItem = $nItem + '1' ;
-     } 
-     else 
-     {  $bool = "1";
-      $sql = "INSERT INTO Items(enchere, meilleureO, AchatM, titre, descr, photo, prix, ancienPrix, dateF, dateH, nItem, Categorie, emailAcheteur, emailVendeur) VALUES('$enchere', '$MeilleureO', '$AchatM', '$titre', '$descr','$photo', '$prix', '$prix', '$dateF', '$dateH', '$nItem ', '$cat','','$email')";    
-      $result = mysqli_query($db, $sql);    
-      header('Location: http://pool/vendre.php');
-      exit(); 
-     } 
-    } 
-}  
+    $sql = "INSERT INTO Items(enchere, meilleureO, AchatM, titre, descr, photo, prix, ancienPrix, dateF, dateH, Categorie, emailAcheteur, emailVendeur) VALUES('$enchere', '$MeilleureO', '$AchatM', '$titre', '$descr','$photo', '$prix', "0", '$dateF', '$dateH', '$cat','','$email')";    
+    if ($result = mysqli_query($db, $sql)){    
+        header('Location: http://pool/vendre.php');
+        exit(); 
+    }
+}   
 mysqli_close($db); 
 
 ?>

@@ -14,17 +14,9 @@
 
     <body>
 
-        <h1> Ebay ECE </h1>
-
-
-        <div id="menu">  
-            <a href="Cat%C3%A9gories.php"><img src="primehomenav.gif" alt="categories" width="107" height="25"/></a>   
-            <a href="Achat.php"><img src="primelistingsbtn.gif" alt="achat" width="107" height="25"/> </a>   
-            <a href="Vendre.php"><img src="primefinancingnav.gif" alt="vendre" width="107" height="25"/></a>     
-            <a href="Compte.php">  <img src="primecontactnav.gif" alt="compte" width="107" height="25"/></a>
-            <a href="Panier.php"><img src="primefinancingnav.gif" alt="panier" width="107" height="25"/></a>     
-            <a href="Admin.php">  <img src="primecontactnav.gif" alt="admin" width="107" height="25"/></a>
-        </div> 
+        <?php include("entete.php"); ?>
+        <br>
+        <br> 
         <form method="post">
             <h2> Mon compte </h2>
             <h3>Mes informations personnelles</h3>
@@ -38,27 +30,6 @@
             <input type="submit" value="Enregistrer mes informations" name="livraison" />
         </form>
         <?php include 'traitement_livraison.php'; ?>
-        
-        <h3>Mon historique d'achat</h3>
-        <table class="table">  
-            <thead>     
-                <tr>   
-                    <th>Photo</th>   
-                    <th>Nom</th>   
-                    <th>Prix</th> 
-                    <th>Info</th> 
-                </tr> 
-            </thead>   
-            <tbody> 
-                <tr>    
-                    <td> <img src="ForT.jpeg" style="width: 50%;"> </td>    
-                    <td>ferraille ou trésor </td>   
-                    <td>250 euros</td> 
-                    <td> </td>
-                </tr>   
-            </tbody>  
-        </table> 
-
 
     </body>
 
