@@ -17,7 +17,11 @@
    <br>
    <br>
   
+ <div class="row">
+  
+  <div class="col-2 blueECE"> </div>
 
+  <div class="col-8">
     <h2> Article(s) dans votre panier </h2>
 
   <table class="table">  
@@ -41,6 +45,10 @@
      </tr>   
     </tbody>  
    </table> 
+     </div>
+ <div class="col-2 blueECE">  </div>
+
+</div> 
 </body>
 
 <td colspan="2" align="center">   

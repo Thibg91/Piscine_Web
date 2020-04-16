@@ -28,8 +28,6 @@ if(isset($_POST['formsend'])){
                         $_SESSION['pays'] = $row['Pays'];
                         $_SESSION['tel'] = $row['Telephone'];
                     }
-                    header('Location: http://pool/Catégories.php');
-                    exit();
                 }
                 else {
                     echo 'Erreur de mot de passe.';

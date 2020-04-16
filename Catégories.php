@@ -19,6 +19,12 @@
   <?php include("entete.php"); ?>
     <br>
     <br>
+
+    <div class="row">
+  
+  <div class="col-2 blueECE"> </div>
+
+  <div class="col-8">
     <h2> Catégories</h2>
 
     
@@ -56,7 +62,12 @@
       </a>  
      </div>   
     </div>  
-   </div>  
+   </div> 
+
+   </div>
+ <div class="col-2 blueECE">  </div>
+
+</div> 
 
     
     

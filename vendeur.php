@@ -1,4 +1,4 @@
-<?php session_start(); ?> 
+
 <!DOCTYPE html> 
 <html> 
 
@@ -10,22 +10,16 @@
         <link rel="stylesheet" href="css\style.css"/>
     </head> 
 
-    <body> 
-        <?php
-        include("traitement_SQL.php");
-        global $db;
-        $email = $_SESSION['email'];
-        $sql = "SELECT Vendeur FROM inscription WHERE Email='$email'";
-        if($result = mysqli_query($db, $sql)){
-            $row = $result->fetch_assoc();
-            $_SESSION['vendeur'] = $row['Vendeur'];
-        }
+    <body>
 
-        ?>
-
-       <?php include("entete.php"); ?>
+    	<?php include("entete.php"); ?>
         <br>
         <br>
+         <div class="row">
+  
+  <div class="col-2 blueECE"> </div>
+
+  <div class="col-8">
         <?php if ($_SESSION['vendeur'] == 'oui'){ ?>
 
         <h2>Que voulez-vous faire?</h2>
@@ -53,6 +47,11 @@
             <br>    
             <a href="mailto:Ebay.ECE@gmail.com">Ebay.ECE@gmail.com</a>  
         </div>   
+
+          </div>
+ <div class="col-2 blueECE">  </div>
+
+</div> 
     </body>
 </html>
 

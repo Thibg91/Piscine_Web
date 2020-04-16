@@ -14,6 +14,11 @@
         
         <div class="container" style="margin-top:50px;">
 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popupModal">
+  Connexion
+</button>
+
+
 <div class="modal fade" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

@@ -1,4 +1,4 @@
-<?php session_start(); ?> 
+ 
 <!DOCTYPE html> 
 
 <html>
@@ -17,20 +17,17 @@
 
     <body>
 
-      <?php
-      $bdd = 'piscine';
-      $db_found = new mysqli( 'localhost', 'root', '', $bdd );
-      $reponse = $db_found -> query('SELECT * FROM Items');
-      ?> 
-     
+     <?php include("entete.php"); ?>
+      <br>
+       <br>
+<div class="row">
+  
+  <div class="col-2 blueECE"> </div>
+
+  <div class="col-8">
       <?php if ($_SESSION['admin'] == 'oui'){ ?>
        
-      <?php include("entete.php"); ?>
-      <br>
-        <br>
-
-        
-        <h2> Admin </h2>
+      <h2> Admin </h2>
         <h2>Que voulez-vous faire?</h2>
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
@@ -39,11 +36,19 @@
             <button onclick="location.href='http://pool/gerer_vendeur.php'" type="button">Vendeurs Actuels</button>
         </div>
         <div class="col-sm-3"></div>
-    </body>
+
+</div>
+ <div class="col-2 blueECE">  </div>
+
+</div>
+
+ </body>
     <?php } else if ($_SESSION['admin'] == 'non'){ 
     header('Location: http://pool/Catégories.php');
     exit();
     ?>
     <p>Vous n'avez pas les droits d'Admin.</p>
     <?php } ?>
+
+
 </html>
