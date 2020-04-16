@@ -27,6 +27,11 @@ if(isset($_POST['formsend'])){
                         $_SESSION['codePostal'] = $row['CodePostal'];
                         $_SESSION['pays'] = $row['Pays'];
                         $_SESSION['tel'] = $row['Telephone'];
+                        $_SESSION['type'] = $row['TypeCarte'];
+                        $_SESSION['numCarte'] = $row['numCarte'];
+                        $_SESSION['dateCarte'] = $row['DateExpiration'];
+                        $_SESSION['code'] = $row['CodeSecurite'];
+                        $_SESSION['nomCarte'] = $row['nomCarte'];
                     }
                 }
                 else {

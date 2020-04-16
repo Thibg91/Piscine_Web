@@ -36,14 +36,18 @@
                 <div class="img-thumbnail">     
                     <img src=icone\\<?php echo $photo?> style="width: 50%;">  
                     <div class="caption">
-                        <p>Prix: <?php echo $prix?></p>
-                        <p>Description: <?php echo $description?></p>  
+                        <form method="post" action="traitement_enchere.php?id=<?php echo $id; ?>">
+                            <p>Prix: <?php echo $prix?></p>
+                            <?php if (isset($_SESSION['email'])){?>
+                            <p>Veuillez mettre un prix supérieur au précédent.</p>
+                            <p>Nouvelle Offre: <input type="number" name="offre"></p>
+                            <input type="submit" name="enchere" value="Sousmettre l'enchère">
+                            <?php } else {?>
+                            <p>Veuillez vous connecter pour mettre une enchere</p>
+                            <?php } ?>
+                            <p>Description: <?php echo $description?></p>  
+                        </form> 
                     </div>
-                    <?php if ($now == 'oui'){ ?>
-                    <button onclick="location.href='http://pool/Panier.php?id=<?php echo $id; ?>'" type="button">Ajouter au Panier</button>
-                    <?php } if ($enchere == 'oui'){ ?>
-                    <button onclick="location.href='http://pool/enchere.php?id=<?php echo $id; ?>'" type="button">Enchérir</button>
-                    <?php } ?>
                 </div>
             </div>
             <div class="col-md-4"></div>
