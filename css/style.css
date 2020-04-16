@@ -43,3 +43,20 @@ a:hover, a:focus, a:active {
   background-image: url("../icone/entete.jpg");
   
 }
+
+#btn-connexion
+{
+    color : white;
+    background-color: #333333;
+    display: block;
+    float: right;
+}
+
+.blueECE
+{
+  margin-top: -48px;
+  float: top;
+  height: 1000px;
+  background-color: #007085; 
+}
+

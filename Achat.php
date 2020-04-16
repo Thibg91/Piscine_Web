@@ -14,10 +14,20 @@
 
 
 <body>
-   <?php include("entete.php"); ?>
+  
+  <?php include("entete.php"); ?>
     <br>
-        <br>
-    <h2> Achat </h2>
+    <br>
+   
+
+
+  
+   <div class="row">
+  
+  <div class="col-2 blueECE"> </div>
+
+  <div class="col-8"> 
+ <h2> Achat </h2>
    
     <div class="row">   
     <div class="col-md-4">   
@@ -54,6 +64,16 @@
      </div>   
     </div>  
    </div>
+</div>
+ <div class="col-2 blueECE">  </div>
+
+</div>
+
+
+
+
+
+
 </body>
 
 

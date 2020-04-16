@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html> 
 
 <html>
@@ -17,6 +16,11 @@
     <?php include("entete.php"); ?>
       <br>
         <br>
+        <div class="row">
+  
+  <div class="col-2 blueECE"> </div>
+
+  <div class="col-8">
         <h2> Mon compte </h2>
         <h3>Mes informations personnelles</h3>
         <p> Prénom: <?= $_SESSION['prenom']; ?> </p> 
@@ -47,6 +51,10 @@
                 </tr>   
             </tbody>  
         </table> 
+         </div>
+ <div class="col-2 blueECE">  </div>
+
+</div>
 
 
     </body>

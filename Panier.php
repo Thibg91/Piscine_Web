@@ -17,7 +17,11 @@
         <?php include("entete.php"); ?>
         <br>
         <br>
+        <div class="row">
+  
+  <div class="col-2 blueECE"> </div>
 
+  <div class="col-8">
 
         <h2> Article(s) dans votre panier </h2>
         <?php 
@@ -68,10 +72,15 @@
             <div class="col-md-4"></div>
         </div>
         <?php } } } } echo 'Prix Final= '.$prixFinal.' et nombre item= '.$nbItem; ?>
+       </div>
+ <div class="col-2 blueECE">  </div>
+
+</div>
     </body>
 
     <td colspan="2" align="center">   
         <input type="submit" value="Proceder au paiement" />
     </td> 
+
 
 </html>
