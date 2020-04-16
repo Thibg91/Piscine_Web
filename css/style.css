@@ -60,3 +60,8 @@ a:hover, a:focus, a:active {
   background-color: #007085; 
 }
 
+.gradtest
+{
+  padding: 50px 10px;
+  background: linear-gradient(#007085, #333333);
+}

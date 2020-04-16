@@ -21,11 +21,13 @@
    
 
 
-  
+  <section id="left-side">
    <div class="row">
   
-  <div class="col-2 blueECE"> </div>
-
+    <div class="col-2 gradtest"><div style="width: 200px; height: 200px;"></div> </div>
+  
+  
+  
   <div class="col-8"> 
  <h2> Achat </h2>
    
@@ -68,6 +70,7 @@
  <div class="col-2 blueECE">  </div>
 
 </div>
+</section>
 
 
 
