@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html> 
 
 <html>
@@ -31,22 +30,19 @@
         $prixFinal = 0;
         $nbItem = 0;
         if (isset($_GET['id'])){
-            for ($i = 0; $i <= strlen($_SESSION['panier']); $i=$i+2){
-                if ($_GET['id'] == substr($_SESSION['panier'],$i,2)){
-                    echo 'test';
+            for ($i = 0; $i <= strlen($_SESSION['panier']); $i=$i+7){
+                if ($_GET['id'] == substr($_SESSION['panier'],$i,7)){
                     $test = 1;
                 }
             }
-            echo $_SESSION['panier'];
             if ($test == 0){
-                echo 'ok';
                 $_SESSION['panier'] .= $_GET['id'];
 
             }
         }
         if($_SESSION['panier']!=''){
-            for ($j = 0; $j <= strlen($_SESSION['panier']); $j=$j+2){
-                $id = substr($_SESSION['panier'],$j,2);
+            for ($j = 0; $j <= strlen($_SESSION['panier']); $j=$j+7){
+                $id = substr($_SESSION['panier'],$j,7);
                 $sql = "SELECT * FROM items WHERE nItem='$id'";
                 if($result = mysqli_query($db, $sql)){
                     while ($row = $result->fetch_assoc()) {
@@ -66,7 +62,6 @@
                         <p>Prix: <?php echo $prix?></p>
                         <p>Description: <?php echo $description?></p>  
                     </div>
-                    <button onclick="location.href='http://pool/Panier.php?id=<?php echo $id; ?>'" type="button">Ajouter au Panier</button>
                 </div>
             </div>
             <div class="col-md-4"></div>
