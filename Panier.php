@@ -26,7 +26,7 @@
                 <?php 
                 include("traitement_SQL.php");
                 global $db;
-                $test = 0;
+                 $test = 0;
                 $prixFinal = 0;
                 $nbItem = 0;
                 if(isset($_GET['delete']) && isset($_SESSION['panier'])){
@@ -61,6 +61,7 @@
                                 $prixFinal = $prixFinal + $prix;
 
                 ?> 
+            
                 <div class="row">
                     <div class="col-md-6">   
                         <div class="img-thumbnail">     
