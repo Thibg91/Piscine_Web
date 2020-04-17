@@ -23,6 +23,7 @@
             <div class="col-8">
                 <form action="verification_paiement.php" method="post">
                     <h3>Mes informations de livraison</h3>
+                    <?php if (isset($_GET['erreur'])){$erreur = $_GET['erreur']; echo $erreur.'<br>';} ?>
                     <p> Type de carte: <select name="type">
                         <option value="visa">Visa</option>
                         <option value="master">Master Card</option>
