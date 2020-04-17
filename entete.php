@@ -74,7 +74,7 @@
         </div>
           <input type="submit" class="btn btn-primary" value="Soumettre" name="formsend" id="formsend" /> 
        </form>
-       Pas encore inscrit? Inscrivez-vous en <a href="inscription.php">cliquant ici.</a> 
+       Pas encore inscrit? Inscrivez-vous en <button onclick="location.href='http://pool/inscription.php'" type="button">cliquant ici.</button>
        <?php include 'traitement_connexion.php'; ?>
       </div>
       <div class="modal-footer"> 

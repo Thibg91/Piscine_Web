@@ -19,6 +19,8 @@
    <div class="row">
    <div class="col-2 blueECEleft" ;> </div>
    <div class="col-8"> 
+    <?php if(isset($_SESSION['email'])) 
+{ ?>
         <?php if ($_SESSION['vendeur'] == 'oui'){ ?>
 
         <h2>Que voulez-vous faire?</h2>
@@ -40,12 +42,13 @@
         else if ($_SESSION['vendeur'] == 'en cours'){
         ?>
         <p>Votre demande est en cours.</p>
-        <?php } ?>
-
-        <div id="footer">Copyright &copy; 2020 Ebay ECE
-            <br>    
-            <a href="mailto:Ebay.ECE@gmail.com">Ebay.ECE@gmail.com</a>  
-        </div>   
+        <?php } }else { ?>
+    <p>Vous n'êtes pas connecté, veuillez vous identifier et faire une demande si vous ne possedez pas de compte vendeur</p>
+    <a href="#"  id="a-connexion" data-toggle="modal" data-target="#popupModal">Connexion</a>
+    <br>
+    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+    <?php } ?>
+ 
 <div class="bigwhiteblock"></div>
           </div>
  <div class="col-2 blueECEright">  </div>
@@ -55,7 +58,7 @@
 <div class="row">
   <div class="col-2 blueECEleft">  </div> 
    <div class="col-8 footer">  
-    <?php include("footer.php"); ?> 
+    <?php include("footer.html"); ?> 
     </div> 
    <div class="col-2 blueECEright">  </div>
  </div>

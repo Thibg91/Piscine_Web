@@ -19,7 +19,9 @@
    <div class="row">
    <div class="col-2 blueECEleft" > </div>
    <div class="col-8">
-
+ <?php if(isset($_SESSION['email'])) 
+{ ?>
+        <?php if ($_SESSION['vendeur'] == 'oui'){ ?>
         <table class="table">  
             <thead>     
                 <tr>   
@@ -32,7 +34,7 @@
                     <th>Email de l'acheteur</th> 
                 </tr> 
             </thead>   
-            <tbody> 
+           
                 <?php
                 include("traitement_SQL.php");
                 global $db;
@@ -40,31 +42,50 @@
                 date_default_timezone_set('Europe/Paris');
                 $date = date('y-m-d');
                 $heure = date('h:i:s');
-                $sql = "SELECT * FROM items WHERE emailVendeur='$email' AND meilleureO!='oui' AND (dateF<'$date' OR dateF='$date' AND dateH>'$heure') ";
+                $sql = "SELECT * FROM commande WHERE emailVendeur='$email' AND meilleureO='oui' AND (dateF<'$date' OR dateF='$date') ";
                 if($result = mysqli_query($db, $sql)){
                     while ($row = $result->fetch_assoc()) {
                         $id = $row["nItem"];
-                        $email = $row["emailAcheteur"];
-                        $descr = $row["descr"];
-                        $titre = $row["titre"];
-                        $prix = $row["prix"];
-                        $cat = $row["Categorie"];
-                        $photo = $row["photo"];
-                        echo "<tr>"; // début de ligne
-                        echo "<td>$id</td>"; // email
-                        echo "<td>$titre</td>"; // prenom
-                        echo "<td>$photo</td>"; // nom
-                        echo "<td>$descr</td>"; // email
-                        echo "<td>$prix</td>"; // prenom
-                        echo "<td>$cat</td>"; // nom
-                        echo "<td>$email</td>"; // supprimer ligne jQuery
-                        echo "</tr>"; // fin de la ligne
-                    }
+                        $email = $row["EmailAcheteur"];
+                        $descr = $row["Description"];
+                        $titre = $row["Titre"];
+                        $prix = $row["Prix"];
+                        $cat = $row["Catégorie"];
+                        $photo = $row["Photo"];  ?>
+                        
+                     <tbody>     
+                      <tr>
+                        <td><?php echo $id ?></td> 
+                        <td><?php echo $titre ?></td> 
+                         <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"></td>
+                        <td><?php echo $descr ?></td>
+                        <td><?php echo $prix ?></td>
+                        <td><?php echo $cat ?></td> 
+                        <td><?php echo $email ?></td>
+                         </tr>
+                     </tbody>
+               <?php     }
                 }
                 ?> 
-            </tbody>  
         </table> 
         <button onclick="location.href='http://pool/Vendeur.php'" type="button">Retour</button>
+        <?php } else if ($_SESSION['vendeur'] == 'non'){ ?>
+
+        <p>Vous n'etes pas encore inscrit.</p>
+        <form action="traitement_vendeur.php" method="post">
+            <input type="submit" value="Demander à être vendeur" name="vendeur" />
+        </form>
+
+        <?php }
+        else if ($_SESSION['vendeur'] == 'en cours'){
+        ?>
+        <p>Votre demande est en cours.</p>
+        <?php } }else { ?>
+    <p>Vous n'êtes pas connecté, veuillez vous identifier et faire une demande si vous ne possedez pas de compte vendeur</p>
+    <a href="#"  id="a-connexion" data-toggle="modal" data-target="#popupModal">Connexion</a>
+    <br>
+    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+    <?php } ?>
 <div class="bigwhiteblock"></div>
   </div>
  <div class="col-2 blueECEright">  </div>
@@ -74,7 +95,7 @@
 <div class="row">
   <div class="col-2 blueECEleft">  </div> 
    <div class="col-8 footer">  
-    <?php include("footer.php"); ?> 
+    <?php include("footer.html"); ?> 
     </div> 
    <div class="col-2 blueECEright">  </div>
  </div>

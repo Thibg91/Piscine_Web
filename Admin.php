@@ -24,7 +24,9 @@
    <div class="row">
    <div class="col-2 blueECEleft"> </div>
    <div class="col-8"> 
-      <?php if ($_SESSION['admin'] == 'oui'){ ?>
+    <?php if(isset($_SESSION['email'])) 
+{ ?>
+   <?php if ($_SESSION['admin'] == 'oui'){ ?>
        
       <h2> Admin </h2>
         <h2>Que voulez-vous faire?</h2>
@@ -36,7 +38,17 @@
         </div>
         <div class="col-sm-3"></div>
 
-<div class="bigwhiteblock"></div>
+</body>
+    <?php }else if ($_SESSION['admin'] == 'non'){ 
+    ?>
+    <p>Vous n'avez pas les droits d'Admin.</p>
+    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+    <?php } }else { ?>
+    <p>Vous n'avez pas les droits d'Admin.</p>
+    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+    <?php } ?>
+
+    <div class="bigwhiteblock"></div>
  </div>
  <div class="col-2 blueECEright">  </div>
 </div>
@@ -45,19 +57,10 @@
 <div class="row">
   <div class="col-2 blueECEleft">  </div> 
    <div class="col-8 footer">  
-    <?php include("footer.php"); ?> 
+    <?php include("footer.html"); ?> 
     </div> 
    <div class="col-2 blueECEright">  </div>
  </div>
-</div>
-
- </body>
-    <?php } else if ($_SESSION['admin'] == 'non'){ 
-    header('Location: http://pool/Catégories.php');
-    exit();
-    ?>
-    <p>Vous n'avez pas les droits d'Admin.</p>
-    <?php } ?>
 
 
 </html>
