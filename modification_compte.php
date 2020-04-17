@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <!DOCTYPE html> 
 
 <html>
@@ -7,17 +7,21 @@
         <title>Ebay ECE</title>
         <link href="favicon.jpg" rel="icon" type="images/x-icon" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css\bootstrap.min.css"/>
+        <link rel="stylesheet" href="css\style.css"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> 
     </head> 
 
     <body>
-
-        <?php include("entete.php"); ?>
+         <?php include("entete.php"); ?>
         <br>
         <br> 
-        <form method="post">
+<section>
+   <div class="row">
+   <div class="col-2 blueECEleft"> </div>
+   <div class="col-8">
+       
+        <form  method="post">
             <h2> Mon compte </h2>
             <h3>Mes informations personnelles</h3>
             <p> Prénom:<?=$_SESSION['prenom']; ?> </p> 
@@ -30,7 +34,19 @@
             <input type="submit" value="Enregistrer mes informations" name="livraison" />
         </form>
         <?php include 'traitement_livraison.php'; ?>
+   <div class="bigwhiteblock"></div>
+  </div>
+ <div class="col-2 blueECEright">  </div>
+</div>
+</section>
 
+<div class="row">
+  <div class="col-2 blueECEleft">  </div> 
+   <div class="col-8 footer">  
+    <?php include("footer.php"); ?> 
+    </div> 
+   <div class="col-2 blueECEright">  </div>
+ </div>
     </body>
 
 </html>

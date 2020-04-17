@@ -52,16 +52,39 @@ a:hover, a:focus, a:active {
     float: right;
 }
 
-.blueECE
+.blueECEright
 {
   margin-top: -48px;
   float: top;
-  height: 1000px;
-  background-color: #007085; 
+  display: inline-block;
+  background: linear-gradient(90deg, #007085, #333333);
 }
 
-.gradtest
+.blueECEleft
 {
-  padding: 50px 10px;
-  background: linear-gradient(#007085, #333333);
+  margin-top: -48px;
+  float: top;
+  display: inline-block;
+  background: linear-gradient(270deg, #007085, #333333);
 }
+
+.blueECE
+{
+ color:#007085; 
+}
+
+.bigwhiteblock
+{
+  height: 750px;
+  background-color: white;
+}
+
+.footer
+ {
+    background-color: rgb(51,51,51);
+ }
+
+ #copyright
+ {
+  color: white;
+ }

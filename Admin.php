@@ -20,11 +20,10 @@
      <?php include("entete.php"); ?>
       <br>
        <br>
-<div class="row">
-  
-  <div class="col-2 blueECE"> </div>
-
-  <div class="col-8">
+<section>
+   <div class="row">
+   <div class="col-2 blueECEleft"> </div>
+   <div class="col-8"> 
       <?php if ($_SESSION['admin'] == 'oui'){ ?>
        
       <h2> Admin </h2>
@@ -37,9 +36,19 @@
         </div>
         <div class="col-sm-3"></div>
 
+<div class="bigwhiteblock"></div>
+ </div>
+ <div class="col-2 blueECEright">  </div>
 </div>
- <div class="col-2 blueECE">  </div>
+</section>
 
+<div class="row">
+  <div class="col-2 blueECEleft">  </div> 
+   <div class="col-8 footer">  
+    <?php include("footer.php"); ?> 
+    </div> 
+   <div class="col-2 blueECEright">  </div>
+ </div>
 </div>
 
  </body>

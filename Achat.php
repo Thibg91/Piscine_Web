@@ -21,15 +21,11 @@
    
 
 
-  <section id="left-side">
+  <section>
    <div class="row">
-  
-    <div class="col-2 gradtest"><div style="width: 200px; height: 200px;"></div> </div>
-  
-  
-  
-  <div class="col-8"> 
- <h2> Achat </h2>
+   <div class="col-2 blueECEleft" > </div>
+   <div class="col-8"> 
+   <h2> Achat </h2>
    
     <div class="row">   
     <div class="col-md-4">   
@@ -66,11 +62,20 @@
      </div>   
     </div>  
    </div>
-</div>
- <div class="col-2 blueECE">  </div>
-
+   <div class="bigwhiteblock"></div>
+  </div>
+ <div class="col-2 blueECEright">  </div>
 </div>
 </section>
+
+<div class="row">
+  <div class="col-2 blueECEleft">  </div> 
+   <div class="col-8 footer">  
+    <?php include("footer.php"); ?> 
+    </div> 
+   <div class="col-2 blueECEright">  </div>
+ </div>
+</div>
 
 
 

@@ -1,4 +1,3 @@
-<?php session_start(); ?> 
 <!DOCTYPE html> 
 
 <html>
@@ -23,6 +22,10 @@
         <?php include("entete.php"); ?>
         <br>
         <br> 
+         <section>
+   <div class="row">
+   <div class="col-2 blueECEleft"> </div>
+   <div class="col-8">
     <h3> Liste des demandes de vendeurs</h3>
     <table class="table">  
         <thead>     
@@ -38,5 +41,18 @@
         </tbody>  
     </table>
         <button onclick="location.href='http://pool/Admin.php'" type="button">Retour</button>
+        <div class="bigwhiteblock"></div>
+  </div>
+ <div class="col-2 blueECEright">  </div>
+</div>
+</section>
+
+<div class="row">
+  <div class="col-2 blueECEleft">  </div> 
+   <div class="col-8 footer">  
+    <?php include("footer.php"); ?> 
+    </div> 
+   <div class="col-2 blueECEright">  </div>
+ </div>
     </body>
 </html>

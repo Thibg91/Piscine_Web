@@ -16,11 +16,10 @@
         <?php include("entete.php"); ?>
         <br>
         <br>
-        <div class="row">
-
-            <div class="col-2 blueECE"> </div>
-
-            <div class="col-8">
+        <section>
+   <div class="row">
+   <div class="col-2 blueECEleft"> </div>
+   <div class="col-8">
                 <form action="verification_livraison.php" method="post">
                     <h3>Mes informations de livraison</h3>
                     <p> Email:  <?=$_SESSION['email']; ?> </p> 
@@ -33,10 +32,19 @@
                     <p><input type="checkbox" name="sauvegarder">Enregistrer ces informations</p>
                     <input type="submit" value="Procéder au paiement" name="livraison" />
                 </form>
-            </div>
-            <div class="col-2 blueECE">  </div>
+            <div class="bigwhiteblock"></div>
+  </div>
+ <div class="col-2 blueECEright">  </div>
+</div>
+</section>
 
-        </div>
+<div class="row">
+  <div class="col-2 blueECEleft">  </div> 
+   <div class="col-8 footer">  
+    <?php include("footer.php"); ?> 
+    </div> 
+   <div class="col-2 blueECEright">  </div>
+ </div>
 
 
     </body>

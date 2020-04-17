@@ -16,6 +16,10 @@
         <?php include("entete.php"); ?>
         <br>
         <br>
+     <section>
+   <div class="row">
+   <div class="col-2 blueECEleft" ;> </div>
+   <div class="col-8">
         <h2> Vendre </h2>
 
         <form action="traitement_vente.php" method="post">
@@ -69,10 +73,20 @@
 
         </form>
         <button onclick="location.href='http://pool/Vendeur.php'" type="button">Retour</button>
-        <div id="footer">Copyright &copy; 2020 Ebay ECE
-            <br>    
-            <a href="mailto:Ebay.ECE@gmail.com">Ebay.ECE@gmail.com</a>  
-        </div>   
+         <div class="bigwhiteblock"></div>
+    </div>
+ <div class="col-2 blueECEright">  </div>
+</div>
+</section>
+
+<div class="row">
+  <div class="col-2 blueECEleft">  </div> 
+   <div class="col-8 footer">  
+    <?php include("footer.php"); ?> 
+    </div> 
+   <div class="col-2 blueECEright">  </div>
+ </div>
+</div>  
     </body>
 </html>
 

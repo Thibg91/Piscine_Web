@@ -20,11 +20,10 @@
     <br>
     <br>
 
-    <div class="row">
-  
-  <div class="col-2 blueECE"> </div>
-
-  <div class="col-8">
+    <section>
+   <div class="row">
+   <div class="col-2 blueECEleft" ;> </div>
+   <div class="col-8"> 
     <h2> Catégories</h2>
 
     
@@ -63,10 +62,19 @@
      </div>   
     </div>  
    </div> 
+<div class="bigwhiteblock"></div>
+    </div>
+ <div class="col-2 blueECEright">  </div>
+</div>
+</section>
 
-   </div>
- <div class="col-2 blueECE">  </div>
-
+<div class="row">
+  <div class="col-2 blueECEleft">  </div> 
+   <div class="col-8 footer">  
+    <?php include("footer.php"); ?> 
+    </div> 
+   <div class="col-2 blueECEright">  </div>
+ </div>
 </div> 
 
     
