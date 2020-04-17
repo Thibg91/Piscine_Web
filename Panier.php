@@ -29,6 +29,10 @@
                 $test = 0;
                 $prixFinal = 0;
                 $nbItem = 0;
+                if(isset($_GET['delete']) && isset($_SESSION['panier'])){
+                    $recup = $_GET['delete'];
+                    $_SESSION['panier'] = str_replace($recup,"",$_SESSION['panier']);
+                }
                 if (!isset($_SESSION['panier'])){
                     $_SESSION['panier'] = '';
                 }
@@ -63,7 +67,8 @@
                             <img src=icone\\<?php echo $photo?> style="width: 50%;">  
                             <div class="caption">
                                 <p>Prix: <?php echo $prix?></p>
-                                <p>Description: <?php echo $description?></p>  
+                                <p>Description: <?php echo $description?></p>
+                                <button onclick="location.href='http://pool/Panier.php?delete=<?php echo $id?>'" type="button">Supprimer</button>
                             </div>
                         </div>
                     </div>
