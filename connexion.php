@@ -49,7 +49,8 @@
 
 </div>
         <?php include 'traitement_connexion.php'; ?>
-        Pas encore inscrit? Inscrivez-vous en <a href="inscription.php">cliquant ici.</a> 
+        <button onclick="location.href='http://pool/inscription.php'" type="button">cliquant ici.</button>
+      
     </body>   
 
 </html>

@@ -26,7 +26,7 @@ include("traitement_SQL.php");
 global $db;
 $email = $_SESSION['email'];
 if (($db)&&($go == 'lets go')) {  
-    $sql = "INSERT INTO Items(enchere, meilleureO, AchatM, titre, descr, photo, prix, ancienPrix, dateF, dateH, Categorie, emailAcheteur, emailVendeur) VALUES('$enchere', '$MeilleureO', '$AchatM', '$titre', '$descr','$photo', '$prix', "0", '$dateF', '$dateH', '$cat','','$email')";    
+    $sql = "INSERT INTO Items(enchere, meilleureO, AchatM, titre, descr, photo, prix, AchatImmediat, dateF, dateH, Categorie, emailAcheteur, emailVendeur) VALUES('$enchere', '$MeilleureO', '$AchatM', '$titre', '$descr','$photo', '$prix', "0", '$dateF', '$dateH', '$cat','','$email')";    
     if ($result = mysqli_query($db, $sql)){    
         header('Location: http://pool/vendre.php');
         exit(); 

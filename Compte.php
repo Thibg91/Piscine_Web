@@ -1,3 +1,4 @@
+
 <!DOCTYPE html> 
 
 <html>
@@ -20,6 +21,8 @@
    <div class="row">
    <div class="col-2 blueECEleft" ;> </div>
    <div class="col-8"> 
+    <?php if(isset($_SESSION['email'])) 
+     { ?>
         <h2> Mon compte </h2>
         <h3>Mes informations personnelles</h3>
         <p> Prénom: <?= $_SESSION['prenom']; ?> </p> 
@@ -32,23 +35,98 @@
         <a href="modification_compte.php">Modifier vos informations</a>
 
         <h3>Mon historique d'achat</h3>
-        <table class="table">  
+         <table class="table">  
             <thead>     
-                <tr>   
-                    <th>Photo</th>   
-                    <th>Nom</th>   
+                <tr>  
+                    <th>N° de commande</th> 
+                    <th>Photo</th> 
+                    <th>Titre</th>  
+                    <th>Description</th>  
                     <th>Prix</th> 
-                    <th>Info</th> 
+                    <th>Date</th> 
                 </tr> 
             </thead>   
+          <?php 
+           include("traitement_SQL.php");
+        global $db;
+        date_default_timezone_set('Europe/Paris');
+                $date = date('y-m-d');
+                $heure = date('h:i:s');
+        $email = $_SESSION['email'];
+        $sql = "SELECT * FROM commande WHERE EmailAcheteur='$email' AND meilleureO ='oui'
+        AND (dateF<'$date' OR dateF='$date') ORDER BY dateF DESC";
+        if($result = mysqli_query($db, $sql)){
+            while ($row = $result->fetch_assoc()) {
+                $Ncommande = $row["NumeroCommande"]; 
+                $titre = $row["Titre"];
+                $prix = $row["Prix"];
+                $descr = $row["Description"];
+                $photo = $row["Photo"];
+                $date = $row["DateF"];
+ ?>          
             <tbody> 
                 <tr>    
-                    <td> <img src="ForT.jpeg" style="width: 50%;"> </td>    
-                    <td>ferraille ou trésor </td>   
-                    <td>250 euros</td> 
-                    <td> </td>
+                    <td><?php echo $Ncommande?> </td> 
+                    <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"> </td>
+                    <td><?php echo $titre?> </td> 
+                    <td><?php echo $descr?> </td>   
+                    <td><?php echo $prix?></td> 
+                    <td><?php echo $date?></td>
                 </tr>   
             </tbody>  
+        <?php  }} ?>
+
+        <h3>Mes enchères en cours</h3>
+        <table class="table">  
+            <thead>     
+                <tr>  
+                    <th>N° items</th> 
+                    <th>Photo</th> 
+                    <th>Titre</th>  
+                    <th>Description</th>  
+                    <th>Prix</th> 
+                    <th>Date de fin</th> 
+                    <th>Meilleure offre ? </th> 
+                    <th>Aller voir l'annonce </th> 
+                </tr> 
+            </thead>   
+          <?php 
+           include("traitement_SQL.php");
+        global $db;
+        $email = $_SESSION['email'];
+        $sql = "SELECT * FROM commande WHERE EmailAcheteur='$email' AND TypeAchat=
+        'enchere' ORDER BY dateF DESC";
+        if($result = mysqli_query($db, $sql)){
+            while ($row = $result->fetch_assoc()) {
+                $Ncommande = $row["nItem"]; 
+                $titre = $row["Titre"];
+                $prix = $row["Prix"];
+                $descr = $row["Description"];
+                $photo = $row["Photo"];
+                $date = $row["DateF"];
+                $mOffre = $row["meilleureO"];
+                $id = $row["nItem"];
+
+ ?>          
+            <tbody> 
+                <tr>    
+                    <td><?php echo $Ncommande?> </td> 
+                    <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"> </td>
+                    <td><?php echo $titre?> </td> 
+                    <td><?php echo $descr?> </td>   
+                    <td><?php echo $prix?></td> 
+                    <td><?php echo $date?></td>
+                    <td><?php echo $mOffre?></td>
+                    <td><a href="item.php?id=<?php echo $id; ?>">aller voir</td>
+                    </tr>   
+            </tbody>  
+        <?php  }} ?>
+
+
+
+
+   <?php  }else {echo "Vous n'êtes pas connecté";} ?> 
+        
         </table> 
         <div class="bigwhiteblock"></div>
        </div>
@@ -58,13 +136,10 @@
 <div class="row">
   <div class="col-2 blueECEleft">  </div> 
    <div class="col-8 footer">  
-    <?php include("footer.php"); ?> 
+    <?php include("footer.html"); ?> 
     </div> 
    <div class="col-2 blueECEright">  </div>
  </div>
-</div>
-
-
-    </body>
+</body>
 
 </html>
