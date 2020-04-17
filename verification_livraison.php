@@ -1,10 +1,16 @@
+<?php session_start(); ?>
 <?php
 
 if(isset($_POST['livraison'])){
 
     $erreur = '';
     extract($_POST);
-
+    $_SESSION['Newadresse1'] = $adresseL1;
+    $_SESSION['Newadresse2'] = $adresseL2;
+    $_SESSION['Newville'] = $ville;
+    $_SESSION['NewcodePostal'] = $poste;
+    $_SESSION['Newpays'] = $pays;
+    $_SESSION['Newtel'] = $tel;
     if (strlen($tel) != 10 && substr($tel,0,1) != 0){
         $erreur .= '<br>Erreur sur le numéro de téléphone.';
     }

@@ -60,7 +60,11 @@
                 <input type="number" name="prix" value="" required="" />
             </p>
             <br />
-
+            <p>
+                Ajouter un prix d'achat immédiat:<br />
+                <input type="number" name="immediat" value="" required="" />
+            </p>
+            <br />
             <p>
                 Date de fin d'enchère:<br />
                 <input type="date" name="finD" value="" required="" />

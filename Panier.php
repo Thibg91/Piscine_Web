@@ -27,7 +27,7 @@
                 include("traitement_SQL.php");
                 global $db;
                  $test = 0;
-                $prixFinal = 0;
+                $_SESSION['prixFinal'] = 0;
                 $nbItem = 0;
                 if(isset($_GET['delete']) && isset($_SESSION['panier'])){
                     $recup = $_GET['delete'];
@@ -58,7 +58,7 @@
                                 $description = $row["descr"];
                                 $photo = $row["photo"];
                                 $nbItem++;
-                                $prixFinal = $prixFinal + $prix;
+                                $_SESSION['prixFinal'] = $_SESSION['prixFinal'] + $prix;
 
                 ?> 
             
@@ -78,7 +78,7 @@
              <div class="bigwhiteblock"></div>
             </div>
              <div class="col-md-2">
-                <?php echo 'Prix Final= '.$prixFinal.' et nombre item= '.$nbItem; if(isset($_SESSION['email'])){if(isset($_SESSION['panier'])){ ?>
+                <?php $prixFinal = $_SESSION['prixFinal']; echo 'Prix Final= '.$prixFinal.' et nombre item= '.$nbItem; if(isset($_SESSION['email'])){if(isset($_SESSION['panier'])){ ?>
                 <button onclick="location.href='http://pool/livraison.php'" type="button">Acceder au paiement</button>
                 <?php } else { ?>
                 <button onclick="location.href='http://pool/Catégories.php'" type="button">Panier Vide</button>
