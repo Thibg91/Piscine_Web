@@ -109,6 +109,7 @@
                                                                  $date = $row["DateF"];
                                                                  $id = $row["nItem"];
 
+
                             ?>          
                             <tbody> 
                                 <tr>    
@@ -122,6 +123,7 @@
                                 </tr>   
                             </tbody>  
                             <?php  }} ?>
+
 
 
 

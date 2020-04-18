@@ -18,6 +18,7 @@
         <?php include("entete.php"); ?>
         <br>
         <br>
+
         <?php include("traitement_sql.php");
         global $db;
         $sql = "SELECT * FROM items";
@@ -86,5 +87,6 @@
             </div> 
             <div class="col-2 blueECEright">  </div>
         </div>
+
     </body>
 </html>

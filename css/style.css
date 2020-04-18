@@ -11,12 +11,6 @@ li {
   float: left;
 }
 
-body {
-
-background-color:white;
-background-image:url(icone\entete.jpg);
-margin:0;
-}
 
 li a {
   display: block;
@@ -38,11 +32,7 @@ a:hover, a:focus, a:active {
   background-color: #007085;
 }
 
-.background
-{
-  background-image: url("../icone/entete.jpg");
-  
-}
+
 
 #btn-connexion
 {
@@ -55,7 +45,7 @@ a:hover, a:focus, a:active {
 .blueECEright
 {
   margin-top: -48px;
-  float: top;
+  float: right;
   display: inline-block;
   background: linear-gradient(90deg, #007085, #333333);
 }
@@ -92,4 +82,17 @@ a:hover, a:focus, a:active {
 #textgrey
 {
   color: #333333;
+}
+
+.backgroundBlue
+{
+  margin-top: -48px;
+  background: linear-gradient(270deg, #007085, #333333);
+}
+
+.backgroundwhite
+{
+  
+  background-color: white;
+  margin-bottom: 300px;
 }
