@@ -41,7 +41,7 @@
                             <p>Prix: <?php echo $prix?></p>
                             <?php if (isset($_SESSION['email'])){?>
                             <p>Veuillez mettre un prix supérieur au précédent.</p>
-                            <?php if (isset($_SESSION['adresse1'])&&isset($_SESSION['ville'])&&isset($_SESSION['codePostal'])&&isset($_SESSION['pays'])&&isset($_SESSION['tel'])&&isset($_SESSION['numCarte'])&&isset($_SESSION['nomCarte'])&&isset($_SESSION['type'])&&isset($_SESSION['code'])&&isset($_SESSION['dateCarte'])){?>
+                            <?php if ($_SESSION['adresse1'] != '' && $_SESSION['ville'] != '' && $_SESSION['codePostal'] != '' && $_SESSION['pays'] != ''&& $_SESSION['tel'] != ''&& $_SESSION['type'] != ''&& $_SESSION['code'] != ''&& $_SESSION['numCarte'] != ''&& $_SESSION['nomCarte'] != ''&& $_SESSION['dateCarte'] != ''){?>
                             <p>Nouvelle Offre: <input type="number" name="offre"></p>
                             <input type="submit" name="enchere" value="Sousmettre l'enchère">
                             <?php } else{ ?>
