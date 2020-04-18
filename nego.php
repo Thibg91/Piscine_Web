@@ -45,19 +45,24 @@
                                 global $db;
                                 $id = $_GET['id'];
                                 $email = $_SESSION['email'];
-                                $sql = "SELECT COUNT(*) as compte FROM commande WHERE nItem='$id' AND EmailAcheteur='$email'";
+                                $sql = "SELECT COUNT(*) as compte FROM commande WHERE nItem='$id' AND EmailAcheteur='$email' AND TypeAchat='negoKO'";
                                 $result = mysqli_query($db, $sql);
                                 $row = $result->fetch_assoc();
-                                if($row['compte'] < 5){ 
+                                if($row['compte'] < 6){ 
+                                    $sql = "SELECT COUNT(*) as compte2 FROM commande WHERE nItem='$id' AND EmailAcheteur='$email' AND TypeAchat='nego'";
+                                    $res = mysqli_query($db, $sql);
+                                    $rows = $res->fetch_assoc();
+                                    if($rows['compte2'] == 0){ 
                             ?>
-                            <p>Veuillez mettre un prix supérieur au précédent.</p>
+                            <p>Faites votre offre.</p>
                             <?php if (isset($_SESSION['adresse1'])&&isset($_SESSION['ville'])&&isset($_SESSION['codePostal'])&&isset($_SESSION['pays'])&&isset($_SESSION['tel'])&&isset($_SESSION['numCarte'])&&isset($_SESSION['nomCarte'])&&isset($_SESSION['type'])&&isset($_SESSION['code'])&&isset($_SESSION['dateCarte'])){?>
                             <p>Proposé un prix: <input type="number" name="offre"></p>
+                            <p><input type="checkbox" name="contrat" required>J'accepte le contrat de EBAY ECE.</p>
                             <input type="submit" name="enchere" value="Sousmettre l'offre">
                             <?php } else{ ?>
                             <p>Vous devez avoir une adresse de livraison valide et une carte valide pour enchérir.</p>
                             <button onclick="location.href='http://pool/Compte.php'" type="button">Aller à Mon Compte</button>
-                            <?php } } } else {?>
+                            <?php } } else{echo 'Vous avez deja une offre en cours.';} }  } else {?>
                             <p>Veuillez vous connecter pour mettre une enchere</p>
                             <?php } ?>
                             <p>Description: <?php echo $description?></p>  
