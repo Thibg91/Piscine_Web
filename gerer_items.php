@@ -23,15 +23,16 @@
         <?php include("entete.php"); ?>
         <br>
         <br>
-        <section>
+   <div class="container-fluid backgroundBlue">
    <div class="row">
-   <div class="col-2 blueECEleft"> </div>
-   <div class="col-8">
+   <div class="col-sm-2"> </div>
+   <div class="col-sm-8">
         <?php if(isset($_SESSION['email'])) 
 { ?>
    <?php if ($_SESSION['admin'] == 'oui'){ ?>
+    <div class="container-fluid backgroundwhite">
         <h3> Liste des Items </h3>
-        <table class="table table-hover table-dark">  
+        <table class="table table-condensed table-dark">  
             <thead>     
                 <tr>   
                     <th>N° d'identification</th> 
@@ -69,7 +70,8 @@
             mysqli_close($db_found); 
                 ?>
             </tbody>  
-        </table>  
+        </table> 
+        
         <button onclick="location.href='http://pool/Admin.php'" type="button">Retour</button>
         <?php }else if ($_SESSION['admin'] == 'non'){ 
     ?>
@@ -79,18 +81,21 @@
     <p>Vous n'avez pas les droits d'Admin.</p>
     <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
     <?php } ?>
-           <div class="bigwhiteblock"></div>
-  </div>
- <div class="col-2 blueECEright">  </div>
-</div>
-</section>
+  </div> 
 
-<div class="row">
-  <div class="col-2 blueECEleft">  </div> 
-   <div class="col-8 footer">  
+  </div> 
+  <div class="col-sm-2 ">  </div>
+</div>
+    <div class="footer">  
     <?php include("footer.html"); ?> 
     </div> 
-   <div class="col-2 blueECEright">  </div>
+  
  </div>
+ 
+
+
+
+
+
     </body>
 </html>

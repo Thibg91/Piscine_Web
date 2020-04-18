@@ -25,7 +25,7 @@
         <?php if ($_SESSION['vendeur'] == 'oui'){ ?>
         <h2> Vendre </h2>
 
-        <form action="traitement_vente.php" method="post">
+        <form action="traitement_vente.php" method="post" multipart="" enctype="multipart/form-data">
             <p>      
                 type de vente :<br />
                 <input type="checkbox" name="enchere" id="enchere"  value="oui" /> Encheres
@@ -55,7 +55,7 @@
             <br>
             <p>
                 joindre une ou plusieurs photos :<br />
-                <input type="file" name="picture" accept="image/png, image/jpeg" required="" />
+                <input id="image" type="file" name="image[]" multiple required="" >
             </p>  
             <br />    
             <p>

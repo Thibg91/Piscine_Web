@@ -104,7 +104,7 @@
                 $descr = $row["Description"];
                 $photo = $row["Photo"];
                 $date = $row["DateF"];
-                $mOffre = $row["meilleureO"];
+              //  $mOffre = $row["meilleureO"];
                 $id = $row["nItem"];
 
  ?>          
@@ -116,7 +116,7 @@
                     <td><?php echo $descr?> </td>   
                     <td><?php echo $prix?></td> 
                     <td><?php echo $date?></td>
-                    <td><?php echo $mOffre?></td>
+                   <!-- <td><?php echo $mOffre?></td> -->
                     <td><a href="item.php?id=<?php echo $id; ?>">aller voir</td>
                     </tr>   
             </tbody>  
