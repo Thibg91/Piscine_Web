@@ -38,7 +38,6 @@
         </div>
         <div class="col-sm-3"></div>
 
-</body>
     <?php }else if ($_SESSION['admin'] == 'non'){ 
     ?>
     <p>Vous n'avez pas les droits d'Admin.</p>
@@ -53,7 +52,7 @@
  <div class="col-2 blueECEright">  </div>
 </div>
 </section>
-
+</body>
 <div class="row">
   <div class="col-2 blueECEleft">  </div> 
    <div class="col-8 footer">  

@@ -21,41 +21,31 @@
             <div class="row">
                 <div class="col-2 blueECEleft" ;> </div>
                 <div class="col-8">
-                    <button style="float:left" onclick="location.href='http://pool/Catégories.php'" type="button">Retour aux Catégories</button>
+                    <button style="float:left" onclick="location.href='http://pool/Achat.php'" type="button">Retour à Achat</button>
                     <?php if (!isset($_GET['filtre'])){ ?>
-                    <button style="float:right" onclick="location.href='http://pool/musee.php?filtre=filtre'" type="button">Filtre</button>
+                    <button style="float:right" onclick="location.href='http://pool/vue_offre.php?filtre=filtre'" type="button">Filtre</button>
                     <?php } if (isset($_GET['filtre'])){ ?>
                     <form style="float:right" method="post">
-                        <select name="mode">
-                            <option value="achat">Achat Immédiat</option>
-                            <option value="offre">Meilleure Offre</option>
-                            <option value="enchere">Enchère</option>
+                        <select name="cat">
+                            <option value="vip">Accessoires VIP</option>
+                            <option value="musee">Bon pour le musée</option>
+                            <option value="tresor">Férailles ou Trésor</option>
                         </select>
                         <input type="submit" name="submit" value="Accepter">
                     </form>
-                    <button style="float:right" onclick="location.href='http://pool/musee.php'">Annuler</button>
+                    <button style="float:right" onclick="location.href='http://pool/vue_offre.php'">Annuler</button>
                     <?php } ?>
                     <br>
                     <br>
                     <?php 
                     include("traitement_SQL.php");
                     global $db;
-                    $nom='musee';
-                    $sql = '';
-                    if(isset($_POST['mode'])){
+                    if(isset($_POST['submit'])){
                         extract($_POST);
-                        if ($mode=='achat'){
-                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND achatM='oui'  ORDER BY dateF DESC";
-                        }
-                        if ($mode=='offre'){
-                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND meilleureO='oui'  ORDER BY dateF DESC";
-                        }
-                        if ($mode=='enchere'){
-                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND enchere='oui'  ORDER BY dateF DESC";
-                        }
+                            $sql = "SELECT * FROM items WHERE Categorie='$cat' AND meilleureO='oui'  ORDER BY dateF DESC";
                     }
                     else {
-                        $sql = "SELECT * FROM items WHERE Categorie='$nom' ORDER BY dateF DESC";
+                        $sql = "SELECT * FROM items WHERE meilleureO='oui' ORDER BY dateF DESC";
                     }
                     if($result = mysqli_query($db, $sql)){
                         while ($row = $result->fetch_assoc()) {

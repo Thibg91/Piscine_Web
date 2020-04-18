@@ -37,12 +37,17 @@
                     <img src=icone\\<?php echo $photo?> style="width: 50%;">  
                     <div class="caption">
                         <form method="post" action="traitement_enchere.php?id=<?php echo $id; ?>">
+                            <P><?php if (isset($_GET['erreur'])){echo $_GET['erreur'];} ?></P>
                             <p>Prix: <?php echo $prix?></p>
                             <?php if (isset($_SESSION['email'])){?>
                             <p>Veuillez mettre un prix supérieur au précédent.</p>
+                            <?php if ($_SESSION['adresse1'] != '' && $_SESSION['ville'] != '' && $_SESSION['codePostal'] != '' && $_SESSION['pays'] != ''&& $_SESSION['tel'] != ''&& $_SESSION['type'] != ''&& $_SESSION['code'] != ''&& $_SESSION['numCarte'] != ''&& $_SESSION['nomCarte'] != ''&& $_SESSION['dateCarte'] != ''){?>
                             <p>Nouvelle Offre: <input type="number" name="offre"></p>
                             <input type="submit" name="enchere" value="Sousmettre l'enchère">
-                            <?php } else {?>
+                            <?php } else{ ?>
+                            <p>Vous devez avoir une adresse de livraison valide et une carte valide pour enchérir.</p>
+                            <button onclick="location.href='http://pool/Compte.php'" type="button">Aller à Mon Compte</button>
+                            <?php } } else {?>
                             <p>Veuillez vous connecter pour mettre une enchere</p>
                             <?php } ?>
                             <p>Description: <?php echo $description?></p>  

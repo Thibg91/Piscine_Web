@@ -31,7 +31,7 @@ if(isset($_POST['formsend'])){
                         $_SESSION['numCarte'] = $row['numCarte'];
                         $_SESSION['dateCarte'] = $row['DateExpiration'];
                         $_SESSION['code'] = $row['CodeSecurite'];
-                        $_SESSION['nomCarte'] = $row['nomCarte'];
+                        $_SESSION['nomCarte'] = $row['NomCarte'];
                     }
                 }
                 else {

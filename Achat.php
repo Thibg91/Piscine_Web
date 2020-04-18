@@ -30,7 +30,7 @@
     <div class="row">   
     <div class="col-md-4">   
      <div class="thumbnail">   
-      <a href="encheres.html" target="_blank">  
+      <a href="vue_enchere.php">  
        <img src="icone\encheres.jpg" style="width: 50%;">  
        <div class="caption">
         <p>Enchères</p>  
@@ -42,7 +42,7 @@
 
     <div class="col-md-4">   
      <div class="thumbnail">    
-      <a href="direct.html" target="_blank">  
+      <a href="vue_achat.php">  
        <img src="icone\direct.jpg" style="width: 50%;">
        <div class="caption">
         <p>Achetez-le maintenant</p>    
@@ -53,7 +53,7 @@
 
     <div class="col-md-4">  
      <div class="thumbnail"> 
-      <a href="offre.html" target="_blank"> 
+      <a href="vue_offre.php"> 
        <img src="icone\offre.jpg" style="width: 50%;">    
        <div class="caption">   
         <p>Meilleure offre</p>   
