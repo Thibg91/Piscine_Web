@@ -29,7 +29,7 @@
                 <div class="container-fluid">
                     <?php if(isset($_SESSION['email'])) { ?>
                     <?php if ($_SESSION['admin'] == 'oui'){ ?>
-                    <button style="float:right" onclick="location.href='http://pool/Admin.php'" type="button">Retour</button>
+                    <button style="float:right" onclick="location.href='http://pool/Admin.php'" type="button" class="btn btn-secondary">Retour</button>
                     <h3> Liste des Items </h3>
                     <div class="table table-responsive">
                         <table class="table table-hover table-bordered table-dark">  
@@ -52,7 +52,7 @@
                             <tbody> 
                                 <tr>  
                                     <td> <?php echo $donnees['nItem'];?> </td>    
-                                    <td>  <img src= icone\<?php echo $donnees['photo'];?> width="75"  height= "75"> </td>   
+                                    <td>  <img src= icone\<?php echo $donnees['photo1'];?> width="75"  height= "75"> </td>   
                                     <td> <?php echo $donnees['titre'];?> </td> 
                                     <td> <?php echo $donnees['descr'];?> </td> 
                                     <td> <?php echo $donnees['enchere'];?> </td> 
@@ -60,7 +60,7 @@
                                     <td> <?php echo $donnees['achatM'];?> </td> 
                                     <td> <?php echo "le " .$donnees['dateF']. " à " .$donnees['dateH']; ?> </td>
                                     <td> <?php echo $donnees['prix'];?> </td> 
-                                    <td><button onclick="location.href='http://pool/supprimer_item.php?id=<?php echo $donnees['nItem'];?>'" type="button">Supprimer</button></td>
+                                    <td><button onclick="location.href='http://pool/supprimer_item.php?id=<?php echo $donnees['nItem'];?>'" type="button" class="btn btn-danger">Supprimer</button></td>
                                 </tr>  
                                 <?php } mysqli_close($db); ?>
                             </tbody>  
@@ -69,10 +69,10 @@
                     <?php }else if ($_SESSION['admin'] == 'non'){ 
                     ?>
                     <p>Vous n'avez pas les droits d'Admin.</p>
-                    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+                    <button onclick="location.href='http://pool/accueil.php'" type="button" class="btn btn-secondary">retour</button>
                     <?php } }else { ?>
                     <p>Vous n'avez pas les droits d'Admin.</p>
-                    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+                    <button onclick="location.href='http://pool/accueil.php'" type="button"class="btn btn-secondary">retour</button>
                     <?php } ?>
                     <div class="bigwhiteblock"></div>
                 </div>

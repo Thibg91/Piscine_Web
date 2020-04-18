@@ -31,7 +31,7 @@
 { ?>
                         <?php if ($_SESSION['admin'] == 'oui'){ ?>
                         <h3> Liste des demandes de vendeurs</h3>
-                        <table class="table">  
+                        <table class="table table-dark">  
                             <thead>     
                                 <tr>   
                                     <th>email ECE</th> 
@@ -44,14 +44,14 @@
                                 <?php include 'traitement_enCours.php'; ?>  
                             </tbody>  
                         </table>
-                        <button onclick="location.href='http://pool/Admin.php'" type="button">Retour</button>
+                        <button onclick="location.href='http://pool/Admin.php'" type="button" class="btn btn-secondary">Retour</button>
                         <?php }else if ($_SESSION['admin'] == 'non'){ 
                         ?>
                         <p>Vous n'avez pas les droits d'Admin.</p>
-                        <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+                        <button onclick="location.href='http://pool/accueil.php'" type="button" class="btn btn-secondary">retour</button>
                         <?php } }else { ?>
                         <p>Vous n'avez pas les droits d'Admin.</p>
-                        <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+                        <button onclick="location.href='http://pool/accueil.php'" type="button" class="btn btn-secondary">retour</button>
                         <?php } ?>
                         <div class="bigwhiteblock"></div>
                     </div>

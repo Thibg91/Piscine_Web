@@ -12,8 +12,7 @@
     </head> 
 
     <body> 
-
-        <?php include("entete.php"); ?>
+      <?php include("entete.php"); ?>
         <br>
         <br>
      <section>
@@ -23,63 +22,102 @@
      <?php if(isset($_SESSION['email'])) 
      { ?>
         <?php if ($_SESSION['vendeur'] == 'oui'){ ?>
-        <h2> Vendre </h2>
+        <h2><strong>Vendre </strong> </h2>
 
         <form action="traitement_vente.php" method="post">
-            <p>      
-                type de vente :<br />
-                <input type="checkbox" name="enchere" id="enchere"  value="oui" /> Encheres
-                <input type="checkbox" name="MeilleureO" id="MeilleureO" value="oui" /> Meilleure offre
-                <input type="checkbox" name="AchatM" value="oui" /> Achetez-le maintenant
-                <br />
-            </p>
-            <p>
-                Ajouter un titre :<br />
-                <input type="text" name="titre" value="" required/>
-            </p>
-            <br />
+            <div class="form-group row">
+             <div class="col-sm-12">type de vente (au moins un):</div>
+              <div class="col-sm-12">
+               <div class="form-check">
+                <input type="checkbox" name="enchere" id="enchere"  value="oui" />
+                <label class="form-check-label" for="gridCheck1"> Encheres
+                
+                <input type="checkbox" name="MeilleureO" id="MeilleureO" value="oui" />  <label class="form-check-label" for="gridCheck1"> Meilleure offre
+                	
+                <input type="checkbox" name="AchatM" value="oui" /> <label class="form-check-label" for="gridCheck1"> Achetez-le maintenant
+                </label>
+               </div>
+              </div>
+             </div>
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label">Ajouter un titre : </label>
+              <div class="col-sm-6">
+               <input type="text"  class="form-control" name="titre" value="" required >
+               <small class="form-text text-muted">(obligatoire)</small>
+              </div>
+             </div>
 
-            <p>
-                Ajouter une description :<br />
-                <textarea name="description" rows="6" cols="40" required="">
-                </textarea>
-            </p>
-            <br />
-            <p>Choisissez une catégorie</p>
-            <select name="cat">
+             <div class="form-group row">
+             <label class="col-sm-3 col-form-label">Ajouter une description : </label>
+              <div class="col-sm-6">
+              	<textarea class="form-control" name="description" rows="3" value="" required ></textarea>
+               <small class="form-text text-muted">(obligatoire)</small>
+              </div>
+             </div>
+
+            <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Choisissez une catégorie: </label>
+             <select class="col-sm-6 form-control" name="cat">
                 <option value="vip">Accessoires VIP</option>
                 <option value="musee">Bon pour le musée</option>
                 <option value="tresor">Férailles ou Trésors</option>
             </select>
-            <br />
-            <br>
-            <p>
-                joindre une ou plusieurs photos :<br />
-                <input type="file" name="picture" accept="image/png, image/jpeg" required="" />
-            </p>  
-            <br />    
-            <p>
-                Ajouter un prix :<br />
-                <input type="number" name="prix" value="" required="" />
-            </p>
-            <br />
-            <p>
-                Ajouter un prix d'achat immédiat:<br />
-                <input type="number" name="immediat" value="" required="" />
-            </p>
-            <br />
-            <p>
-                Date de fin d'enchère:<br />
-                <input type="date" name="finD" value="" required="" />
+            </div>
+            
+            <div class="row">
+               <label class="col-sm-3 col-form-label">Joindre une première photo: </label> 
+               <div class="col-sm-6">
+                <input type="file" name="picture1" accept="image/png, image/jpeg" required="" />
+                <small class="form-text text-muted align-center">(obligatoire)</small>
+            </div>    
+            </div>
+            <div class="row">
+               <label class="col-sm-3 col-form-label">Joindre une deuxième photo: </label> 
+               <div class="col-sm-6">
+               <input type="file" name="picture2" accept="image/png, image/jpeg"  />
+            </div>    
+            </div>
+            <div class="row">
+               <label class="col-sm-3 col-form-label">Joindre une troisième photo: </label> 
+               <div class="col-sm-6">
+                <input type="file" name="picture3" accept="image/png, image/jpeg" />
+            </div>    
+            </div>
+            <div class="row">
+               <label class="col-sm-3 col-form-label">Joindre une vidéo: </label> 
+               <div class="col-sm-6">
+              <input type="file" name="video"/>
+            </div>    
+            </div>
+               
+                
+            <div class="row">
+             <label class="col-sm-2 col-form-label"> Ajouter un prix : </label> 
+             <div class="col-sm-4">
+              <input type="number" name="prix" value="" required="" />
+              <small class="form-text text-muted align-center">(obligatoire)</small>
+            </div>
+            <label class="col-sm-2 col-form-label"> Ajouter un prix d'achat immédiat:</label> 
+             <div class="col-sm-4">
+               <input type="number" name="immediat" value="" required="" />
+               <small class="form-text text-muted align-center">(obligatoire)</small>
+            </div>    
+            </div> 
+
+            <div class="row">
+            <label class="col-sm-2 col-form-label"> Date de fin d'enchère:</label> 
+             <div class="col-sm-4">
+               <input type="date" name="finD" value="" required="" />
                 <input type="time" name="finH" value="" required="" />
-            </p>
-            <br />
-
-            <td colspan="2" align="center"> <input type="submit" value="Valider"  /></td>  
-
-
+               <small class="form-text text-muted align-center">(obligatoire)</small>
+            </div> 
+            </div>    
+            <td colspan="2" align="center"> <input type="submit" value="Valider" class="btn btn-primary mb-2" /></td>  
         </form>
-        <button onclick="location.href='http://pool/Vendeur.php'" type="button">Retour</button>
+        <br>
+        <br>
+        
+        <button onclick="location.href='http://pool/Vendeur.php'" type="button" class="btn btn-secondary"> Retour</button>
        
         
         <div class="col-sm-3"></div>

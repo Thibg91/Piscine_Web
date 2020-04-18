@@ -12,7 +12,7 @@ if($result = mysqli_query($db, $sql)){
         echo "<td>$email</td>"; // email
         echo "<td>$prenom</td>"; // prenom
         echo "<td>$nom</td>"; // nom
-        echo "<td><button onclick=\"location.href='http://pool/ajouter_vendeur.php?email=$email'\" type=\"button\">Ajouter</button></td>"; // supprimer ligne jQuery
+        echo "<td><button onclick=\"location.href='http://pool/ajouter_vendeur.php?email=$email'\" class=\"btn btn-primary\" type=\"button\">Ajouter</button></td>"; // supprimer ligne jQuery
         echo "</tr>"; // fin de la ligne
     }
 }

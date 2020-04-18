@@ -78,8 +78,24 @@
              <div class="bigwhiteblock"></div>
             </div>
              <div class="col-md-2">
-                <?php $prixFinal = $_SESSION['prixFinal']; echo 'Prix Final= '.$prixFinal.' et nombre item= '.$nbItem; if(isset($_SESSION['email'])){if(isset($_SESSION['panier'])){ ?>
-                <button onclick="location.href='http://pool/livraison.php'" type="button">Acceder au paiement</button>
+                <?php $prixFinal = $_SESSION['prixFinal'];?> 
+                <table class="table table-dark">
+                  <thead>
+                    <tr>
+                      <th scope="col">Prix Final:</th>
+                      <th scope="col"><?php echo $prixFinal ?></th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="col">nombre item:</th>
+                  <td><?php echo $nbItem ?></td>
+              </tr>
+          </tbody>
+      </table>
+
+                <?php if(isset($_SESSION['email'])){if(isset($_SESSION['panier'])){ ?>
+                <button onclick="location.href='http://pool/livraison.php'" type="button" class="btn btn-primary">Acceder au paiement</button>
                 <?php } else { ?>
                 <button onclick="location.href='http://pool/Catégories.php'" type="button">Panier Vide</button>
                 <?php }} else {?>

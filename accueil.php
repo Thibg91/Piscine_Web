@@ -33,24 +33,31 @@
                     while ($row = $result->fetch_assoc()) {
                         $prix = $row["prix"];
                         $description = $row["descr"];
-                        $photo = $row["photo"];
+                        $photo1 = $row["photo1"];
                         $id = $row["nItem"];
+                        $titre = $row["titre"];
+
                 ?> 
-                <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4">   
-                        <div class="img-thumbnail">
-                            <a href="item.php?id=<?php echo $id; ?>">
-                                <img src=icone\\<?php echo $photo?> style="width: 50%;">  
-                                <div class="caption">
-                                    <p>Prix: <?php echo $prix?></p>
-                                    <p>Description: <?php echo $description?></p>  
-                                </div>  
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4"></div>
-                </div>
+
+                <div class="card mb-3 bg-dark text-white" style="max-width: 1000px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-3">
+
+                     <img  src=icone\\<?php echo $photo1?> style="width: 75%; " class="img-responsive center-block" alt="Image non disponible">
+                  </div>
+                  <div class="col-md-5">
+                      <div class="card-body">
+                         <h5 class="card-title"><?php echo $titre?></h5> 
+                         <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
+                         </div>
+                         </div>
+                         <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?></p></div> 
+                         <div class="col-md-2" ><br><br><a href="item.php?id=<?php echo $id; ?>" class="btn btn-primary">Aller voir l'item</a></div> 
+                    
+            </div>
+        </div>
+
+<br>
                 <br>
                 <?php } } ?>
            <div class="bigwhiteblock"></div>

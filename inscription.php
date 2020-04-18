@@ -15,21 +15,48 @@
    <div class="row">
    <div class="col-2 blueECEleft"> </div>
    <div class="col-8">
-        Inscription:<br>
-        <form method="post">
+        <h2><strong>Inscription:</strong></h2>
+        <br>
+        <form action="traitement_inscription.php" method="post" >
 
-            Prénom: <input type="text" name="prenom" id="prenom"><br>
-            Nom: <input type="text" name="nom" id="nom"><br>
-            Email: <input type="email" name="email" id="email"><br>
-            Password: <input type="password" name="password" id="password"><br>
-            Confirmation Password: <input type="password" name="confirmationPassword" id="confirmationPassword"><br>
-            <input type="submit" value="Incription" name="formsend" id="formsend" />
 
-            <?php include 'traitement_inscription.php';?>
+          <div class="form-row">
+      <div class="form-group col-md-6">
+       <label>Prénom:</label>
+       <input type="text" class="form-control" name="prenom" id="prenom">
+      </div>
+    <div class="form-group col-md-6">
+      <label>Nom:</label>
+      <input type="text" class="form-control" name="nom" id="nom">
+    </div>s
+    </div>
+
+         <div class="form-group">
+    <label>Email: </label>
+   <input type="email" class="form-control" name="email" id="email">
+  </div>
+
+       <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Password: </label>
+      <input type="password" class="form-control"name="password" id="password">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Confirmation Password:</label>
+      <input type="password" class="form-control" name="confirmationPassword" id="confirmationPassword">
+    </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-10"></div>
+    <div class="form-group col-md-2"> <td colspan="2" align="center"> <input type="submit" value="Valider" class="btn btn-primary mb-2" /></td></div>
+    </div>
+ 
+           
         </form>
-
-        Déjà inscrit? Connectez-vous en  <a href="#"  id="a-connexion" data-toggle="modal" data-target="#popupModal">cliquant ici.</a>
+  <button onclick="location.href='http://pool/accueil.php'" type="button" class="btn btn-secondary"> Retour </button>
  <div class="bigwhiteblock"></div>
+
   </div>
  <div class="col-2 blueECEright">  </div>
 </div>
