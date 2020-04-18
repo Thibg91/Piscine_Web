@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 if(isset($_POST['paiement'])){
@@ -32,9 +33,34 @@ if(isset($_POST['paiement'])){
                 echo 'Il n\'y a pas de compte associé à l\'adresse'.$email;
             }
 
-        }
+        } 
+        include("traitement_SQL.php");
+        global $db;
+        $email = $_SESSION['email'];
+        for ($j = 0; $j <= strlen($_SESSION['panier']); $j=$j+7){
+            $id = substr($_SESSION['panier'],$j,7);
+            $sql = "SELECT * FROM items WHERE nItem='$id'";
+            if($result = mysqli_query($db, $sql)){
+                while ($row = $result->fetch_assoc()) {
+                    $vendeur = $row['emailVendeur'];
+                    $titre = $row['titre'];
+                    $prix = $row['AchatImmediat'];
+                    $type = 'achatImmediat';
+                    $nItem = $row['nItem'];
+                    $adresseL1 = $_SESSION['Newadresse1'];
+                    $adresseL2 = $_SESSION['Newadresse2'];
+                    $ville = $_SESSION['Newville'];
+                    $poste = $_SESSION['NewcodePostal'];
+                    $pays = $_SESSION['Newpays'];
+                    $tel = $_SESSION['Newtel'];
+                    $sql2 = "INSERT INTO commande(EmailAcheteur, EmailVendeur, Titre, Prix, TypeAchat, AdresseL1, AdresseL2, Ville, CodePostal, Pays, Telephone, NumeroCarte, nItem, PrixPropose) VALUES ('$email', '$vendeur', '$titre', '$prix', '$type', '$adresseL1', '$adresseL2', '$ville', '$poste', '$pays','$tel', '$numCarte', '$nItem', '')";
+                    if ($res = mysqli_query($db, $sql2)){
+                        }
+                    }
+                }
+            }
         header('Location: http://pool/merciAchat.php');
-        exit(); 
+        exit();
     }
     else {
         header('Location: http://pool/paiement.php?erreur='.$erreur.'');

@@ -29,6 +29,7 @@
                 $photo = $row["photo"];
                 $now = $row['achatM'];
                 $enchere = $row['enchere'];
+                $nego = $row['meilleureO'];
         ?> 
         <div class="row">
             <div class="col-md-4"></div>
@@ -43,6 +44,8 @@
                     <button onclick="location.href='http://pool/Panier.php?id=<?php echo $id; ?>'" type="button">Ajouter au Panier</button>
                     <?php } if ($enchere == 'oui'){ ?>
                     <button onclick="location.href='http://pool/enchere.php?id=<?php echo $id; ?>'" type="button">Enchérir</button>
+                    <?php } if ($nego == 'oui'){ ?>
+                    <button onclick="location.href='http://pool/nego.php?id=<?php echo $id; ?>'" type="button">Négocier</button>
                     <?php } ?>
                 </div>
             </div>

@@ -62,7 +62,6 @@
     </div> 
    <div class="col-2 blueECEright">  </div>
  </div>
-</div>
     </body>
 </html>
 
