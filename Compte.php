@@ -22,6 +22,7 @@
                 <div class="col-2 blueECEleft" ;> </div>
                 <div class="col-8"> 
                     <?php if(isset($_SESSION['email'])) { ?>
+
                     <h2><strong>Vos Informations</strong></h2>
                        <table class="table table-dark table-borderless">
                           <thead>
@@ -78,6 +79,7 @@
                   <br>
                   <h3>Mon historique d'achat</h3>
                   <table class="table table-dark">  
+
                         <thead>     
                             <tr>  
                                 <th>N° de commande</th> 
@@ -167,6 +169,7 @@
 
 
                                                             <?php  }else {echo "Vous n'êtes pas connecté";} ?> 
+
 
                                                         </table> 
                                                         <div class="bigwhiteblock"></div>

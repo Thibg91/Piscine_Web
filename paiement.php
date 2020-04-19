@@ -26,6 +26,7 @@
                     <?php if (isset($_GET['erreur'])){$erreur = $_GET['erreur']; echo $erreur.'<br>';} ?>
 
 
+
 <div class="form-group row">
     <label class="col-sm-3 col-form-label"><strong>Type de carte:</strong>  </label>
  <select name="type" class="browser-default custom-select col-sm-6">
@@ -37,10 +38,34 @@
 
 
 <div class="form-group row">
-   <label class="col-sm-3 col-form-label"><strong>Numéro de carte: </strong> </label>
-   <div class="col-sm-6">
-   <input type="number" class="form-control" name="numCarte" value="<?= $_SESSION['numCarte']; ?>" required>
-   </div>
+    <p> Type de carte: <select name="type">
+                        <option value="visa">Visa</option>
+                        <option value="master">Master Card</option>
+                        <option value="amex">American Express</option>
+                        </select> </p> 
+                    <p> Numéro de carte: <input type="number" name="numCarte" value="<?= $_SESSION['numCarte']; ?>"> </p>
+                    <p> Date d'expiration: <select name="mois">
+                            <option value="01">Janvier</option>
+                            <option value="02">Février</option>
+                            <option value="03">Mars</option>
+                            <option value="04">Avril</option>
+                            <option value="05">Mai</option>
+                            <option value="06">Juin</option>
+                            <option value="07">Juillet</option>
+                            <option value="08">Août</option>
+                            <option value="09">Septembre</option>
+                            <option value="10">Octobre</option>
+                            <option value="11">Novembre</option>
+                            <option value="12">Décembre</option>
+                            </select> 
+                            <select name="annee">
+                                <option value="20">2020</option>
+                                <option value="21">2021</option>
+                                <option value="22">2022</option>
+                                <option value="23">2023</option>
+                                <option value="24">2024</option>
+                                <option value="25">2025</option>
+                            </select>
  </div>
 
 <div class="form-group row">
@@ -81,6 +106,7 @@
 <div class="col-2 blueECEright">  </div>
 </div>
 </section>
+
 
         </div>
 

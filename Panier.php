@@ -54,10 +54,12 @@
                         $sql = "SELECT * FROM items WHERE nItem='$id'";
                         if($result = mysqli_query($db, $sql)){
                             while ($row = $result->fetch_assoc()) {
-                                $prix = $row["prix"];
+                                $prix = $row["AchatImmediat"];
                                 $description = $row["descr"];
+
                                 $photo1 = $row["photo1"];
                                 $titre = $row["titre"];
+
 
                                 $nbItem++;
                                 $_SESSION['prixFinal'] = $_SESSION['prixFinal'] + $prix;

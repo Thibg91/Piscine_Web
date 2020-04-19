@@ -24,7 +24,7 @@
                                 <th>ID Objet</th> 
                                 <th>Titre</th>   
                                 <th>Prix</th>   
-                                <th>Email de l'acheteur</th> 
+                                <th>Photo</th> 
                             </tr> 
                         </thead>   
                         <tbody> 
@@ -35,25 +35,24 @@
                             date_default_timezone_set('Europe/Paris');
                             $date = date('y-m-d');
                             $heure = date('h:i:s');
-                            $sql = "SELECT * FROM commande WHERE EmailVendeur='$email' AND TypeAchat='enchere'";
-                            //AND (dateF>'$date' OR dateF='$date' AND dateH<'$heure') ";
+                            $sql = "SELECT * FROM items WHERE emailVendeur='$email'";
                             if($result = mysqli_query($db, $sql)){
                                 while ($row = $result->fetch_assoc()) {
                                     $id = $row["nItem"];
-                                    $email = $row["EmailAcheteur"];
-                                    $titre = $row["Titre"];
-                                    $prix = $row["Prix"];
+                                    $titre = $row["titre"];
+                                    $prix = $row["prix"];
+                                    $photo = $row["photo1"];
                                     //$photo = $row["photo"];
                                     echo "<tr>"; // début de ligne
                                     echo "<td>$id</td>"; // email
                                     echo "<td>$titre</td>"; // prenom
                                     //echo "<td>$photo</td>"; // nom
                                     echo "<td>$prix</td>"; // prenom
-                                    echo "<td>$email</td>"; // supprimer ligne jQuery
-                                    echo "</tr>"; // fin de la ligne
+                                    echo "<td><img src=icone\\$photo  width=\"75\"  height=\"75\"></td>";
+                                    echo "</tr>"; // fin de la ligne 
                                 }
                             }
-                            ?> 
+                            ?>
                         </tbody>  
                     </table>
                     <table class="table">  

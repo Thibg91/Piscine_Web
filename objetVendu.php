@@ -35,7 +35,7 @@
                             date_default_timezone_set('Europe/Paris');
                             $date = date('y-m-d');
                             $heure = date('h:i:s');
-                            $sql = "SELECT * FROM commande WHERE EmailVendeur='$email' AND TypeAchat='enchere'";
+                            $sql = "SELECT * FROM commande WHERE EmailVendeur='$email' AND TypeAchat='enchere' OR TypeAchat='achatImmediat'";
                             //AND (dateF>'$date' OR dateF='$date' AND dateH<'$heure') ";
                             if($result = mysqli_query($db, $sql)){
                                 while ($row = $result->fetch_assoc()) {
@@ -73,7 +73,7 @@
                             date_default_timezone_set('Europe/Paris');
                             $date = date('y-m-d');
                             $heure = date('h:i:s');
-                            $sql = "SELECT * FROM commande WHERE EmailVendeur='$email' AND TypeAchat='negoOK'";
+                            $sql = "SELECT * FROM commande WHERE EmailVendeur='$email' AND TypeAchat='nego_paye'";
                             //AND (dateF>'$date' OR dateF='$date' AND dateH<'$heure') ";
                             if($result = mysqli_query($db, $sql)){
                                 while ($row = $result->fetch_assoc()) {

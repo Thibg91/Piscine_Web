@@ -12,15 +12,16 @@ if(isset($_POST['paiement'])){
     if (strlen($code) != 3 && strlen($code) != 4){
         $erreur .= '<br>Erreur sur le code de votre carte.';
     }
-    if (strlen($dateCarte) != 4 && ((substr($dateCarte,0,2) > date('m') && substr($dateCarte,0,2) < 12 && substr($dateCarte,2,2) == date('y')) ||( substr($dateCarte,2,2) > date('y') && substr($dateCarte,0,2) < 12 ))){
+    if ($annee == date('y') && $mois < date('m')){
         $erreur .= '<br>Erreur sur la date de votre carte.';
     }
     if ($erreur == ''){
         if(isset($sauvegarder)) {
             include("traitement_SQL.php");
             global $db;
+            $mois .= $annee;
             $email = $_SESSION['email'];
-            $sql = "UPDATE inscription SET TypeCarte='$type', numCarte='$numCarte', NomCarte='$nomCarte', DateExpiration='$dateCarte', CodeSecurite='$code' WHERE Email='$email'";
+            $sql = "UPDATE inscription SET TypeCarte='$type', numCarte='$numCarte', NomCarte='$nomCarte', DateExpiration='$mois', CodeSecurite='$code' WHERE Email='$email'";
 
             if($result = mysqli_query($db, $sql)){
                 $_SESSION['type'] = $type;

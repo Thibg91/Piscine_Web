@@ -25,10 +25,13 @@
    <div class="col-2 blueECEleft" ;> </div>
    <div class="col-8"> 
                 <h2> Tous les items</h2>
+                <?php include('paiement_auto.php');?>
                 <?php 
                 include("traitement_SQL.php");
                 global $db;
-                $sql = "SELECT * FROM items ORDER BY dateF DESC";
+                $date=date('y-m-d');
+                $heure = date('h:i:s');
+                $sql = "SELECT * FROM items WHERE dateF>'$date' OR (dateF='$date' AND dateH >'$heure') ORDER BY dateF ASC";
                 if($result = mysqli_query($db, $sql)){
                     while ($row = $result->fetch_assoc()) {
                         $prix = $row["prix"];

@@ -32,8 +32,8 @@ global $db;
 $email = $_SESSION['email'];
 if (($db)&&($go == 'lets go')) {  
     $sql = "INSERT INTO Items(enchere, meilleureO, AchatM, titre, descr, photo1, photo2, photo3, video, prix, AchatImmediat, dateF, dateH, Categorie, emailAcheteur, emailVendeur) VALUES('$enchere', '$MeilleureO', '$AchatM', '$titre', '$descr','$photo1','$photo2','$photo3','$video', '$prix', '$immediat', '$dateF', '$dateH', '$cat','','$email')";    
-
     if ($result = mysqli_query($db, $sql)){    
+        echo 'test';
         header('Location: http://pool/vendeur.php');
         exit(); 
     }
