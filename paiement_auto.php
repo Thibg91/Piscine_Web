@@ -15,7 +15,6 @@ mysqli_query($db, $sql3);
 
 $sql4 = "SELECT * FROM commande WHERE TypeAchat='achatImmediat'";
 if ($res = mysqli_query($db, $sql4)){
-    echo 'test';
     while ($rows = $res->fetch_assoc()) {
         $nItem = $rows['nItem'];
         $sql5 = "DELETE FROM items WHERE nItem='$nItem'";
@@ -24,17 +23,19 @@ if ($res = mysqli_query($db, $sql4)){
         mysqli_query($db, $sql6);
     }
 }
-
-$sql7 = "SELECT *, MAX(Prix) FROM commande WHERE TypeAchat='enchere' AND (dateF<'$date' OR (dateF='$date' AND dateH <'$heure'))";
-if ($r = mysqli_query($db, $sql7)){
-    echo 'test';
-    while ($ro = $r->fetch_assoc()) {
-        $nItem = $ro['nItem'];
-        $prixMax = $ro['Prix'];
-        $sql8 = "DELETE FROM items WHERE nItem='$nItem'";
-        mysqli_query($db, $sql8);
-        $sql9 = "DELETE FROM commande WHERE nItem='$nItem' AND Prix!='$prixMax'";
-        mysqli_query($db, $sql9);
+$sql7 = "SELECT * FROM commande WHERE TypeAchat='enchere' AND DateF<'$date'";
+if ($ress = mysqli_query($db, $sql7)){
+    while ($rowss = $ress->fetch_assoc()) {
+        $id = $rowss['nItem'];
+        $sql8 = "SELECT MAX(Prix) as max FROM commande WHERE nItem='$id'";
+        if ($r = mysqli_query($db, $sql8)){
+            $ro = $r->fetch_assoc();
+            $prix=$ro['max'];
+            $sql9 = "DELETE FROM commande WHERE nItem='$id' AND Prix!='$prix'";
+            mysqli_query($db, $sql9);
+            $sql10 = "UPDATE commande SET TypeAchat='enchere_paye' WHERE nItem='$id'";
+            mysqli_query($db, $sql10);
+        }
     }
 }
 
