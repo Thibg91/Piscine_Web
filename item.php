@@ -29,6 +29,7 @@
             if($result = mysqli_query($db, $sql)){
                 while ($row = $result->fetch_assoc()) {
                     $prix = $row["prix"];
+                    $prixIm = $row["AchatImmediat"];
                     $description = $row["descr"];
                     $photo1 = $row["photo1"];
                     $photo2 = $row["photo2"];
@@ -38,6 +39,8 @@
                     $titre = $row['titre'];
                     $enchere = $row['enchere'];
                     $nego = $row['meilleureO'];
+                    $dateF = $row['dateF'];
+                    $dateH = $row['dateH'];
                     ?> 
                     <div class="row">
                      <div class="card mb-4 bg-dark text-white w-100 h-10" style="max-width: 1000px max-height: 450px ;">
@@ -65,7 +68,7 @@
                             <?php } ?>
                             </div>
                         </div>
-                        <?php if(($photo2 != '')&&($photo3 != '')&&($video != '')) { ?>
+                        
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
@@ -74,7 +77,6 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
-                    <?php }?>
                     </div>
                     
                     <div class="col-md-5">
@@ -83,7 +85,12 @@
                        <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
                    </div>
                </div>
-               <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?> € </p></div> 
+               <div class="col-md-2" >
+                <p class="card-text"><br><br><strong>Prix immédiat:</strong>  <?php echo $prixIm?> € </p>
+                <p class="card-text"><strong>Prix:</strong>  <?php echo $prix?> € </p>
+                <p class="card-text"><strong>Date:</strong>  <?php echo $dateF?> à <?php echo $dateH?> </p>
+                
+              </div> 
                <div class="col-md-2" > 
                
                 <button onclick="location.href='http://pool/Panier.php?id=<?php echo $id; ?>'" type="button" class="btn btn-info" <?php if ($now == ''){echo("disabled"); } ?> >Ajouter au Panier</button>

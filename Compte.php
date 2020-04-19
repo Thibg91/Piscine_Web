@@ -149,6 +149,24 @@
                                                                        $photo = $row["Photo"];
                                                                        $date = $row["DateF"];
                                                                        $id = $row["nItem"];
+                                                                      
+                                                                        $date = date('y-m-d');
+                                                                        $sql1 = "SELECT * FROM commande WHERE TypeAchat='enchere' AND DateF < '$date'";
+                                                                        if($ressultat1 = mysqli_query($db,$sql1))
+                                                                        {
+                                                                          while ($rows1 = $ressultat1->fetch_assoc()) {
+                                                                            $id1 = $rows1['nItem'];
+                                                                            $sql2 = "SELECT MAX(PrixPropose) as max FROM commande WHERE nItem= '$id1'";
+                                                                            if($ressultat2= mysqli_query($db,$sql2)){
+                                                                              $rows2 = $ressultat2-> fetch_assoc();
+                                                                              $prixTemp = $rows2['max'];
+                                                                            }
+
+                                                                          }
+                                                                        }
+                                                                       
+                                                                        if($prixTemp == $prix) {$bool = 'oui';} else { $bool = 'non';};
+                                                                       
 
                                                                        ?>          
                                                                        <tbody> 
@@ -159,16 +177,12 @@
                                                                             <td><?php echo $descr?> </td>   
                                                                             <td><?php echo $prix?></td> 
                                                                             <td><?php echo $date?></td>
-                                                                            <td>ATTENTION</td>
+                                                                            <td><?php echo $bool?></td>
                                                                             <td><a href="item.php?id=<?php echo $id; ?>">aller voir</a></td>
                                                                         </tr>   
                                                                     </tbody>  
                                                                 <?php  }} ?>
-
-
-
-
-                                                            <?php  }else {echo "Vous n'êtes pas connecté";} ?> 
+                                                                 <?php  }else {echo "Vous n'êtes pas connecté";} ?> 
 
 
                                                         </table> 

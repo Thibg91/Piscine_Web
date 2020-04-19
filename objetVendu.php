@@ -18,7 +18,8 @@
             <div class="row">
                 <div class="col-2 blueECEleft" > </div>
                 <div class="col-8"> 
-                    <table class="table">  
+                    <h2> <strong> Mes articles vendus (achats immédiats et enchères) </strong>  </h2>
+                    <table class="table table-dark">  
                         <thead>     
                             <tr>   
                                 <th>ID Objet</th> 
@@ -56,7 +57,8 @@
                             ?> 
                         </tbody>  
                     </table>
-                    <table class="table">  
+                    <h2> <strong> Mes articles vendus (négociations) </strong>  </h2>
+                    <table class="table table-dark">  
                         <thead>     
                             <tr>   
                                 <th>ID Objet</th> 
@@ -95,7 +97,7 @@
                             ?> 
                         </tbody>  
                     </table>
-                    <button onclick="location.href='http://pool/Vendeur.php'" type="button">Retour</button>
+                    <button onclick="location.href='http://pool/Vendeur.php'" type="button" class="btn btn-secondary">Retour</button>
                     <div class="bigwhiteblock"></div>
                 </div>
 

@@ -136,7 +136,7 @@
     <p>Vous n'êtes pas connecté, veuillez vous identifier et faire une demande si vous ne possedez pas de compte vendeur</p>
     <a href="#"  id="a-connexion" data-toggle="modal" data-target="#popupModal">Connexion</a>
     <br>
-    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+    <button onclick="location.href='http://pool/accueil.php'" type="button" class="btn btn-secondary">retour</button>
     <?php } ?>
         <div class="bigwhiteblock"></div>
         </div>

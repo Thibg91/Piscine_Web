@@ -8,7 +8,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> 
  </head>
 <body>
-  <?php if(isset($_SESSION['email'])) { 
+  <?php if(isset($_SESSION['photoBack'])) { 
     include("traitement_SQL.php");
                 $email = $_SESSION['email'];
    $sqlx = "SELECT * FROM inscription WHERE Email='$email'";
@@ -36,7 +36,7 @@ background-image:url(icone\\<?php echo $photoBackx?>);
 
 
 <?php 
-if(isset($_SESSION['photoBack']))
+if(isset($_SESSION['photoBack'])&&($_SESSION['photoBack'] != ''))
 { 
  $banniere = "backgroundmaj"; 
  }else { $banniere = "backgrounde";} 
@@ -47,7 +47,7 @@ if(isset($_SESSION['photoBack']))
    
  <ul> 
 
-   <?php if(isset($_SESSION['email'])) 
+   <?php if(isset($_SESSION['photoID'])&&($_SESSION['photoID'] != '')) 
 {?> <li> <a href="Compte.php"> <img src=icone\\<?php echo $photoIDx?> width="30" height="30"> <FONT size="3"> Mon Compte </FONT></a> </li>
 <?php }else {?> <li><a href="Compte.php"><svg class="bi bi-person-lines-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 100-6 3 3 0 000 6zm7 1.5a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5zm-2-3a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5zm0-3a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5zm2 9a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>

@@ -41,10 +41,10 @@
     <?php }else if ($_SESSION['admin'] == 'non'){ 
     ?>
     <p>Vous n'avez pas les droits d'Admin.</p>
-    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+    <button onclick="location.href='http://pool/accueil.php'" type="button" class="btn btn-secondary">retour</button>
     <?php } }else { ?>
     <p>Vous n'avez pas les droits d'Admin.</p>
-    <button onclick="location.href='http://pool/accueil.php'" type="button">retour</button>
+    <button onclick="location.href='http://pool/accueil.php'" type="button" class="btn btn-secondary">retour</button>
     <?php } ?>
 
     <div class="bigwhiteblock"></div>
