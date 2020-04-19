@@ -33,7 +33,7 @@
                     <p> N° de Téléphone: 0<?= $_SESSION['tel']; ?> </p>
                     <p> Type de carte: <?= $_SESSION['type']; ?> 
                     <p> Numéro de carte: <?= $_SESSION['numCarte']; ?> </p>
-                    <p> Date d'expiration: <?= $_SESSION['dateCarte']; ?></p>
+                    <p> Date d'expiration: <?php echo substr($_SESSION['dateCarte'],0,2).'/'.substr($_SESSION['dateCarte'],2,2); ?></p>
                     <p> Code de sécurité: <?= $_SESSION['code']; ?> </p>
                     <p> Nom sur la carte: <?php echo $_SESSION['nomCarte']; ?> </p>
                     <a href="modification_compte.php">Modifier vos informations</a>
@@ -129,18 +129,19 @@
                             <?php  }else {echo "Vous n'êtes pas connecté";} ?> 
 
                         </table> 
-                        <div class="bigwhiteblock"></div>
-                        </div>
-                    <div class="col-2 blueECEright">  </div>
+                    </table>
+                    <div class="bigwhiteblock"></div>
                 </div>
-                </section>
-            <div class="row">
-                <div class="col-2 blueECEleft">  </div> 
-                <div class="col-8 footer">  
-                    <?php include("footer.html"); ?> 
-                </div> 
                 <div class="col-2 blueECEright">  </div>
             </div>
-            </body>
+        </section>
+        <div class="row">
+            <div class="col-2 blueECEleft">  </div> 
+            <div class="col-8 footer">  
+                <?php include("footer.html"); ?> 
+            </div> 
+            <div class="col-2 blueECEright">  </div>
+        </div>
+    </body>
 
-        </html>
+</html>

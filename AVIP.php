@@ -42,20 +42,22 @@
                     global $db;
                     $nom='vip';
                     $sql = '';
+                    $date=date('y-m-d');
+                    $heure = date('h:i:s');
                     if(isset($_POST['mode'])){
                         extract($_POST);
                         if ($mode=='achat'){
-                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND achatM='oui'  ORDER BY dateF DESC";
+                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND achatM='oui' AND (dateF>'$date' OR (dateF='$date' AND dateH >'$heure')) ORDER BY dateF ASC";
                         }
                         if ($mode=='offre'){
-                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND meilleureO='oui'  ORDER BY dateF DESC";
+                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND meilleureO='oui' AND (dateF>'$date' OR (dateF='$date' AND dateH >'$heure')) ORDER BY dateF ASC";
                         }
                         if ($mode=='enchere'){
-                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND enchere='oui'  ORDER BY dateF DESC";
+                            $sql .= "SELECT * FROM items WHERE Categorie='$nom' AND enchere='oui' AND (dateF>'$date' OR (dateF='$date' AND dateH >'$heure')) ORDER BY dateF ASC";
                         }
                     }
                     else {
-                        $sql = "SELECT * FROM items WHERE Categorie='$nom' ORDER BY dateF DESC";
+                        $sql = "SELECT * FROM items WHERE Categorie='$nom' AND (dateF>'$date' OR (dateF='$date' AND dateH >'$heure')) ORDER BY dateF ASC";
                     }
                     if($result = mysqli_query($db, $sql)){
                         while ($row = $result->fetch_assoc()) {

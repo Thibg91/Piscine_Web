@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 if(isset($_POST['livraison'])){
@@ -15,7 +16,7 @@ if(isset($_POST['livraison'])){
     if (strlen($code) != 3 && strlen($code) != 4){
         $erreur .= '<br>Erreur sur le code de votre carte.';
     }
-    if (strlen($dateCarte) != 4 && ((substr($dateCarte,0,2) > date('m') && substr($dateCarte,0,2) < 12 && substr($dateCarte,2,2) == date('y')) ||( substr($dateCarte,2,2) > date('y') && substr($dateCarte,0,2) < 12 ))){
+    if ($annee == date('y') && $mois < date('m')){
         $erreur .= '<br>Erreur sur la date de votre carte.';
     }
     if (strlen($tel) != 10 && substr($tel,0,1) != 0){
@@ -25,8 +26,9 @@ if(isset($_POST['livraison'])){
         $erreur .= '<br>Erreur sur le code postal.';
     }
     if ($erreur == ''){
+        $mois .= $annee;
         $email = $_SESSION['email'];
-        $sql = "UPDATE inscription SET AdresseL1='$adresseL1', AdresseL2='$adresseL2', Ville='$ville', Pays='$pays', Telephone='$tel', CodePostal='$poste', TypeCarte='$type', numCarte='$numCarte', DateExpiration='$dateCarte', CodeSecurite='$code', NomCarte='$nomCarte' WHERE Email='$email'";
+        $sql = "UPDATE inscription SET AdresseL1='$adresseL1', AdresseL2='$adresseL2', Ville='$ville', Pays='$pays', Telephone='$tel', CodePostal='$poste', TypeCarte='$type', numCarte='$numCarte', DateExpiration='$mois', CodeSecurite='$code', NomCarte='$nomCarte' WHERE Email='$email'";
 
         if(mysqli_query($db, $sql)){
             echo 'ok';

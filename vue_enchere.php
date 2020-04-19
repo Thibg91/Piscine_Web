@@ -40,12 +40,14 @@
                     <?php 
                     include("traitement_SQL.php");
                     global $db;
+                    $date=date('y-m-d');
+                    $heure = date('h:i:s');
                     if(isset($_POST['submit'])){
                         extract($_POST);
-                            $sql = "SELECT * FROM items WHERE Categorie='$cat' AND enchere='oui'  ORDER BY dateF DESC";
+                        $sql = "SELECT * FROM items WHERE Categorie='$cat' AND enchere='oui' AND (dateF>'$date' OR (dateF='$date' AND dateH >'$heure')) ORDER BY dateF ASC";
                     }
                     else {
-                        $sql = "SELECT * FROM items WHERE enchere='oui' ORDER BY dateF DESC";
+                        $sql = "SELECT * FROM items WHERE enchere='oui' AND (dateF>'$date' OR (dateF='$date' AND dateH >'$heure')) ORDER BY dateF ASC";
                     }
                     if($result = mysqli_query($db, $sql)){
                         while ($row = $result->fetch_assoc()) {

@@ -54,7 +54,7 @@
                         $sql = "SELECT * FROM items WHERE nItem='$id'";
                         if($result = mysqli_query($db, $sql)){
                             while ($row = $result->fetch_assoc()) {
-                                $prix = $row["prix"];
+                                $prix = $row["AchatImmediat"];
                                 $description = $row["descr"];
                                 $photo = $row["photo"];
                                 $nbItem++;

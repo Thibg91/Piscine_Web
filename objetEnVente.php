@@ -36,7 +36,6 @@
                             $date = date('y-m-d');
                             $heure = date('h:i:s');
                             $sql = "SELECT * FROM commande WHERE EmailVendeur='$email' AND TypeAchat='enchere'";
-                            //AND (dateF>'$date' OR dateF='$date' AND dateH<'$heure') ";
                             if($result = mysqli_query($db, $sql)){
                                 while ($row = $result->fetch_assoc()) {
                                     $id = $row["nItem"];
@@ -53,7 +52,24 @@
                                     echo "</tr>"; // fin de la ligne
                                 }
                             }
-                            ?> 
+                            $sql = "SELECT * FROM items WHERE emailVendeur='$email' AND achatM='oui'";
+                            if($result = mysqli_query($db, $sql)){
+                                while ($row = $result->fetch_assoc()) {
+                                    $id = $row["nItem"];
+                                    $email = $row["emailAcheteur"];
+                                    $titre = $row["titre"];
+                                    $prix = $row["AchatImmediat"];
+                                    //$photo = $row["photo"];
+                                    echo "<tr>"; // début de ligne
+                                    echo "<td>$id</td>"; // email
+                                    echo "<td>$titre</td>"; // prenom
+                                    //echo "<td>$photo</td>"; // nom
+                                    echo "<td>$prix</td>"; // prenom
+                                    echo "<td>$email</td>"; // supprimer ligne jQuery
+                                    echo "</tr>"; // fin de la ligne
+                                }
+                            }
+                            ?>
                         </tbody>  
                     </table>
                     <table class="table">  
