@@ -43,19 +43,19 @@
                   <div class="row no-gutters">
                     <div class="col-md-3">
 
-                     <img  src=icone\\<?php echo $photo1?> style="width: 75%; " class="img-responsive center-block" alt="Image non disponible">
-                  </div>
-                  <div class="col-md-5">
+                       <img  src=icone\\<?php echo $photo1?> style="width: 75%; " class="img-responsive center-block" alt="Image non disponible">
+                   </div>
+                   <div class="col-md-5">
                       <div class="card-body">
-                         <h5 class="card-title"><?php echo $titre?></h5> 
-                         <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
-                         </div>
-                         </div>
-                         <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?></p></div> 
-                         <div class="col-md-2" ><br><br><a href="item.php?id=<?php echo $id; ?>" class="btn btn-primary">Aller voir l'item</a></div> 
-                    
-            </div>
-        </div>
+                       <h5 class="card-title"><?php echo $titre?></h5> 
+                       <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
+                   </div>
+               </div>
+               <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?></p></div> 
+               <div class="col-md-2" ><br><br><a href="item.php?id=<?php echo $id; ?>" class="btn btn-info">Aller voir l'item</a></div> 
+
+           </div>
+       </div>
 
 <br>
                 <br>

@@ -21,28 +21,112 @@
                 <div class="col-2 blueECEleft"> </div>
                 <div class="col-8">
 
-                    <form  action="traitement_livraison.php" method="post">
-                        <h2> Mon compte </h2>
-                        <h3>Mes informations personnelles</h3>
-                        <?php if (isset($_GET['erreur'])){$erreur = $_GET['erreur']; echo $erreur.'<br>';} ?>
-                        <p> Prénom:<?=$_SESSION['prenom']; ?> </p> 
-                        <p> Adresse ligne 1: <input type="text" name="adresseL1" id="adresseL1" value="<?= $_SESSION['adresse1']; ?>"> </p> 
-                        <p> Adresse ligne 2: <input type="text" name="adresseL2" id="adresseL2" value="<?= $_SESSION['adresse2']; ?>"> </p>
-                        <p> Ville: <input type="text" name="ville" id="ville" value="<?= $_SESSION['ville']; ?>"> </p>
-                        <p> Code Postal: <input type="number" name="poste" id="poste" value="<?= $_SESSION['codePostal']; ?>"> </p>
-                        <p> Pays: <input type="text" name="pays" id="pays" value="<?= $_SESSION['pays']; ?>"> </p>
-                        <p> N° de léléphone: <input type="tel" name="tel" id="tel" value="0<?= $_SESSION['tel']; ?>"> </p>
-                        <p> Type de carte: <select name="type">
+ 
+
+                     <form action="traitement_livraison.php" method="post">    
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label"><strong>Prénom: </strong>  </label>
+    <label class="col-sm-6 col-form-label"><?=$_SESSION['prenom']; ?>  </label>
+ </div>
+
+ <div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>Adresse ligne 1:</strong> </label>
+   <div class="col-sm-6">
+     <input type="text" class="form-control" name="adresseL1" id="adresseL1" value="<?= $_SESSION['adresse1']; ?>" >
+   </div>
+ </div>
+
+ <div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>Adresse ligne 2: </strong> </label>
+   <div class="col-sm-6">
+    <input type="text" class="form-control" name="adresseL2" id="adresseL2" value="<?= $_SESSION['adresse2']; ?>" >
+   </div>
+ </div>
+
+ <div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>Ville:</strong>  </label>
+   <div class="col-sm-6">
+   <input type="text" class="form-control" name="ville" id="ville" value="<?= $_SESSION['ville']; ?>">
+   </div>
+ </div>
+             
+<div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>Code Postal:</strong>  </label>
+   <div class="col-sm-6">
+   <input type="number" class="form-control" name="poste" id="poste" value="<?= $_SESSION['codePostal']; ?>">
+   </div>
+ </div>
+
+ <div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>Pays:</strong>  </label>
+   <div class="col-sm-6">
+    <input type="text" class="form-control" name="pays" id="pays" value="<?= $_SESSION['pays']; ?>">
+   </div>
+ </div>
+
+  <div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>N° de téléléphone:</strong>  </label>
+   <div class="col-sm-6">
+    <input type="tel" class="form-control" name="tel" id="tel" value="0<?= $_SESSION['tel']; ?>">
+   </div>
+ </div> 
+
+ <div class="form-group row">
+    <label class="col-sm-3 col-form-label"><strong>Type de carte:</strong>  </label>
+ <select name="type" class="browser-default custom-select col-sm-6">
                             <option value="visa">Visa</option>
                             <option value="master">Master Card</option>
                             <option value="amex">American Express</option>
-                            </select> </p> 
-                        <p> Numéro de carte: <input type="number" name="numCarte" value="<?= $_SESSION['numCarte']; ?>"> </p>
-                        <p> Date d'expiration: <input type="number" name="dateCarte" value="<?= $_SESSION['dateCarte']; ?>"> </p>
-                        <p> Code de sécurité: <input type="number" name="code" value="<?= $_SESSION['code']; ?>"> </p>
-                        <p> Nom sur la carte: <input type="text" name="nomCarte" value="<?= $_SESSION['nomCarte']; ?>"> </p>
-                        <input type="submit" value="Enregistrer mes informations" name="livraison" />
-                    </form>
+                        </select>
+</div>
+
+
+<div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>Numéro de carte: </strong> </label>
+   <div class="col-sm-6">
+   <input type="number" class="form-control" name="numCarte" value="<?= $_SESSION['numCarte']; ?>">
+   </div>
+ </div>
+
+<div class="form-group row">
+   <label class="col-sm-3 col-form-label"> <strong>Date d'expiration:</strong> </label>
+   <div class="col-sm-6">
+   <input type="number" class="form-control" name="dateCarte" value="<?= $_SESSION['dateCarte']; ?>">
+   </div>
+ </div>
+
+ <div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>Code de sécurité:</strong> </label>
+   <div class="col-sm-6">
+   <input type="number" class="form-control" name="code" value="<?= $_SESSION['code']; ?>">
+   </div>
+ </div>
+
+  <div class="form-group row">
+   <label class="col-sm-3 col-form-label"><strong>Nom sur la carte:</strong> </label>
+   <div class="col-sm-6">
+   <input type="text" name="nomCarte" class="form-control" value="<?= $_SESSION['nomCarte']; ?>">
+   </div>
+ </div>
+
+<div class="form-group row">
+ <label class="col-sm-3 col-form-label"> <strong>Joindre une bannière:</strong> </label> 
+ <div class="col-sm-6">
+  <input type="file" name="photoBack" accept="image/png, image/jpeg" />
+</div>    
+</div>
+
+<div class="form-group row">
+ <label class="col-sm-3 col-form-label"><strong>Joindre une photo d'identité:</strong>  </label> 
+ <div class="col-sm-6">
+   <input type="file" name="photoID" accept="image/png, image/jpeg"  />
+ </div>    
+</div>
+    
+<td colspan="2" align="center">
+  <input type="submit" class="btn btn-primary mb-2" value="Enregistrer mes informations" name="livraison" />
+
+</form>
                     <div class="bigwhiteblock"></div>
                 </div>
                 <div class="col-2 blueECEright">  </div>

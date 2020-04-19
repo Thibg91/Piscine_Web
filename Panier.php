@@ -56,24 +56,31 @@
                             while ($row = $result->fetch_assoc()) {
                                 $prix = $row["prix"];
                                 $description = $row["descr"];
-                                $photo = $row["photo"];
+                                $photo1 = $row["photo1"];
+                                $titre = $row["titre"];
+
                                 $nbItem++;
                                 $_SESSION['prixFinal'] = $_SESSION['prixFinal'] + $prix;
 
                 ?> 
             
-                <div class="row">
-                    <div class="col-md-6">   
-                        <div class="img-thumbnail">     
-                            <img src=icone\\<?php echo $photo?> style="width: 50%;">  
-                            <div class="caption">
-                                <p>Prix: <?php echo $prix?></p>
-                                <p>Description: <?php echo $description?></p>
-                                <button onclick="location.href='http://pool/Panier.php?delete=<?php echo $id?>'" type="button">Supprimer</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="card mb-3 bg-dark text-white" style="max-width: 1000px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-3">
+
+                       <img  src=icone\\<?php echo $photo1?> style="width: 75%; " class="img-responsive center-block" alt="Image non disponible">
+                   </div>
+                   <div class="col-md-5">
+                      <div class="card-body">
+                       <h5 class="card-title"><?php echo $titre?></h5> 
+                       <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
+                   </div>
+               </div>
+               <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?></p></div> 
+               <div class="col-md-2" ><br><br><a href="item.php?id=<?php echo $id; ?>" class="btn btn-info">Aller voir l'item</a></div> 
+
+           </div>
+       </div>
                 <?php } } } }?>
              <div class="bigwhiteblock"></div>
             </div>
@@ -94,10 +101,10 @@
           </tbody>
       </table>
 
-                <?php if(isset($_SESSION['email'])){if(isset($_SESSION['panier'])){ ?>
+                <?php if(isset($_SESSION['email'])){if(isset($_SESSION['panier'])&&($nbItem != '0')){ ?>
                 <button onclick="location.href='http://pool/livraison.php'" type="button" class="btn btn-primary">Acceder au paiement</button>
                 <?php } else { ?>
-                <button onclick="location.href='http://pool/Catégories.php'" type="button">Panier Vide</button>
+                <button onclick="location.href='http://pool/Catégories.php'" type="button" class="btn btn-primary">Panier Vide</button>
                 <?php }} else {?>
                 <p>Veuillez vous connecter pour continuer.</p>
                 <?php } ?>

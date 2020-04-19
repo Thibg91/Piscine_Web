@@ -32,6 +32,8 @@ if(isset($_POST['formsend'])){
                         $_SESSION['dateCarte'] = $row['DateExpiration'];
                         $_SESSION['code'] = $row['CodeSecurite'];
                         $_SESSION['nomCarte'] = $row['NomCarte'];
+                        $_SESSION['photoBack'] = $row['photoBack'];
+                        $_SESSION['photoID'] = $row['photoID'];
                         header('Location: http://pool/accueil.php');
                     }
                 }

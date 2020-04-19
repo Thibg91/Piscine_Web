@@ -19,8 +19,8 @@
     <br>
     <section>
         <div class="row">
-         <div class="col-2 blueECEleft"> </div>
-         <div class="col-8"> 
+           <div class="col-2 blueECEleft"> </div>
+           <div class="col-8"> 
             <?php 
             include("traitement_SQL.php");
             global $db;
@@ -40,65 +40,71 @@
                     $nego = $row['meilleureO'];
                     ?> 
                     <div class="row">
-                       <div class="card mb-4 bg-dark text-white w-100 h-10" style="max-width: 1000px max-height: 450px ;">
-                          <div class="row no-gutters">
-                            <div class="col-md-3">
-                                <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
-                                  <div class="carousel-inner  ">
-                                    <div class="carousel-item active ">
-                                      <img  src=icone\\<?php echo $photo1?> style="width: 100%;" class="img-responsive center-block" alt="first slide">
-                                  </div>
-                                  <div class="carousel-item">
-                                      <img  src=icone\\<?php echo $photo2?> style="width: 100%; " class="img-responsive center-block" alt="photo2">
-                                  </div>
-                                  <div class="carousel-item">
-                                      <img  src=icone\\<?php echo $photo3?> style="width: 100%; " class="img-responsive center-block" alt="photo3">
-                                  </div>
-                                  <div class="carousel-item">
-                                      <div class="embed-responsive embed-responsive-16by9">    
-                                        <iframe class="embed-responsive-item" src=icone\\<?php echo $video?> style="width: 100%;" alt="video"> </iframe>     </div> 
-                                    </div>
-                                  </div>
+                     <div class="card mb-4 bg-dark text-white w-100 h-10" style="max-width: 1000px max-height: 450px ;">
+                      <div class="row no-gutters">
+                        <div class="col-md-3">
+                            <div id="carouselExampleControls" class="carousel slide " data-ride="carousel">
+                              <div class="carousel-inner  ">
+                                <div class="carousel-item active ">
+                                  <img  src=icone\\<?php echo $photo1?> style="width: 100%;" class="img-responsive center-block" alt="first slide">
                               </div>
-                              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                             <?php if($photo2 != '') {?>
+                              <div class="carousel-item">
+                                  <img  src=icone\\<?php echo $photo2?> style="width: 100%; " class="img-responsive center-block" alt="photo2">
+                              </div>
+                             <?php }
+                             if($photo3 != ''){?>
+                              <div class="carousel-item">
+                                  <img  src=icone\\<?php echo $photo3?> style="width: 100%; " class="img-responsive center-block" alt="photo3">
+                              </div>
+                              <?php } if($video != ''){ ?>
+                              <div class="carousel-item">
+                                  <div class="embed-responsive embed-responsive-16by9">    
+                                    <iframe class="embed-responsive-item" src=icone\\<?php echo $video?> style="width: 100%;" alt="video"> </iframe>     </div> 
+                                </div>
+                            <?php } ?>
+                            </div>
                         </div>
+                        <?php if(($photo2 != '')&&($photo3 != '')&&($video != '')) { ?>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    <?php }?>
+                    </div>
                     
                     <div class="col-md-5">
                       <div class="card-body">
-                         <h5 class="card-title"><?php echo $titre?></h5> 
-                         <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
-                     </div>
-                 </div>
-                 <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?></p></div> 
-                 <div class="col-md-2" ><br><br><a href="item.php?id=<?php echo $id; ?>" class="btn btn-primary">Aller voir l'item</a></div> 
-              </div>
-             </div>
-         </div>
-
-         <div class="col-md-4"><?php if ($now == 'oui'){ ?>
-            <button onclick="location.href='http://pool/Panier.php?id=<?php echo $id; ?>'" type="button" class="btn btn-primary btn-lg">Ajouter au Panier</button>
-        <?php } if ($enchere == 'oui'){ ?>
-            <button onclick="location.href='http://pool/enchere.php?id=<?php echo $id; ?>'" type="button" class="btn btn-primary btn-lg">Enchérir</button>
-        <?php } if ($nego == 'oui'){ ?>
-            <button onclick="location.href='http://pool/nego.php?id=<?php echo $id; ?>'" type="button" class="btn btn-primary btn-lg">Négocier</button>
-        <?php } ?></div>
-         <div class="bigwhiteblock"></div>
+                       <h5 class="card-title"><?php echo $titre?></h5> 
+                       <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
+                   </div>
+               </div>
+               <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?> € </p></div> 
+               <div class="col-md-2" > 
+               
+                <button onclick="location.href='http://pool/Panier.php?id=<?php echo $id; ?>'" type="button" class="btn btn-info" <?php if ($now == ''){echo("disabled"); } ?> >Ajouter au Panier</button>
+                <br>
+                <br>
+                <button onclick="location.href='http://pool/enchere.php?id=<?php echo $id; ?>'" type="button" class="btn btn-info" <?php if ($enchere == ''){echo("disabled");}?> >Enchérir</button>
+                 <br>
+                 <br>
+                 <button onclick="location.href='http://pool/nego.php?id=<?php echo $id; ?>'" type="button" class="btn btn-info" <?php if ($nego == ''){echo("disabled");}?> >
+                 Négocier</button>
+                
+                </div>
+            
+        </div> 
+        </div>
     </div>
-
-
-
-
+    <button type="button" class="btn btn-outline-secondary"><a href="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Retour à la page précédente</a></button>
+    <div class="bigwhiteblock"></div>
+</div>
+  
 <?php } } ?>
-
-
-
 <div class="col-2 blueECEright">  </div>
 </div>
 </section>

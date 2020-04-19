@@ -21,19 +21,21 @@
             <div class="row">
                 <div class="col-2 blueECEleft" ;> </div>
                 <div class="col-8">
-                    <button style="float:left" onclick="location.href='http://pool/Achat.php'" type="button">Retour à Achat</button>
+                    <button style="float:left" onclick="location.href='http://pool/Achat.php'" class="btn btn-secondary" type="button">Retour à Achat</button>
                     <?php if (!isset($_GET['filtre'])){ ?>
-                    <button style="float:right" onclick="location.href='http://pool/vue_offre.php?filtre=filtre'" type="button">Filtre</button>
+                    <button style="float:right" onclick="location.href='http://pool/vue_offre.php?filtre=filtre'" class="btn btn-info" type="button">Filtre</button>
                     <?php } if (isset($_GET['filtre'])){ ?>
+
                     <form style="float:right" method="post">
-                        <select name="cat">
+                        <select name="cat" class="browser-default custom-select">
+                            <option selected>Catégorie</option>
                             <option value="vip">Accessoires VIP</option>
                             <option value="musee">Bon pour le musée</option>
                             <option value="tresor">Férailles ou Trésor</option>
                         </select>
-                        <input type="submit" name="submit" value="Accepter">
+                       <input style="float:right" type="submit" class="btn btn-info" name="submit" value="Accepter"> 
                     </form>
-                    <button style="float:right" onclick="location.href='http://pool/vue_offre.php'">Annuler</button>
+                    <button style="float:right" onclick="location.href='http://pool/vue_offre.php'" class="btn btn-secondary">Annuler</button>
                     <?php } ?>
                     <br>
                     <br>
@@ -49,26 +51,30 @@
                     }
                     if($result = mysqli_query($db, $sql)){
                         while ($row = $result->fetch_assoc()) {
-                            $prix = $row["prix"];
+                             $prix = $row["prix"];
                             $description = $row["descr"];
-                            $photo = $row["photo"];
+                            $photo1 = $row["photo1"];
                             $id = $row["nItem"];
+                            $titre = $row["titre"];
                     ?> 
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4">   
-                            <div class="img-thumbnail">
-                                <a href="item.php?id=<?php echo $id; ?>">
-                                    <img src=icone\\<?php echo $photo?> style="width: 50%;">  
-                                    <div class="caption">
-                                        <p>Prix: <?php echo $prix?></p>
-                                        <p>Description: <?php echo $description?></p>  
-                                    </div>  
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4"></div>
-                    </div>
+                     <div class="card mb-3 bg-dark text-white" style="max-width: 1000px;">
+                      <div class="row no-gutters">
+                        <div class="col-md-3">
+
+                         <img  src=icone\\<?php echo $photo1?> style="width: 75%; " class="img-responsive center-block" alt="Image non disponible">
+                     </div>
+                     <div class="col-md-5">
+                      <div class="card-body">
+                         <h5 class="card-title"><?php echo $titre?></h5> 
+                         <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
+                     </div>
+                 </div>
+                 <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?></p></div> 
+                 <div class="col-md-2" ><br><br><a href="item.php?id=<?php echo $id; ?>" class="btn btn-info">Aller voir l'item</a></div> 
+
+             </div>
+         </div>
+
                     <br>
                     <?php } } ?>
                     <div class="bigwhiteblock"></div>

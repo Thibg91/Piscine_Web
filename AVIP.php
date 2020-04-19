@@ -21,19 +21,21 @@
             <div class="row">
                 <div class="col-2 blueECEleft" ;> </div>
                 <div class="col-8">
-                    <button style="float:left" onclick="location.href='http://pool/Catégories.php'" type="button">Retour aux Catégories</button>
+                    <button style="float:left" onclick="location.href='http://pool/Catégories.php'"class="btn btn-secondary" type="button">Retour aux Catégories</button>
                     <?php if (!isset($_GET['filtre'])){ ?>
-                    <button style="float:right" onclick="location.href='http://pool/AVIP.php?filtre=filtre'" type="button">Filtre</button>
+                    <button style="float:right" onclick="location.href='http://pool/AVIP.php?filtre=filtre'" class="btn btn-info" type="button">Filtre</button>
                     <?php } if (isset($_GET['filtre'])){ ?>
+
                     <form style="float:right" method="post">
-                        <select name="mode">
+                        <select name="mode" class="browser-default custom-select">
+                            <option selected>mode d'achat</option>
                             <option value="achat">Achat Immédiat</option>
                             <option value="offre">Meilleure Offre</option>
                             <option value="enchere">Enchère</option>
                         </select>
-                        <input type="submit" name="submit" value="Accepter">
+                       <input style="float:right" type="submit" class="btn btn-info" name="submit" value="Accepter"> 
                     </form>
-                    <button style="float:right" onclick="location.href='http://pool/AVIP.php'">Annuler</button>
+                    <button style="float:right" onclick="location.href='http://pool/AVIP.php'" class="btn btn-secondary">Annuler</button>
                     <?php } ?>
                     <br>
                     <br>
@@ -61,24 +63,28 @@
                         while ($row = $result->fetch_assoc()) {
                             $prix = $row["prix"];
                             $description = $row["descr"];
-                            $photo = $row["photo"];
+                            $photo1 = $row["photo1"];
                             $id = $row["nItem"];
+                            $titre = $row["titre"];
                     ?> 
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4">   
-                            <div class="img-thumbnail">
-                                <a href="item.php?id=<?php echo $id; ?>">
-                                    <img src=icone\\<?php echo $photo?> style="width: 50%;">  
-                                    <div class="caption">
-                                        <p>Prix: <?php echo $prix?></p>
-                                        <p>Description: <?php echo $description?></p>  
-                                    </div>  
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4"></div>
-                    </div>
+                     <div class="card mb-3 bg-dark text-white" style="max-width: 1000px;">
+                      <div class="row no-gutters">
+                        <div class="col-md-3">
+
+                         <img  src=icone\\<?php echo $photo1?> style="width: 75%; " class="img-responsive center-block" alt="Image non disponible">
+                     </div>
+                     <div class="col-md-5">
+                      <div class="card-body">
+                         <h5 class="card-title"><?php echo $titre?></h5> 
+                         <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
+                     </div>
+                 </div>
+                 <div class="col-md-2" ><p class="card-text"><br><br><strong>Prix:</strong>  <?php echo $prix?></p></div> 
+                 <div class="col-md-2" ><br><br><a href="item.php?id=<?php echo $id; ?>" class="btn btn-info">Aller voir l'item</a></div> 
+
+             </div>
+         </div>
+
                     <br>
                     <?php } } ?>
                     <div class="bigwhiteblock"></div>

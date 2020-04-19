@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 if(isset($_POST['livraison'])){
 
@@ -26,7 +26,7 @@ if(isset($_POST['livraison'])){
     }
     if ($erreur == ''){
         $email = $_SESSION['email'];
-        $sql = "UPDATE inscription SET AdresseL1='$adresseL1', AdresseL2='$adresseL2', Ville='$ville', Pays='$pays', Telephone='$tel', CodePostal='$poste', TypeCarte='$type', numCarte='$numCarte', DateExpiration='$dateCarte', CodeSecurite='$code', NomCarte='$nomCarte' WHERE Email='$email'";
+        $sql = "UPDATE inscription SET AdresseL1='$adresseL1', AdresseL2='$adresseL2', Ville='$ville', Pays='$pays', Telephone='$tel', CodePostal='$poste', TypeCarte='$type', numCarte='$numCarte', DateExpiration='$dateCarte', CodeSecurite='$code', NomCarte='$nomCarte', photoBack='$photoBack', photoID='$photoID' WHERE Email='$email'";
 
         if(mysqli_query($db, $sql)){
             echo 'ok';
@@ -43,7 +43,8 @@ if(isset($_POST['livraison'])){
                 $_SESSION['numCarte'] = $rows['numCarte'];
                 $_SESSION['dateCarte'] = $rows['DateExpiration'];
                 $_SESSION['code'] = $rows['CodeSecurite'];
-                $_SESSION['nomCarte'] = $rows['NomCarte'];
+                $_SESSION['photoBack'] = $rows['photoBack'];
+                 $_SESSION['photoID'] = $rows['photoID'];
             }
             header('Location: http://pool/Compte.php');
             exit();
