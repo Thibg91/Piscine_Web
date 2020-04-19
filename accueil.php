@@ -25,7 +25,7 @@
    <div class="col-2 blueECEleft" ;> </div>
    <div class="col-8"> 
                 <h2> Tous les items</h2>
-       <?php include('paiement_auto.php');?>
+                <?php include('paiement_auto.php');?>
                 <?php 
                 include("traitement_SQL.php");
                 global $db;

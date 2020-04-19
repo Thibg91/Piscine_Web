@@ -56,7 +56,7 @@
                             while ($row = $result->fetch_assoc()) {
                                 $prix = $row["AchatImmediat"];
                                 $description = $row["descr"];
-                                $photo = $row["photo"];
+                                $photo = $row["photo1"];
                                 $nbItem++;
                                 $_SESSION['prixFinal'] = $_SESSION['prixFinal'] + $prix;
 

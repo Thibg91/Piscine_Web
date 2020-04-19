@@ -53,7 +53,7 @@
                         while ($row = $result->fetch_assoc()) {
                             $prix = $row["AchatImmediat"];
                             $description = $row["descr"];
-                            $photo = $row["photo"];
+                            $photo = $row["photo1"];
                             $id = $row["nItem"];
                     ?> 
                     <div class="row">
