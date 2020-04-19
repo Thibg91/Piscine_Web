@@ -26,9 +26,9 @@
         <h2>Que voulez-vous faire?</h2>
         <div class="col-sm-3"></div>
         <div class="col-sm-6">
-            <button onclick="location.href='http://pool/vendre.php'" type="button">Vendre un objet</button>
-            <button onclick="location.href='http://pool/objetEnVente.php'" type="button">Objets en vente</button>
-            <button onclick="location.href='http://pool/objetVendu.php'" type="button">Objets Vendus</button>
+            <button onclick="location.href='http://pool/vendre.php'" type="button" class="btn btn-info btn-lg">Vendre un objet</button>
+            <button onclick="location.href='http://pool/objetEnVente.php'" type="button" class="btn btn-info btn-lg">Objets en vente</button>
+            <button onclick="location.href='http://pool/objetVendu.php'" type="button" class="btn btn-info btn-lg">Objets Vendus</button>
         </div>
         <div class="col-sm-3"></div>
         <?php } else if ($_SESSION['vendeur'] == 'non'){ ?>

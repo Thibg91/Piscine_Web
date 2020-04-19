@@ -11,43 +11,95 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>     </head> 
 
 
-    <body>
+        <body>
 
-        <?php include("entete.php"); ?>
-        <br>
-        <br>
-        <section>
-   <div class="row">
-   <div class="col-2 blueECEleft"> </div>
-   <div class="col-8">
-                <form action="verification_livraison.php" method="post">
-                    <h3>Mes informations de livraison</h3>
-                    <?php if (isset($_GET['erreur'])){$erreur = $_GET['erreur']; echo $erreur.'<br>';} ?>
-                    <p> Email:  <?=$_SESSION['email']; ?> </p> 
-                    <p> Adresse ligne 1: <input type="text" name="adresseL1" id="adresseL1" value="<?= $_SESSION['adresse1']; ?>" required> </p> 
-                    <p> Adresse ligne 2: <input type="text" name="adresseL2" id="adresseL2" value="<?= $_SESSION['adresse2']; ?>"> </p>
-                    <p> Ville: <input type="text" name="ville" id="ville" value="<?= $_SESSION['ville']; ?>" required> </p>
-                    <p> Code Postal: <input type="number" name="poste" id="poste" value="<?= $_SESSION['codePostal']; ?>" required> </p>
-                    <p> Pays: <input type="text" name="pays" id="pays" value="<?= $_SESSION['pays']; ?>" required> </p>
-                    <p> N° de téléphone: <input type="tel" name="tel" id="tel" value="0<?= $_SESSION['tel']; ?>" required> </p>
-                    <p><input type="checkbox" name="sauvegarder">Enregistrer ces informations</p>
-                    <input type="submit" value="Procéder au paiement" name="livraison" />
-                </form>
-            <div class="bigwhiteblock"></div>
-  </div>
- <div class="col-2 blueECEright">  </div>
+            <?php include("entete.php"); ?>
+            <br>
+            <br>
+            <section>
+             <div class="row">
+                 <div class="col-2 blueECEleft"> </div>
+                 <div class="col-8">
+
+                   <form action="verification_livraison.php" method="post">  
+                      <h3>Mes informations de livraison</h3>
+                      <?php if (isset($_GET['erreur'])){$erreur = $_GET['erreur']; echo $erreur.'<br>';} ?>
+
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label"><strong>Email:  </strong>  </label>
+                        <label class="col-sm-6 col-form-label"> <?=$_SESSION['email']; ?>  </label>
+                    </div>
+
+                    <div class="form-group row">
+                     <label class="col-sm-3 col-form-label"><strong>Adresse ligne 1:</strong> </label>
+                     <div class="col-sm-6">
+                        <input type="text" class="form-control"name="adresseL1" id="adresseL1" value="<?= $_SESSION['adresse1']; ?>" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                 <label class="col-sm-3 col-form-label"><strong>Adresse ligne 2: </strong> </label>
+                 <div class="col-sm-6">
+                    <input type="text" class="form-control" name="adresseL2" id="adresseL2" value="<?= $_SESSION['adresse2']; ?>">
+                </div>
+            </div>
+
+            <div class="form-group row">
+             <label class="col-sm-3 col-form-label"><strong>Ville:</strong>  </label>
+             <div class="col-sm-6">
+                 <input type="text"class="form-control" name="ville" id="ville" value="<?= $_SESSION['ville']; ?>" required>
+             </div>
+         </div>
+
+         <div class="form-group row">
+             <label class="col-sm-3 col-form-label"><strong>Code Postal:</strong>  </label>
+             <div class="col-sm-6">
+              <input type="number" class="form-control" name="poste" id="poste" value="<?= $_SESSION['codePostal']; ?>" required>
+          </div>
+      </div>
+
+      <div class="form-group row">
+         <label class="col-sm-3 col-form-label"><strong>Pays:</strong>  </label>
+         <div class="col-sm-6">
+            <input type="text" class="form-control" name="pays" id="pays" value="<?= $_SESSION['pays']; ?>" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+     <label class="col-sm-3 col-form-label"><strong>N° de téléléphone:</strong>  </label>
+     <div class="col-sm-6">
+        <input type="tel" class="form-control"  name="tel" id="tel" value="0<?= $_SESSION['tel']; ?>" required>
+    </div>
+</div> 
+
+<div class="col-auto">
+  <div class="form-check mb-2">
+    <input class="form-check-input" type="checkbox"  name="sauvegarder">
+    <label class="form-check-label" for="autoSizingCheck">
+     <strong>Enregistrer ces informations</strong>  
+   </label>
+</div>
+</div>
+
+
+<td colspan="2" align="center"><input type="submit" class="btn btn-primary mb-2" value="Procéder au paiement" name="livraison" />
+
+</form>
+<div class="bigwhiteblock"></div>
+</div>
+<div class="col-2 blueECEright">  </div>
 </div>
 </section>
 
 <div class="row">
   <div class="col-2 blueECEleft">  </div> 
-   <div class="col-8 footer">  
+  <div class="col-8 footer">  
     <?php include("footer.html"); ?> 
-    </div> 
-   <div class="col-2 blueECEright">  </div>
- </div>
+</div> 
+<div class="col-2 blueECEright">  </div>
+</div>
 
 
-    </body>
+</body>
 
 </html>

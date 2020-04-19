@@ -82,11 +82,11 @@
                                     $titre = $row["Titre"];
                                     $prix = $row["PrixPropose"];
                                     $id_offre = $row["NumeroCommande"];
-                                    //$photo = $row["photo"];
+                                    $photo1 = $row["photo1"];
                                     echo "<tr>"; // début de ligne
                                     echo "<td>$id</td>"; // email
                                     echo "<td>$titre</td>"; // prenom
-                                    //echo "<td>$photo</td>"; // nom
+                                    echo "<td>$photo1</td>"; // nom
                                     echo "<td>$prix</td>"; // prenom
                                     echo "<td>$email</td>";
                                     echo "</tr>"; // fin de la ligne

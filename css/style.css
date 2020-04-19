@@ -73,6 +73,11 @@ a:hover, a:focus, a:active {
  color:#007085; 
 }
 
+.white
+{
+ color:#FFFFFF; 
+}
+
 .bigwhiteblock
 {
   height: 300px;

@@ -27,43 +27,44 @@
    <div class="col-8"> 
    <h2> Achat </h2>
    
-    <div class="row">   
-    <div class="col-md-4">   
-     <div class="thumbnail">   
-      <a href="vue_enchere.php">  
-       <img src="icone\encheres.jpg" style="width: 50%;">  
-       <div class="caption">
-        <p>Enchères</p>  
-       </div>  
-      </a>   
-     </div>   
-    </div> 
+   <div class="row">   
+    
 
+      <div class="col-md-4">
+        <a href="vue_enchere.php">  
+          <div class="card bg-dark text-white" style="width: 20rem;">
+            <img src="icone\encheres.jpg"  style="width: 100%;" class="img-responsive center-block" alt="Enchères">
+            <div class="card-body">
+              <p class="card-text"> <strong>Enchères</strong></p>
+            </div>
+          </div>  
+        </a>  
+      </div> 
 
-    <div class="col-md-4">   
-     <div class="thumbnail">    
-      <a href="vue_achat.php">  
-       <img src="icone\direct.jpg" style="width: 50%;">
-       <div class="caption">
-        <p>Achetez-le maintenant</p>    
-       </div>   
-      </a>   
-     </div>  
-    </div> 
+      <div class="col-md-4">
+        <a href="vue_achat.php">  
+          <div class="card bg-dark text-white" style="width: 20rem;">
+            <img src="icone\direct.jpg" style="width: 100%;" class="img-responsive center-block" alt="Achetez-le maintenant">
+            <div class="card-body">
+              <p class="card-text"> <strong>Achetez-le maintenant</strong></p>
+            </div>
+          </div>  
+        </a>  
+      </div> 
 
-    <div class="col-md-4">  
-     <div class="thumbnail"> 
-      <a href="vue_offre.php"> 
-       <img src="icone\offre.jpg" style="width: 50%;">    
-       <div class="caption">   
-        <p>Meilleure offre</p>   
-       </div>    
-      </a>  
-     </div>   
-    </div>  
-   </div>
-   <div class="bigwhiteblock"></div>
-  </div>
+ <div class="col-md-4">
+        <a href="vue_offre.php"> 
+          <div class="card bg-dark text-white" style="width: 20rem;">
+             <img src="icone\offre.jpg"  style="width: 100%;" class="img-responsive center-block" alt="Meilleure offre">
+            <div class="card-body">
+              <p class="card-text"> <strong>Meilleure offre</strong></p>
+            </div>
+          </div>  
+        </a>  
+      </div>
+</div>
+<div class="bigwhiteblock"></div>
+</div>
  <div class="col-2 blueECEright">  </div>
 </div>
 </section>
