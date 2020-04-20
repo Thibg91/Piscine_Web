@@ -82,7 +82,7 @@
 
                         <thead>     
                             <tr>  
-                                <th>N° de commande</th> 
+                                <th>N° Item</th> 
                                 <th>Photo</th> 
                                 <th>Titre</th>  
                                 <th>Description</th>  
@@ -100,7 +100,7 @@
                                                          $sql = "SELECT * FROM commande WHERE EmailAcheteur='$email' ORDER BY dateF DESC";
                                                          if($result = mysqli_query($db, $sql)){
                                                              while ($row = $result->fetch_assoc()) {
-                                                                 $Ncommande = $row["NumeroCommande"]; 
+                                                                 $nItem = $row["nItem"]; 
                                                                  $titre = $row["Titre"];
                                                                  $prix = $row["Prix"];
                                                                  $descr = $row["Description"];
@@ -111,8 +111,8 @@
                                                                  <tbody> 
                                                                 <?php  if(!(($date < $dateF)&&($type == 'enchere'))){ ?>
                                                                     <tr>    
-                                                                        <td><?php echo $Ncommande?> </td> 
-                                                                        <td> <img src=icone\\<?php echo $photo?> style="width: 33%;"> </td>
+                                                                        <td><?php echo $nItem?> </td> 
+                                                                        <td> <img src=icone\\<?php echo $photo?> style="width: 25%;"> </td>
                                                                         <td><?php echo $titre?> </td> 
                                                                         <td><?php echo $descr?> </td>   
                                                                         <td><?php echo $prix?></td> 
@@ -156,7 +156,7 @@
                                                                        <tbody> 
                                                                         <tr>    
                                                                             <td><?php echo $Nitem?> </td> 
-                                                                            <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"> </td>
+                                                                            <td> <img src=icone\\<?php echo $photo?> style="width: 33%;"> </td>
                                                                             <td><?php echo $titre?> </td> 
                                                                             <td><?php echo $descr?> </td>   
                                                                             <td><?php echo $prix?></td> 
@@ -164,8 +164,9 @@
                                                                             <td><?php echo "non"; ?></td>
                                                                             <td><a href="item.php?id=<?php echo $id; ?>">aller voir</a></td>
                                                                         </tr> 
-                                                                        <?php  }}
+                                                                        <?php  
                                                                         $sql = "SELECT * FROM items WHERE nItem='$id' AND enchere='oui' ORDER BY dateF DESC";
+                                                                        }}
                                                                 if($result = mysqli_query($db, $sql)){
                                                                    while ($row = $result->fetch_assoc()) {
                                                                        $Nitem = $row["nItem"]; 
@@ -178,9 +179,9 @@
                                                                    ?>
 
                                                                        <tbody> 
-                                                                        <tr>    
+                                                                        <tr>   
                                                                             <td><?php echo $Nitem?> </td> 
-                                                                            <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"> </td>
+                                                                            <td><img src=icone\\<?php echo $photo?> style="width: 33%;" > </td>
                                                                             <td><?php echo $titre?> </td> 
                                                                             <td><?php echo $descr?> </td>   
                                                                             <td><?php echo $prix?></td> 
