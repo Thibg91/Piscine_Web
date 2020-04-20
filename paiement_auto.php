@@ -35,8 +35,13 @@ if ($ress = mysqli_query($db, $sql7)){
             mysqli_query($db, $sql9);
             $sql10 = "UPDATE commande SET TypeAchat='enchere_paye' WHERE nItem='$id'";
             mysqli_query($db, $sql10);
+            $sql11 = "DELETE FROM items WHERE nItem='$id'";
+            mysqli_query($db, $sql11);
         }
     }
 }
+
+$sql12 = "DELETE FROM commande WHERE TypeAchat='nego'";
+mysqli_query($db, $sql12);
 
 ?>
