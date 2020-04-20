@@ -24,7 +24,7 @@
                     <h1>Votre enchere a bien été enregistrée  <?php echo $_SESSION['prenom'].' '.$_SESSION['nom']; ?>!</h1>
                     <h4>Elle apparait dans l'onglet Achat.</h4>
                     <h4>Vous recevrez un mail en cas de victoire.</h4>
-                    <button class="btn btn-success btn-lg" onclick="location.href='http://pool/Catégories.php'" type="button">Retourner à l'accueil</button>
+                    <button class="btn btn-success btn-lg" onclick="location.href='http://pool/accueil.php'" type="button">Retourner à l'accueil</button>
 
                     <div class="bigwhiteblock"></div>
                 </div>

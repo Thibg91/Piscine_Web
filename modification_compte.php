@@ -21,7 +21,7 @@
                 <div class="col-2 blueECEleft"> </div>
                 <div class="col-8">
 
- 
+ <?php if(isset($_GET['erreur'])){ echo $_GET['erreur'];} ?>
 
                      <form action="traitement_livraison.php" action="paiement.php" method="post">    
   <div class="form-group row">

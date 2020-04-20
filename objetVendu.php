@@ -23,7 +23,8 @@
                         <thead>     
                             <tr>   
                                 <th>ID Objet</th> 
-                                <th>Titre</th>   
+                                <th>Titre</th>
+                                <th>Photo</th>
                                 <th>Prix</th>   
                                 <th>Email de l'acheteur</th> 
                             </tr> 
@@ -44,13 +45,13 @@
                                     $email = $row["EmailAcheteur"];
                                     $titre = $row["Titre"];
                                     $prix = $row["Prix"];
-                                    //$photo = $row["photo"];
+                                    $photo = $row["Photo"];
                                     echo "<tr>"; // début de ligne
                                     echo "<td>$id</td>"; // email
                                     echo "<td>$titre</td>"; // prenom
-                                    //echo "<td>$photo</td>"; // nom
+                                    echo "<td><img src=icone\\$photo width=75 height=75></td>"; // nom
                                     echo "<td>$prix</td>"; // prenom
-                                    echo "<td>$email</td>"; // supprimer ligne jQuery
+                                    echo "<td>$email</td>";
                                     echo "</tr>"; // fin de la ligne
                                 }
                             }
@@ -62,7 +63,8 @@
                         <thead>     
                             <tr>   
                                 <th>ID Objet</th> 
-                                <th>Titre</th>   
+                                <th>Titre</th>
+                                <th>Photo</th>
                                 <th>Prix</th>   
                                 <th>Email de l'acheteur</th>
                             </tr> 
@@ -84,11 +86,11 @@
                                     $titre = $row["Titre"];
                                     $prix = $row["PrixPropose"];
                                     $id_offre = $row["NumeroCommande"];
-                                    $photo1 = $row["photo1"];
+                                    $photo1 = $row["Photo"];
                                     echo "<tr>"; // début de ligne
                                     echo "<td>$id</td>"; // email
                                     echo "<td>$titre</td>"; // prenom
-                                    echo "<td>$photo1</td>"; // nom
+                                    echo "<td><img src=icone\\$photo1 width=75 height=75></td>"; // nom
                                     echo "<td>$prix</td>"; // prenom
                                     echo "<td>$email</td>";
                                     echo "</tr>"; // fin de la ligne

@@ -31,7 +31,7 @@ if(isset($_POST['enchere'])){
             $pays = $_SESSION['pays'];
             $tel = $_SESSION['tel'];
 
-            $sql3 = "INSERT INTO commande(EmailAcheteur, EmailVendeur, Titre, Prix, TypeAchat, AdresseL1, AdresseL2, Ville, CodePostal, Pays, Telephone, NumeroCarte, nItem,Description,Photo,DateF,DateH,Catégorie, PrixPropose) VALUES ('$email', '$vendeur', '$titre', '$prix', '$type', '$adresseL1', '$adresseL2', '$ville', '$poste', '$pays','$tel', '$numCarte', '$nItem','$descr' ,'$photo','$datef','$dateh' ,'$cat' , '$offre')";
+            $sql3 = "INSERT INTO commande(EmailAcheteur, EmailVendeur, Titre, Prix, TypeAchat, AdresseL1, AdresseL2, Ville, CodePostal, Pays, Telephone, NumeroCarte, nItem,Description,Photo,DateF,DateH,Catégorie, PrixPropose) VALUES ('$email', '$vendeur', '$titre', '$offre', '$type', '$adresseL1', '$adresseL2', '$ville', '$poste', '$pays','$tel', '$numCarte', '$nItem','$descr' ,'$photo','$datef','$dateh' ,'$cat' , '$offre')";
 
             $re = mysqli_query($db, $sql3);
             $sql4 = "UPDATE items SET prix='$offre' WHERE nItem='$id'";

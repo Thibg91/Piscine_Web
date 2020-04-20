@@ -59,7 +59,7 @@ if(isset($_POST['paiement'])){
                     $poste = $_SESSION['NewcodePostal'];
                     $pays = $_SESSION['Newpays'];
                     $tel = $_SESSION['Newtel'];
-                    $sql2 = "INSERT INTO commande(EmailAcheteur, EmailVendeur, Titre, Prix, TypeAchat, AdresseL1, AdresseL2, Ville, CodePostal, Pays, Telephone, NumeroCarte, nItem,Description,Photo,DateF,DateH,Catégorie PrixPropose) VALUES ('$email', '$vendeur', '$titre', '$prix', '$type', '$adresseL1', '$adresseL2', '$ville', '$poste', '$pays','$tel', '$numCarte', '$nItem','$descr' ,'$photo','$datef','$dateh' ,'$cat' , '')";
+                    $sql2 = "INSERT INTO commande(EmailAcheteur, EmailVendeur, Titre, Prix, TypeAchat, AdresseL1, AdresseL2, Ville, CodePostal, Pays, Telephone, NumeroCarte, nItem,Description,Photo,DateF,DateH,Catégorie, PrixPropose) VALUES ('$email', '$vendeur', '$titre', '$prix', '$type', '$adresseL1', '$adresseL2', '$ville', '$poste', '$pays','$tel', '$numCarte', '$nItem','$descr' ,'$photo','$datef','$dateh' ,'$cat' , '')";
                     if ($res = mysqli_query($db, $sql2)){
                         }
                     }

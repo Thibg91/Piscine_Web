@@ -26,7 +26,7 @@
                 <h3>Vous recevrez prochainement un mail avec toutes les informations de livraison.</h3>
                 <h4>L'équipe EBAY ECE s'occupe de tout.</h4>
                 </blockquote>
-                <button onclick="location.href='http://pool/Catégories.php'" type="button" class="btn btn-success btn-lg">Retourner à l'accueil</button>
+                <button onclick="location.href='http://pool/accueil.php'" type="button" class="btn btn-success btn-lg">Retourner à l'accueil</button>
                  <div class="bigwhiteblock"></div>
                   <div class="bigwhiteblock"></div>
             </div>

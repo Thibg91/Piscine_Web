@@ -6,8 +6,11 @@ global $db;
 $sql = "SELECT * FROM commande WHERE TypeAchat='negoOK'";
 if($result = mysqli_query($db, $sql)){
     while ($row = $result->fetch_assoc()) {
+        $nItem = $row['nItem'];
         $sql2 = "UPDATE commande SET TypeAchat='nego_paye' WHERE TypeAChat='negoOK'";
         mysqli_query($db, $sql2);
+        $sql0 = "DELETE FROM items WHERE nItem=$nItem";
+        mysqli_query($db, $sql0);
     }
 }
 $sql3 = "DELETE FROM items WHERE dateF<'$date' OR (dateF='$date' AND dateH <'$heure')";
@@ -41,7 +44,7 @@ if ($ress = mysqli_query($db, $sql7)){
     }
 }
 
-$sql12 = "DELETE FROM commande WHERE TypeAchat='nego'";
+$sql12 = "DELETE FROM commande WHERE TypeAchat='nego' AND ( dateF<'$date' OR (dateF='$date' AND dateH <'$heure'))";
 mysqli_query($db, $sql12);
 
 ?>
