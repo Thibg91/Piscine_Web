@@ -109,10 +109,10 @@
                                                                  $type = $row["TypeAchat"];
                                                                  ?>          
                                                                  <tbody> 
-                                                                <?php  if(!(($date < $dateF)&&(($type == 'enchere_paye')||($type == 'enchere')) )){ ?>
+                                                                <?php  if(!(($date < $dateF)&&($type == 'enchere'))){ ?>
                                                                     <tr>    
                                                                         <td><?php echo $Ncommande?> </td> 
-                                                                        <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"> </td>
+                                                                        <td> <img src=icone\\<?php echo $photo?> style="width: 33%;"> </td>
                                                                         <td><?php echo $titre?> </td> 
                                                                         <td><?php echo $descr?> </td>   
                                                                         <td><?php echo $prix?></td> 
@@ -155,7 +155,7 @@
 
                                                                        <tbody> 
                                                                         <tr>    
-                                                                            <td><?php echo $Ncommande?> </td> 
+                                                                            <td><?php echo $Nitem?> </td> 
                                                                             <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"> </td>
                                                                             <td><?php echo $titre?> </td> 
                                                                             <td><?php echo $descr?> </td>   
@@ -164,9 +164,8 @@
                                                                             <td><?php echo "non"; ?></td>
                                                                             <td><a href="item.php?id=<?php echo $id; ?>">aller voir</a></td>
                                                                         </tr> 
-                                                                        <?php  }} ?>
-                                                                        <?php 
-                                                                        $sql = "SELECT * FROM items WHERE nItem='$IDitem' AND enchere='oui' ORDER BY dateF DESC";
+                                                                        <?php  }}
+                                                                        $sql = "SELECT * FROM items WHERE nItem='$id' AND enchere='oui' ORDER BY dateF DESC";
                                                                 if($result = mysqli_query($db, $sql)){
                                                                    while ($row = $result->fetch_assoc()) {
                                                                        $Nitem = $row["nItem"]; 

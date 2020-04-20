@@ -23,7 +23,7 @@
 
  <?php if(isset($_GET['erreur'])){ echo $_GET['erreur'];} ?>
 
-                     <form action="traitement_livraison.php" action="paiement.php" method="post">    
+                     <form action="traitement_livraison.php"  method="post">    
   <div class="form-group row">
     <label class="col-sm-3 col-form-label"><strong>Prénom: </strong>  </label>
     <label class="col-sm-6 col-form-label"><?=$_SESSION['prenom']; ?>  </label>
