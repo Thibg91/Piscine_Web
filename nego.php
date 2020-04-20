@@ -17,6 +17,10 @@
         <?php include("entete.php"); ?>
         <br>
         <br>
+        <section>
+            <div class="row">
+                <div class="col-2 blueECEleft" > </div>
+                <div class="col-8"> 
         <?php 
         include("traitement_SQL.php");
         global $db;
@@ -73,5 +77,21 @@
             <div class="col-md-4"></div>
         </div>
         <?php } } ?>
+         <div class="bigwhiteblock"></div>
+            </div>
+         
+                
+
+                <div class="col-2 blueECEright">  </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <div class="col-2 blueECEleft">  </div> 
+            <div class="col-8 footer">  
+                <?php include("footer.html"); ?> 
+            </div> 
+            <div class="col-2 blueECEright">  </div>
+        </div>
     </body>
 </html>

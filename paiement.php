@@ -100,11 +100,15 @@
 <div class="col-2 blueECEright">  </div>
 </div>
 </section>
+ </div>
 
-
-        </div>
-
-
+<div class="row">
+  <div class="col-2 blueECEleft">  </div> 
+  <div class="col-8 footer">  
+    <?php include("footer.html"); ?> 
+</div> 
+<div class="col-2 blueECEright">  </div>
+</div>
     </body>
 
 </html>
