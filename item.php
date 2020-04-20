@@ -79,13 +79,13 @@
                         </a>
                     </div>
                     
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                       <div class="card-body">
                        <h5 class="card-title"><?php echo $titre?></h5> 
                        <p class="card-text"><strong>Description:</strong> <?php echo $description?></p>
                    </div>
                </div>
-               <div class="col-md-2" >
+               <div class="col-md-3" >
                 <p class="card-text"><br><br><strong>Prix immédiat:</strong>  <?php echo $prixIm?> € </p>
                 <p class="card-text"><strong>Prix:</strong>  <?php echo $prix?> € </p>
                 <p class="card-text"><strong>Date:</strong>  <?php echo $dateF?> à <?php echo $dateH?> </p>
