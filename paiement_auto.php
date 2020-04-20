@@ -23,7 +23,7 @@ if ($res = mysqli_query($db, $sql4)){
         mysqli_query($db, $sql6);
     }
 }
-$sql7 = "SELECT * FROM commande WHERE TypeAchat='enchere' AND DateF<'$date'";
+  $sql7 = "SELECT * FROM commande WHERE TypeAchat='enchere' AND DateF<'$date'";
 if ($ress = mysqli_query($db, $sql7)){
     while ($rowss = $ress->fetch_assoc()) {
         $id = $rowss['nItem'];

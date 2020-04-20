@@ -97,8 +97,7 @@
                                                          $date = date('y-m-d');
                                                          $heure = date('h:i:s');
                                                          $email = $_SESSION['email'];
-                                                         $sql = "SELECT * FROM commande WHERE EmailAcheteur='$email' AND meilleureO ='oui'
-        AND (dateF<'$date' OR dateF='$date') ORDER BY dateF DESC";
+                                                         $sql = "SELECT * FROM commande WHERE EmailAcheteur='$email' ORDER BY dateF DESC";
                                                          if($result = mysqli_query($db, $sql)){
                                                              while ($row = $result->fetch_assoc()) {
                                                                  $Ncommande = $row["NumeroCommande"]; 
@@ -106,9 +105,11 @@
                                                                  $prix = $row["Prix"];
                                                                  $descr = $row["Description"];
                                                                  $photo = $row["Photo"];
-                                                                 $date = $row["DateF"];
+                                                                 $dateF = $row["DateF"];
+                                                                 $type = $row["TypeAchat"];
                                                                  ?>          
                                                                  <tbody> 
+                                                                <?php  if(!(($date < $dateF)&&(($type == 'enchere_paye')||($type == 'enchere')) )){ ?>
                                                                     <tr>    
                                                                         <td><?php echo $Ncommande?> </td> 
                                                                         <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"> </td>
@@ -117,6 +118,7 @@
                                                                         <td><?php echo $prix?></td> 
                                                                         <td><?php echo $date?></td>
                                                                     </tr>   
+                                                                  <?php }?>
                                                                 </tbody>  
                                                             <?php  }} ?>
                                                         </table>
@@ -142,33 +144,15 @@
                                                                 $sql = "SELECT * FROM commande WHERE EmailAcheteur='$email' AND TypeAchat='enchere' ORDER BY dateF DESC";
                                                                 if($result = mysqli_query($db, $sql)){
                                                                    while ($row = $result->fetch_assoc()) {
-                                                                       $Ncommande = $row["nItem"]; 
+                                                                       $Nitem = $row["nItem"]; 
                                                                        $titre = $row["Titre"];
                                                                        $prix = $row["Prix"];
                                                                        $descr = $row["Description"];
                                                                        $photo = $row["Photo"];
-                                                                       $date = $row["DateF"];
+                                                                       $dateF = $row["DateF"];
                                                                        $id = $row["nItem"];
-                                                                      
-                                                                        $date = date('y-m-d');
-                                                                        $sql1 = "SELECT * FROM commande WHERE TypeAchat='enchere' AND DateF < '$date'";
-                                                                        if($ressultat1 = mysqli_query($db,$sql1))
-                                                                        {
-                                                                          while ($rows1 = $ressultat1->fetch_assoc()) {
-                                                                            $id1 = $rows1['nItem'];
-                                                                            $sql2 = "SELECT MAX(PrixPropose) as max FROM commande WHERE nItem= '$id1'";
-                                                                            if($ressultat2= mysqli_query($db,$sql2)){
-                                                                              $rows2 = $ressultat2-> fetch_assoc();
-                                                                              $prixTemp = $rows2['max'];
-                                                                            }
+                                                                   ?>
 
-                                                                          }
-                                                                        }
-                                                                       
-                                                                        if($prixTemp == $prix) {$bool = 'oui';} else { $bool = 'non';};
-                                                                       
-
-                                                                       ?>          
                                                                        <tbody> 
                                                                         <tr>    
                                                                             <td><?php echo $Ncommande?> </td> 
@@ -177,10 +161,35 @@
                                                                             <td><?php echo $descr?> </td>   
                                                                             <td><?php echo $prix?></td> 
                                                                             <td><?php echo $date?></td>
-                                                                            <td><?php echo $bool?></td>
+                                                                            <td><?php echo "non"; ?></td>
                                                                             <td><a href="item.php?id=<?php echo $id; ?>">aller voir</a></td>
-                                                                        </tr>   
-                                                                    </tbody>  
+                                                                        </tr> 
+                                                                        <?php  }} ?>
+                                                                        <?php 
+                                                                        $sql = "SELECT * FROM items WHERE nItem='$IDitem' AND enchere='oui' ORDER BY dateF DESC";
+                                                                if($result = mysqli_query($db, $sql)){
+                                                                   while ($row = $result->fetch_assoc()) {
+                                                                       $Nitem = $row["nItem"]; 
+                                                                       $titre = $row["titre"];
+                                                                       $prix = $row["prix"];
+                                                                       $descr = $row["descr"];
+                                                                       $photo = $row["photo1"];
+                                                                       $dateF = $row["dateF"];
+                                                                       $id = $row["nItem"];
+                                                                   ?>
+
+                                                                       <tbody> 
+                                                                        <tr>    
+                                                                            <td><?php echo $Nitem?> </td> 
+                                                                            <td> <img src=icone\\<?php echo $photo?> style="width: 50%;"> </td>
+                                                                            <td><?php echo $titre?> </td> 
+                                                                            <td><?php echo $descr?> </td>   
+                                                                            <td><?php echo $prix?></td> 
+                                                                            <td><?php echo $date?></td>
+                                                                            <td><?php echo "oui"; ?></td>
+                                                                            <td><a href="item.php?id=<?php echo $id; ?>">aller voir</a></td>
+                                                                        </tr> 
+                                                                      </tbody>  
                                                                 <?php  }} ?>
                                                                  <?php  }else {echo "Vous n'êtes pas connecté";} ?> 
 

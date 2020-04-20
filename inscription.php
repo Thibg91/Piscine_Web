@@ -28,7 +28,7 @@
     <div class="form-group col-md-6">
       <label>Nom:</label>
       <input type="text" class="form-control" name="nom" id="nom">
-    </div>s
+    </div>
     </div>
 
          <div class="form-group">

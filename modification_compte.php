@@ -23,7 +23,7 @@
 
  
 
-                     <form action="traitement_livraison.php" method="post">    
+                     <form action="traitement_livraison.php" action="paiement.php" method="post">    
   <div class="form-group row">
     <label class="col-sm-3 col-form-label"><strong>Prénom: </strong>  </label>
     <label class="col-sm-6 col-form-label"><?=$_SESSION['prenom']; ?>  </label>
@@ -80,40 +80,43 @@
 
                         </select>
 </div>
-  </select> </p> 
-                  <div class="form-group row">
-                        <p> Numéro de carte: <input type="number" name="numCarte" value="<?= $_SESSION['numCarte']; ?>"> </p>
-                        <p> Date d'expiration: <select name="mois">
-                            <option value="01">Janvier</option>
-                            <option value="02">Février</option>
-                            <option value="03">Mars</option>
-                            <option value="04">Avril</option>
-                            <option value="05">Mai</option>
-                            <option value="06">Juin</option>
-                            <option value="07">Juillet</option>
-                            <option value="08">Août</option>
-                            <option value="09">Septembre</option>
-                            <option value="10">Octobre</option>
-                            <option value="11">Novembre</option>
-                            <option value="12">Décembre</option>
-                            </select> 
-                            <select name="annee">
-                                <option value="20">2020</option>
-                                <option value="21">2021</option>
-                                <option value="22">2022</option>
-                                <option value="23">2023</option>
-                                <option value="24">2024</option>
-                                <option value="25">2025</option>
-                            </select>
+  
 
- </div>
 
-<div class="form-group row">
-   <label class="col-sm-3 col-form-label"> <strong>Date d'expiration:</strong> </label>
-   <div class="col-sm-6">
-   <input type="number" class="form-control" name="dateCarte" value="<?= $_SESSION['dateCarte']; ?>">
-   </div>
- </div>
+
+
+
+ <div class="form-group row">
+ <label class="col-sm-2 col-form-label"><strong>Numéro de carte:</strong>  </label>
+ <div class="col-sm-1"></div>
+<input class="form-control col-sm-2" type="number" name="numCarte" value="<?= $_SESSION['numCarte']; ?>"> 
+<div class="col-sm-1"></div>
+<label class="col-sm-2 col-form-label"><strong>Date d'expiration:</strong>  </label>
+ <select class="form-control col-sm-2" name="mois"> 
+  <option value="01">Janvier</option>
+  <option value="02">Février</option>
+  <option value="03">Mars</option>
+  <option value="04">Avril</option>
+  <option value="05">Mai</option>
+  <option value="06">Juin</option>
+  <option value="07">Juillet</option>
+  <option value="08">Août</option>
+  <option value="09">Septembre</option>
+  <option value="10">Octobre</option>
+  <option value="11">Novembre</option>
+  <option value="12">Décembre</option>
+</select> 
+
+
+<select  class="form-control col-sm-1" name="annee">
+  <option value="20">2020</option>
+  <option value="21">2021</option>
+  <option value="22">2022</option>
+  <option value="23">2023</option>
+  <option value="24">2024</option>
+  <option value="25">2025</option>
+</select>
+</div>
 
  <div class="form-group row">
    <label class="col-sm-3 col-form-label"><strong>Code de sécurité:</strong> </label>

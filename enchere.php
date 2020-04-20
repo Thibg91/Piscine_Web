@@ -17,6 +17,11 @@
         <?php include("entete.php"); ?>
         <br>
         <br>
+         <section>
+            <div class="row">
+                <div class="col-2 blueECEleft"> </div>
+                <div class="col-8">
+
         <?php 
         include("traitement_SQL.php");
         global $db;
@@ -33,17 +38,19 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">   
-                <div class="img-thumbnail">     
+                 <div class="card bg-dark text-white" style="width: 20rem;">   
                     <img src=icone\\<?php echo $photo?> style="width: 50%;">  
                     <div class="caption">
                         <form method="post" action="traitement_enchere.php?id=<?php echo $id; ?>">
                             <P><?php if (isset($_GET['erreur'])){echo $_GET['erreur'];} ?></P>
-                            <p>Prix: <?php echo $prix?></p>
+                            <p><strong> Prix: </strong>  <?php echo $prix?></p>
                             <?php if (isset($_SESSION['email'])){?>
                             <p>Veuillez mettre un prix supérieur au précédent.</p>
                             <?php if ($_SESSION['adresse1'] != '' && $_SESSION['ville'] != '' && $_SESSION['codePostal'] != '' && $_SESSION['pays'] != ''&& $_SESSION['tel'] != ''&& $_SESSION['type'] != ''&& $_SESSION['code'] != ''&& $_SESSION['numCarte'] != ''&& $_SESSION['nomCarte'] != ''&& $_SESSION['dateCarte'] != ''){?>
-                            <p>Nouvelle Offre: <input type="number" name="offre"></p>
-                            <input type="submit" name="enchere" value="Sousmettre l'enchère">
+                            <p class="col-md-6"><strong> Nouvelle Offre:</strong>  </p>  <input type="number" class="form-control col-md-8" name="offre">
+                              <br>
+                            <input type="submit" class="btn btn-info" name="enchere" value="Sousmettre l'enchère">
+
                             <?php } else{ ?>
                             <p>Vous devez avoir une adresse de livraison valide et une carte valide pour enchérir.</p>
                             <button onclick="location.href='http://pool/Compte.php'" type="button">Aller à Mon Compte</button>
@@ -58,5 +65,21 @@
             <div class="col-md-4"></div>
         </div>
         <?php } } ?>
+
+
+                    <div class="bigwhiteblock"></div>
+                </div>
+                <div class="col-2 blueECEright">  </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <div class="col-2 blueECEleft">  </div> 
+            <div class="col-8 footer">  
+                <?php include("footer.html"); ?> 
+            </div> 
+            <div class="col-2 blueECEright">  </div>
+        </div>
+
     </body>
 </html>
